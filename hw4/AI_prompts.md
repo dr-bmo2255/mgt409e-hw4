@@ -694,3 +694,15 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 - **30-day window:** the chat, design drafting and image creation work through **November 18, 2026**, then close themselves with friendly messages.
 - **Chat limits:** 20 messages per visitor per hour, 300 per day site-wide.
 - **Rehearsed locally** with production settings before deploying.
+
+**Follow-ups during deployment**
+> how do i connect render? · is this step 3? · open my portkey api file
+
+*Why I needed them:* I was setting up the Render account and connecting it to the private deploy repo myself, and needed guidance on each step.
+
+*Result (live):* the store is live at **https://campus-customs-demo.onrender.com**.
+- **Pages and images:** all 102 products and every kind of image loaded, with 0 broken images.
+- **Data fixes:** the Problem 2 fix and the Problem 3 white backgrounds are applied (photos byte-identical to ours).
+- **Chat:** a real chat in Dan's voice answered correctly ("sold out in XL", $32.00, navy as a custom order).
+- **Links:** the README, the top-level README and the Executive Briefing now link to the live site.
+

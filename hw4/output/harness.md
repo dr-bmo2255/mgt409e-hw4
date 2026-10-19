@@ -923,6 +923,7 @@ Full write-up: [`output/design.md`](design.md) (Part C). Technical notes:
 - **Harness:** Part I added above. The Executive Briefing (`output/executive_briefing.html`) summarizes everything for a non-technical reader.
 
 ## 18. Public web deployment (Render)
+- **Live:** https://campus-customs-demo.onrender.com (deployed Oct 19, 2026 from the private repo `mgt409e-hw4-deploy`, service `campus-customs-demo`, free plan).
 - **Single service:** the FastAPI server also serves the built React site (`frontend/dist`). That adds a catch-all route after the API routes; `/api/*` and `/media/*` keep their own handling.
 - **Public-demo controls** (`backend/config.py`, `backend/limits.py`):
   - **Time window:** `PAID_FEATURES_UNTIL=2026-11-18` (30 days). After it, the chat and design drafting reply that the demo has closed, and image creation returns a Dan-voiced 503. Browsing keeps working.
