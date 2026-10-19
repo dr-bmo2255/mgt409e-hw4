@@ -17,6 +17,7 @@ import audit
 import config
 import custom
 import dan_voice
+import agent as agent_module
 from agent import _build_model, _is_content_filter
 from auth import current_user
 from models import DesignBrief, DraftedBrief
@@ -83,6 +84,8 @@ async def draft_brief(body: BriefIn, cc_session: str | None = Cookie(default=Non
     user = current_user(cc_session)
     if not user:
         raise HTTPException(401, "Please log in to design with Dan.")
+    if not agent_module.HAS_KEY:
+        raise HTTPException(503, "Design drafting isn't set up: add PORTKEY_API_KEY to hw4/.env and restart the backend.")
     try:
         custom.check_text(body.idea)  # brands, foul language, hate symbols: refused for free, in Dan's voice
     except custom.Refused as e:

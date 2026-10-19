@@ -47,10 +47,16 @@ def _read(path: Path) -> str:
     return path.read_text(encoding="utf-8").split(PROJECT_RULES_MARKER, 1)[0].rstrip()
 
 
+class MissingKey(RuntimeError):
+    """The chat needs PORTKEY_API_KEY; the rest of the site works without it."""
+
+
+HAS_KEY = bool(os.getenv("PORTKEY_API_KEY"))
+
+
 def _build_model():
-    key = os.getenv("PORTKEY_API_KEY")
-    if not key:
-        raise RuntimeError("PORTKEY_API_KEY is not set (expected in the .env one level above the project).")
+    # Without a key the server still starts (browsing works); chat answers with a clear setup message (MissingKey).
+    key = os.getenv("PORTKEY_API_KEY") or "not-set"
     client = AsyncOpenAI(base_url=PORTKEY_BASE_URL, api_key=key, default_headers={"x-portkey-api-key": key})
     provider = OpenAIProvider(openai_client=client)
     primary = OpenAIResponsesModel(AGENT_MODEL, provider=provider)
@@ -160,6 +166,8 @@ def _is_content_filter(exc: BaseException) -> bool:
 
 async def ask(message: str, history: list[dict], deps: ShopDeps) -> AgentReply:
     """Run the shop agent once. Every run is written to the append-only audit trail (output/audit_trail.json)."""
+    if not HAS_KEY:
+        raise MissingKey("Chat isn't set up: add PORTKEY_API_KEY to hw4/.env and restart the backend.")
     run_id, started = audit.new_run_id(), time.time()
     context = {"voice": deps.voice, "signed_in": deps.customer is not None,
                "page": deps.page.page_type if deps.page else None, "message_chars": len(message),

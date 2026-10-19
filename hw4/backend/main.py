@@ -168,6 +168,8 @@ async def chat(body: ChatRequest, cc_session: str | None = Cookie(default=None))
         deps.visitor = re.sub(r"[^\w\s()/:,.'-]", "", body.visitor)[:120].strip() or None
     try:
         out = await agent.ask(body.message.strip(), history, deps)
+    except agent.MissingKey as exc:
+        raise HTTPException(status_code=503, detail=str(exc))
     except Exception:
         log.exception("agent run failed")
         raise HTTPException(status_code=502, detail="The assistant is having trouble right now. Please try again.")

@@ -271,10 +271,15 @@ export default function ChatWidget() {
           dan: res.dan ?? danForProducts(res.products),
         })
       }
-    } catch {
+    } catch (err) {
       // Offline or any other failure: Dan explains it in his own voice (one of 5 lines), never a generic error.
-      lastError.current = pick(DAN_ERRORS, lastError.current ?? undefined) // never the same line twice in a row
-      setError(lastError.current)
+      // One exception: a fresh install without a Portkey key, where Dan also says exactly how to fix it.
+      if (err instanceof Error && err.message.includes('PORTKEY_API_KEY')) {
+        setError("*sits politely, waiting for a treat* I can't chat until I get my Portkey key. Add `PORTKEY_API_KEY` to `hw4/.env` and restart the backend.")
+      } else {
+        lastError.current = pick(DAN_ERRORS, lastError.current ?? undefined) // never the same line twice in a row
+        setError(lastError.current)
+      }
       setMessages((m) => m.slice(0, -1)) // un-send so they can retry
       setInput(message)
     } finally {
