@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState, type FormEvent } from 'react'
+import { Fragment, useEffect, useLayoutEffect, useRef, useState, type FormEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { DAN_AVATAR, SITE_PAGES, customApi, clearChatHistory, danForProducts, displayName, fetchChatHistory, formatPrice, sendChat, type ChatMessage, type DanImage, type DraftedBrief, type PageContext, type Voice } from '../api'
 import { useAuth } from '../context/AuthContext'
@@ -104,6 +104,9 @@ export default function ChatWidget() {
   const [onboarding, setOnboarding] = useState(() => !loadVisitor() && !onboardingDismissed())
   const [onboardKey, setOnboardKey] = useState(0)
   const [onboardDone, setOnboardDone] = useState(false) // answered: keep the transcript visible in either voice
+  // Where the welcome question sits: after the messages that existed when it started (saved history, or earlier
+  // messages before switching to Dan), so it's visible at the bottom instead of scrolled out of sight at the top.
+  const [onboardAfter, setOnboardAfter] = useState(0)
   const [bark, setBark] = useState(false)
   const everOpened = useRef(false)
   const lastError = useRef<string | null>(null)
@@ -122,15 +125,16 @@ export default function ChatWidget() {
       return
     }
     fetchChatHistory()
-      .then((h) =>
+      .then((h) => {
+        if (!onboardDone) setOnboardAfter(h.length)
         setMessages(
           h.map((m, i) => ({
             ...m,
             dan: m.role === 'assistant' ? danForProducts(m.products) : null,
             rival: m.role === 'assistant' ? detectRival(h[i - 1]?.content ?? '') : null,
           })),
-        ),
-      )
+        )
+      })
       .catch(() => setMessages([]))
   }, [user])
 
@@ -162,9 +166,14 @@ export default function ChatWidget() {
     }
   }, [voice])
 
+  // Switching to Dan mid-conversation: ask the welcome question below what's already been said.
+  useEffect(() => {
+    if (voice === 'dan' && onboarding && !onboardDone) setOnboardAfter(messages.length)
+  }, [voice]) // eslint-disable-line
+
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' })
-  }, [messages, busy, open])
+  }, [messages, busy, open, onboardAfter, voice])
 
   useEffect(() => {
     if (open) inputRef.current?.focus()
@@ -299,6 +308,7 @@ export default function ChatWidget() {
     clearOnboardingSkip()
     setOnboarding(true)
     setOnboardDone(false)
+    setOnboardAfter(0)
     setOnboardKey((k) => k + 1)
     chatResults.clear()
     if (toDan) setVoice('dan')
@@ -324,6 +334,30 @@ export default function ChatWidget() {
     e.preventDefault()
     void send(input)
   }
+
+  // Part E welcome question (Dan's voice). Choosing an alumni decade restyles the whole site, so the chat steps aside:
+  // after a moment to read Dan's line, it closes to the corner and the page scrolls to the top.
+  const onboardingEl =
+    onboarding && (voice === 'dan' || onboardDone) ? (
+      <Onboarding
+        key={onboardKey}
+        voice="dan"
+        onDone={(chosen) => {
+          setOnboardDone(true)
+          if (chosen.type === 'alum') {
+            setTimeout(() => {
+              setExpanded(false)
+              setOpen(false)
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }, 1800)
+          }
+        }}
+        onSkip={() => {
+          dismissOnboarding()
+          setOnboarding(false)
+        }}
+      />
+    ) : null
 
   return (
     <div ref={rootRef} className={`chat ${open ? 'chat-open' : ''} voice-${voice}`}>
@@ -369,23 +403,16 @@ export default function ChatWidget() {
           </div>
 
           <div className="chat-list" ref={listRef} aria-live="polite" onLoadCapture={growIfOverflowing}>
-            {onboarding && (voice === 'dan' || onboardDone) ? (
-              <Onboarding
-                key={onboardKey}
-                voice="dan"
-                onDone={() => setOnboardDone(true)}
-                onSkip={() => {
-                  dismissOnboarding()
-                  setOnboarding(false)
-                }}
-              />
+            {onboardingEl && onboardAfter === 0 ? (
+              onboardingEl
             ) : (
               <div className="bubble bubble-assistant">
                 <Markdown text={voice === 'dan' ? danGreeting : v.greeting} />
               </div>
             )}
             {messages.map((m, i) => (
-              <div key={i} className={`bubble bubble-${m.role} ${m.voice === 'dan' ? 'from-dan' : ''}`}>
+              <Fragment key={i}>
+              <div className={`bubble bubble-${m.role} ${m.voice === 'dan' ? 'from-dan' : ''}`}>
                 {m.role === 'assistant' && m.voice && <span className="bubble-who">{m.voice === 'dan' ? 'Dan' : 'Campus Customs'}</span>}
                 <Markdown text={m.content} />
                 {m.design && <ChatDesign brief={m.design} onOpen={() => setExpanded(false)} />}
@@ -428,6 +455,8 @@ export default function ChatWidget() {
                   </div>
                 )}
               </div>
+              {onboardingEl && onboardAfter > 0 && i === onboardAfter - 1 ? onboardingEl : null}
+              </Fragment>
             ))}
             {busy && (
               <div className="bubble bubble-assistant typing" aria-label="Assistant is typing">

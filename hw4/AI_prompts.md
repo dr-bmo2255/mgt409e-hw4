@@ -725,3 +725,21 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 *Why I needed them:* I was adding my OpenAI key to Render myself and needed to find the right page.
 
 *Verified live:* after the redeploy, `/api/custom/status` on https://campus-customs-demo.onrender.com reports `"mock": false, "real_images_until": "2026-11-02"`, so real images are on (checked without creating an account or spending anything).
+
+**Prompt 4** *(found while testing the live site)*
+> I'm noticing some things that don't work on the live demo site.  1. When I create a new account and then try to log in again later, it does not appear to remember who I am.  2. When I start a new "dan chat" for any page other than the home page, I do not get the opening question option buttons.  They don't render at all.  3) When the new decade website faces appear, I want the chat window to minimize so that the user sees the entire page fully.
+
+*Why I needed it:* I tested the live demo myself and found these problems.
+
+*Diagnosis:*
+1. The free Render plan's disk is temporary, so the database resets whenever the site sleeps (15 min idle) or redeploys.
+2. The question renders, but at the **top** of the chat while the chat scrolls to the bottom. With earlier messages (or saved history after logging in), it's out of sight.
+3. A design change.
+
+*Decision (answer to the AI's question):* **Paid plan + disk.** Render Starter ($7/month) plus a 1 GB persistent disk, so accounts, chats and designs survive and the site never sleeps.
+
+*Result:*
+1. **Accounts:** the database, designs and audit trail now live on a **persistent disk** (Render Starter + 1 GB disk, `DATA_PERSIST_DIR=/var/data`). Tested locally: an account created before a server restart still logs in afterward.
+2. **Welcome buttons:** the question now appears **below** earlier messages or saved history, with the chat scrolled to it. Tested on a product page after a conversation: all 6 buttons visible.
+3. **Decade themes:** choosing a decade shows Dan's line, then closes the chat to the corner and scrolls to the top so the whole restyled page is visible. Tested with the 1920s.
+

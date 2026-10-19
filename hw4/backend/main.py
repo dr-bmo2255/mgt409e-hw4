@@ -66,7 +66,9 @@ app.mount("/media/products", StaticFiles(directory=DATA_DIR / "products"), name=
 if (DATA_DIR / "dan").exists():
     app.mount("/media/dan", StaticFiles(directory=DATA_DIR / "dan"), name="dan-images")
 # Custom Dan Gear: blank product mockups + customers' generated designs (random, unguessable file names).
-(DATA_DIR / "custom" / "designs").mkdir(parents=True, exist_ok=True)
+custom.DESIGN_DIR.mkdir(parents=True, exist_ok=True)
+# Customer designs may live on the persistent disk, so they get their own mount (it must come before /media/custom).
+app.mount("/media/custom/designs", StaticFiles(directory=custom.DESIGN_DIR), name="custom-designs")
 app.mount("/media/custom", StaticFiles(directory=DATA_DIR / "custom"), name="custom-images")
 
 

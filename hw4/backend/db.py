@@ -18,7 +18,19 @@ DATA_DIR = PROJECT_DIR / "data"
 for env_file in (PROJECT_DIR.parent.parent / ".env", PROJECT_DIR.parent / ".env", PROJECT_DIR / ".env"):
     load_dotenv(env_file, override=True)
 
-DB_PATH = Path(os.getenv("CAMPUS_CUSTOMS_DB", DATA_DIR / "campus_customs.db"))
+# Hosting with a persistent disk (Render Starter): DATA_PERSIST_DIR holds everything customers create
+# (the database with accounts and chats, generated designs, the audit trail), so it survives restarts and redeploys.
+# On the first boot the build's (already upgraded) database is copied there once; after that the disk copy is the truth.
+PERSIST_DIR = Path(os.environ["DATA_PERSIST_DIR"]) if os.getenv("DATA_PERSIST_DIR") else None
+if PERSIST_DIR:
+    PERSIST_DIR.mkdir(parents=True, exist_ok=True)
+    DB_PATH = PERSIST_DIR / "campus_customs.db"
+    if not DB_PATH.exists() and (DATA_DIR / "campus_customs.db").exists():
+        import shutil
+        shutil.copy2(DATA_DIR / "campus_customs.db", DB_PATH)
+        print(f"[db] First boot on the persistent disk: copied the database to {DB_PATH}")
+else:
+    DB_PATH = Path(os.getenv("CAMPUS_CUSTOMS_DB", DATA_DIR / "campus_customs.db"))
 
 
 def ensure_schema() -> None:

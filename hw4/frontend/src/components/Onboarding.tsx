@@ -23,7 +23,7 @@ type Line = { who: 'bot' | 'me'; text: string; img?: { src: string; alt: string;
 // Part E: the welcome question, asked first thing in the chat. A short scripted conversation (no AI call):
 // Student -> which college / school -> that Dan + its products; Alumnus -> which decade -> the whole site in
 // that decade's style + decade Dan; Family -> who -> products; Friend -> gift picks; Rival -> which -> Yale overload.
-export default function Onboarding({ voice, onDone, onSkip }: { voice: Voice; onDone: () => void; onSkip: () => void }) {
+export default function Onboarding({ voice, onDone, onSkip }: { voice: Voice; onDone: (v: Visitor) => void; onSkip: () => void }) {
   const { visitor, setVisitor } = useVisitor()
   const chatResults = useChatResults()
   const [step, setStep] = useState<Step>('ask')
@@ -59,7 +59,7 @@ export default function Onboarding({ voice, onDone, onSkip }: { voice: Voice; on
   function finish(v: Visitor) {
     setVisitor(v)
     setStep('done')
-    onDone()
+    onDone(v)
   }
 
   function choose(type: VisitorType, label: string) {

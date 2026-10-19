@@ -21,7 +21,10 @@ from pydantic_ai.messages import ModelRequest, ModelResponse, RetryPromptPart, T
 
 from db import PROJECT_DIR
 
-AUDIT_PATH = PROJECT_DIR / "output" / "audit_trail.json"
+from db import PERSIST_DIR  # noqa: E402
+
+# On the hosted demo the trail lives on the persistent disk, so it's never wiped by a redeploy.
+AUDIT_PATH = (PERSIST_DIR / "audit_trail.json") if PERSIST_DIR else PROJECT_DIR / "output" / "audit_trail.json"
 _lock = threading.Lock()
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 DIGITS = re.compile(r"\d{7,}")

@@ -934,5 +934,9 @@ Full write-up: [`output/design.md`](design.md) (Part C). Technical notes:
   - `scripts/sync_deploy.sh "<data pack zip>"` builds the website and copies the committed code (`git archive`) plus the ORIGINAL data pack into a temp folder. It force-adds them and force-pushes to the **private** repo `mgt409e-hw4-deploy`.
   - Render's build runs `scripts/prepare_deploy.py` (database upgrade + white backgrounds at build time).
   - `render.yaml` (repo root) defines the service: free plan, Python 3.12, `rootDir: hw4`, secrets set in the dashboard.
-- **Free-tier behavior:** the service sleeps after ~15 minutes idle (the first visit takes ~30 s). The disk is ephemeral, so accounts, chats and designs reset when it redeploys or restarts.
+- **Plan and disk:** this started on the free plan, which sleeps and has a temporary disk, so accounts vanished. It now runs on **Starter + a 1 GB persistent disk** at `/var/data`. With `DATA_PERSIST_DIR` set, `db.py` keeps the database there (the build's upgraded copy is copied once on first boot), `custom.DESIGN_DIR` holds generated designs (served by their own `/media/custom/designs` mount), and `audit.AUDIT_PATH` holds the trail.
 - **Rehearsed locally** with production settings: pages and deep links served, the 4th chat in an hour politely limited (test limit 3), a past end date closes the chat, drafting and creation with Dan-voiced messages, and browsing still works.
+
+- **Chat fixes from live testing:**
+  - The welcome question renders below any existing messages (`onboardAfter`), so it's visible after logging in or after chatting.
+  - Choosing an alumni decade closes the chat after 1.8 s and scrolls to the top, so the restyled page shows fully.

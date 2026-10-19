@@ -95,7 +95,8 @@ def unit_price(p: dict, size: str, quantity: int) -> float:
 STUDIO_ENV = PROJECT_DIR / "ask-dan-image-studio" / ".env"
 REF_DIR = PROJECT_DIR / "ask-dan-image-studio" / "references" / "dan"
 REFERENCES = ["Welcome_Dan.png", "Dan_Ice_Hockey.png"]  # who Dan is: coat, face, build
-DESIGN_DIR = DATA_DIR / "custom" / "designs"
+from db import PERSIST_DIR  # noqa: E402
+DESIGN_DIR = (PERSIST_DIR / "designs") if PERSIST_DIR else DATA_DIR / "custom" / "designs"
 
 BASE_PROVIDER = os.getenv("CUSTOM_IMAGE_PROVIDER", "openai")  # "mock" for free local testing
 # Optional time-boxed switch for the public demo: real (paid) images through this date, then back to BASE_PROVIDER.
