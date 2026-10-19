@@ -1,0 +1,97 @@
+[
+{"time": "2026-10-19T05:34:58.827+00:00", "event": "run_start", "agent": "campus_customs", "run_id": "06da209c38ce", "model": "gpt-5.6-luna-global", "voice": "brand", "signed_in": false, "page": null, "message_chars": 50, "history_turns": 0},
+{"time": "2026-10-19T05:34:59.044+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "06da209c38ce", "tool": "check_stock", "args": "{\"product\":\"Yale Bowl T-Shirt\",\"size\":\"XL\"}"},
+{"time": "2026-10-19T05:34:59.044+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "06da209c38ce", "tool": "get_price", "args": "{\"product\":\"Yale Bowl T-Shirt\"}"},
+{"time": "2026-10-19T05:34:59.049+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "06da209c38ce", "tool": "check_stock", "result": "{\"product_id\": \"yale-bowl-t-shirt\", \"name\": \"Yale Bowl T-Shirt\", \"price_display\": \"$32.00\", \"requested_size\": \"XL\", \"requested_status\": \"sold_out\", \"requested_quantity\": 0, \"sizes\": [{\"size\": \"XS\", \"…"},
+{"time": "2026-10-19T05:34:59.049+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "06da209c38ce", "tool": "get_price", "result": "{\"product_id\": \"yale-bowl-t-shirt\", \"name\": \"Yale Bowl T-Shirt\", \"price\": 32.0, \"currency\": \"USD\", \"price_display\": \"$32.00\", \"note\": \"Listed price. No sales, coupons, or discounts are available.\"}"},
+{"time": "2026-10-19T05:34:59.162+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "06da209c38ce", "tool": "final_result", "args": "{\"reply\":\"The Yale Bowl T-Shirt is **sold out in XL**. It’s **$32.00**; sizes XS, S, M, L, and XXL are currently in stock. Navy blue is available as a custom order in any size, with pickup at 57 Broa…"},
+{"time": "2026-10-19T05:34:59.163+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "06da209c38ce", "tool": "final_result", "result": "Final result processed."},
+{"time": "2026-10-19T05:34:59.165+00:00", "event": "run_end", "agent": "campus_customs", "run_id": "06da209c38ce", "stop_reason": "final_output (stop)", "model_requests": 2, "tool_calls": 3, "duration_ms": 338, "tokens": {"input": 9751, "output": 291}, "product_ids": 1, "results_title": "Yale Bowl T-Shirt", "go_to": null, "design_drafted": false, "reply_chars": 219}
+,
+{"time": "2026-10-19T05:34:59.168+00:00", "event": "run_start", "agent": "campus_customs", "run_id": "6d28ba1aba7c", "model": "gpt-5.6-luna-global", "voice": "brand", "signed_in": false, "page": null, "message_chars": 25, "history_turns": 0},
+{"time": "2026-10-19T05:35:00.766+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "6d28ba1aba7c", "tool": "search_products", "args": "{\"category\":\"Hoodies\",\"limit\":12}"},
+{"time": "2026-10-19T05:35:00.778+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "6d28ba1aba7c", "tool": "search_products", "result": "{\"total_matches\": 27, \"showing\": 12, \"products\": [{\"product_id\": \"basic-hoodie-big-yale\", \"name\": \"Basic Hoodie Big Yale\", \"category\": \"Hoodies\", \"garment_type\": \"pullover hoodie\", \"price\": 68.0, \"co…"},
+{"time": "2026-10-19T05:35:03.980+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "6d28ba1aba7c", "tool": "final_result", "args": "{\"reply\":\"We have 27 hoodies, with 12 shown on the page. Highlights include the Basic Hoodie Big Yale, Champion Full Zip Hood, and District Vintage Bulldog hoodie. Boola boola!\",\"product_ids\":[\"basic…"},
+{"time": "2026-10-19T05:35:03.985+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "6d28ba1aba7c", "tool": "final_result", "result": "Final result processed."},
+{"time": "2026-10-19T05:35:03.988+00:00", "event": "run_end", "agent": "campus_customs", "run_id": "6d28ba1aba7c", "stop_reason": "final_output (stop)", "model_requests": 2, "tool_calls": 2, "duration_ms": 4820, "tokens": {"input": 10785, "output": 265}, "product_ids": 12, "results_title": "Hoodies", "go_to": null, "design_drafted": false, "reply_chars": 166}
+,
+{"time": "2026-10-19T05:35:12.265+00:00", "event": "self_test", "n": 0, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.265+00:00", "event": "self_test", "n": 1, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.265+00:00", "event": "self_test", "n": 2, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.265+00:00", "event": "self_test", "n": 3, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.265+00:00", "event": "self_test", "n": 4, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.265+00:00", "event": "self_test", "n": 5, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 6, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 7, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 8, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 9, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 10, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 11, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 12, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 13, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.266+00:00", "event": "self_test", "n": 14, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 15, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 16, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 17, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 18, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 19, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 20, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 21, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 22, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 23, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.267+00:00", "event": "self_test", "n": 24, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 25, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 26, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 27, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 28, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 29, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 30, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 31, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 32, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 33, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.268+00:00", "event": "self_test", "n": 34, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.269+00:00", "event": "self_test", "n": 35, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.269+00:00", "event": "self_test", "n": 36, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.269+00:00", "event": "self_test", "n": 37, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.269+00:00", "event": "self_test", "n": 38, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T05:35:12.269+00:00", "event": "self_test", "n": 39, "note": "email test@x.com 1234567890"}
+]

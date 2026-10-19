@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Customs App Check</title>
+<style>
+  :root { --navy: #00356b; --ink: #16202b; --muted: #5b6573; --line: #dde3ea; --paper: #fbf9f4; --ok: #2f7d4e; --brass: #b08d3c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { border-bottom: 3px solid var(--navy); padding-bottom: 16px; margin-bottom: 28px; }
+  h1 { color: var(--navy); font: 700 2rem/1.2 Georgia, serif; margin: 0 0 6px; }
+  .meta { color: var(--muted); margin: 0; }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0 0; padding: 0; list-style: none; }
+  .summary li { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+  .summary b { display: block; color: var(--navy); }
+  .pass { display: inline-block; background: #e6f4ec; color: var(--ok); font-weight: 700; font-size: .78rem; padding: 2px 10px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
+  section { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 0 0 28px; }
+  h2 { font: 700 1.45rem/1.25 Georgia, serif; color: var(--navy); margin: 0 0 6px; }
+  .ask { color: var(--muted); margin: 0 0 16px; }
+  .ask code { background: #eef2f7; color: var(--ink); padding: 1px 6px; border-radius: 5px; }
+  figure { margin: 0 0 20px; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 6px 18px rgba(0, 26, 53, .08); }
+  figcaption { margin-top: 8px; color: var(--ink); }
+  figcaption b { color: var(--navy); }
+  .pair { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  .pair figure + figure img { max-width: 560px; }
+  figure a { display: block; cursor: zoom-in; }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .trio figcaption { font-size: .92rem; }
+  table { border-collapse: collapse; margin: 6px 0 16px; font-size: .92rem; }
+  th, td { border: 1px solid var(--line); padding: 5px 12px; text-align: center; }
+  th { background: #eef2f7; color: var(--navy); }
+  td.zero { color: #b3261e; font-weight: 700; }
+  td.low { color: #b35a00; font-weight: 700; }
+  .notes li { margin-bottom: 6px; }
+  footer { color: var(--muted); font-size: .88rem; }
+  .disclaimer { margin: 18px 0 0; padding: 12px 16px; border: 1px solid var(--line); border-left: 4px solid var(--brass); border-radius: 8px; background: #fff; color: var(--ink); font-size: .9rem; }
+  @media (max-width: 760px) { .pair, .trio, .summary { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Campus Customs: App Check (Problem 11)</h1>
+    <p class="meta">Tester: Claude (automated run in Google Chrome against the local site: frontend <code>localhost:5173</code>, FastAPI backend <code>localhost:8000</code>, live PydanticAI agent) · October 19, 2026 · Visitor: guest, "Chat with Campus Customs" voice</p>
+    <ul class="summary">
+      <li><b>1. Inventory in chat <span class="pass">PASS</span></b>Stock and price match the database exactly.</li>
+      <li><b>2. Search-results cards <span class="pass">PASS</span></b>"What hoodies do you have?" puts 12 cards on the page.</li>
+      <li><b>3. Usability (Problem 9) <span class="pass">PASS</span></b>Chat expands to fit a reply and shrinks on an outside click.</li>
+    </ul>
+  </header>
+
+  <section id="check-1">
+    <h2>Check 1: Chat checks an item's inventory level (honest stock and price from the DB)</h2>
+    <p class="ask">On the Yale Bowl T-Shirt page, the shopper asked: <code>Is this shirt in stock in XL and in M? How much is it?</code></p>
+    <p>Database values for <code>yale-bowl-t-shirt</code> (<code>campus_customs.db</code>, tables <code>catalogue</code> + <code>inventory</code>):</p>
+    <table>
+      <tr><th>Price</th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>XXL</th></tr>
+      <tr><td>$32.00</td><td>25</td><td>15</td><td class="low">5</td><td>12</td><td class="zero">0</td><td>20</td></tr>
+    </table>
+    <div class="pair">
+      <figure>
+        <a href="app_check_images/inventory.png" target="_blank" title="Open full size"><img src="app_check_images/inventory.png" alt="Chat answer: the Yale Bowl T-Shirt is sold out in XL, in stock in M with only 5 left, price $32.00"></a>
+        <figcaption><b>The chat's answer.</b> It says the shirt is <b>sold out in XL</b>, in stock in <b>M with only 5 left</b>, and <b>$32.00</b>. That matches the database row above exactly, because the agent called its <code>check_stock</code> tool instead of guessing.</figcaption>
+      </figure>
+      <figure>
+        <a href="app_check_images/inventory_page.png" target="_blank" title="Open full size"><img src="app_check_images/inventory_page.png" alt="Product page stock meters: M 5 left, XL sold out, price $32.00"></a>
+        <figcaption><b>Same product, read from the page.</b> The price ($32.00) and the stock meters (M "5 left", XL "Sold out") agree with both the chat and the database.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="check-2">
+    <h2>Check 2: Dynamic search-results cards appear after a category question</h2>
+    <p class="ask">On the home page, the shopper asked: <code>What hoodies do you have?</code></p>
+    <figure>
+      <a href="app_check_images/hoodies_chat.png" target="_blank" title="Open full size"><img src="app_check_images/hoodies_chat.png" alt="Chat reply: 27 hoodies, 12 shown on the page, with a Dan image and product thumbnails; the page shows a Hoodies results section with 12 items"></a>
+      <figcaption><b>The chat answer updates the page.</b> The agent reports the real total (<b>27 hoodies</b>, matching the database) and says <b>12 are shown</b>. A "From your chat: Hoodies, 12 items" section appears on the page behind the chat, opening with the Handsome Dan hoodie image.</figcaption>
+    </figure>
+    <figure>
+      <a href="app_check_images/hoodies_grid.png" target="_blank" title="Open full size"><img src="app_check_images/hoodies_grid.png" alt="Grid of hoodie product cards with names, descriptions, prices and color swatches"></a>
+      <figcaption><b>The cards themselves.</b> Each result is a real product card from the database (photo, name, description, price, colors, low-stock badge) that links to its product page, with no page reload.</figcaption>
+    </figure>
+  </section>
+
+  <section id="check-3">
+    <h2>Check 3: Usability feature from Problem 9 (expandable chat window)</h2>
+    <p class="ask">Problem 9, front-end improvement 1: the chat opens small, grows when a reply needs room, and shrinks back (staying open) when the shopper clicks back on the page. Test question: <code>Do you have any navy crewnecks under $60?</code></p>
+    <div class="trio">
+      <figure>
+        <a href="app_check_images/chat_mini.png" target="_blank" title="Open full size"><img src="app_check_images/chat_mini.png" alt="Chat open at its compact mini size in the corner"></a>
+        <figcaption><b>1. Mini.</b> The chat opens compact in the corner, with small text and suggestion chips, so the page stays visible.</figcaption>
+      </figure>
+      <figure>
+        <a href="app_check_images/chat_expanded.png" target="_blank" title="Open full size"><img src="app_check_images/chat_expanded.png" alt="Chat expanded to about half the page after a long reply with product thumbnails"></a>
+        <figcaption><b>2. Auto-expanded.</b> The reply (Dan image plus 3 product thumbnails) overflowed the mini window, so the chat grew to half the page on its own, and the thumbnails switched to a grid.</figcaption>
+      </figure>
+      <figure>
+        <a href="app_check_images/chat_shrunk.png" target="_blank" title="Open full size"><img src="app_check_images/chat_shrunk.png" alt="After clicking the page, the chat is back to mini size but still open"></a>
+        <figcaption><b>3. Outside click.</b> Clicking on the page shrank the chat back to mini size without closing it or losing the conversation, so the results stay readable.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="notes">
+    <h2>Issues found and fixed during testing</h2>
+    <ul class="notes">
+      <li><b>Chat didn't auto-expand (fixed).</b> The first run of Check 3 failed. The overflow check ran before the reply's images (Dan reveal, thumbnails) had loaded, so the reply only overflowed after the check. <code>ChatWidget</code> now re-checks as those images load, for a few seconds after each new reply.</li>
+      <li><b>Count mismatch (fixed).</b> One reply said "12 shown on the page" while 11 cards appeared, because the agent listed only 11 of its 12 results. The prompt now requires the "on the page" number to equal the cards actually returned. 3 out of 3 re-runs said 12 and showed 12.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Screenshots were made by <code>scripts/app_check_screenshots.py</code> (Playwright driving the installed Google Chrome; it also saves the chat replies and database values to <code>app_check_images/results.json</code>). Every image is in <code>output/app_check_images/</code> and linked with a relative path, so this page works when opened by double-click. Click any screenshot to see it full size.
+  </footer>
+  <p class="disclaimer"><b>Notice:</b> This is not a real retail site. It is not affiliated with Campus Customs. It was created by Dr_BMo for Yale School of Management's class MGT 409E — AI Foundations for Managers.</p>
+</main>
+</body>
+</html>

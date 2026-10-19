@@ -1,0 +1,26 @@
+[project]
+name = "ask-dan-image-studio"
+version = "0.1.0"
+description = "Local, human-supervised Handsome Dan image studio for the Campus Customs catalogue"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.143",
+    "uvicorn[standard]>=0.54",
+    "pydantic>=2.9",
+    "pillow>=11",
+    "openpyxl>=3.1",
+    "httpx>=0.28",
+    "python-dotenv>=1.2",
+    "python-multipart>=0.0.20",
+    "pydantic-ai-slim[openai]>=2.57.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

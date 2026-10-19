@@ -1,0 +1,13 @@
+# Ask Dan Image Studio: committed so graders can inspect and try it (mock mode is free).
+# Kept local: secrets, the course input zips, run state, and full-size generated images.
+.env
+input/
+output/
+state/
+references/shields_bad_v1/
+backend/.venv/
+frontend/node_modules/
+__pycache__/
+.DS_Store
+# Committed on purpose: manifest/ (asset plan), references/ (Dan identity photos + official shields),
+# reports/ (inventory report), frontend/dist/ (built dashboard, so the studio runs without npm).

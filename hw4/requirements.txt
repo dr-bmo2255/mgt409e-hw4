@@ -1,0 +1,10 @@
+# Campus Customs shop backend (FastAPI + PydanticAI). Mirrors pyproject.toml; install with:
+#   uv pip install -r requirements.txt   (or: pip install -r requirements.txt)
+fastapi>=0.143.5
+uvicorn[standard]>=0.54.0
+# PydanticAI: the slim package with only the OpenAI provider (works with Portkey). Not the full pydantic-ai.
+pydantic-ai-slim[openai]>=2.57.0
+python-dotenv>=1.2.4
+# Deliberate extras: httpx for image generation + moderation calls, pillow for image processing.
+httpx>=0.28.1
+pillow>=13.0.0

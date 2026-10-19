@@ -1,0 +1,234 @@
+/* Part E: the whole site re-imagined for an alum's decade (html[data-era]) and "Yale overload" for rivals
+   (html[data-rival]). Each decade swaps the design tokens (colors, fonts) and adds its own embellishments.
+   2020s keeps today's design (the shop already is the 2020s); it only gets the banner. */
+
+/* ---------- Shared: welcome question chips, banners ---------- */
+.onboarding { display: flex; flex-direction: column; gap: 8px; }
+.onboard-choices { display: flex; flex-wrap: wrap; gap: 6px; align-self: flex-start; max-width: 100%; animation: rise 0.35s var(--ease-out) both; }
+.onboard-choices.scroll { max-height: 220px; overflow-y: auto; padding-right: 4px; }
+.onboard-choices button { border: 1.5px solid var(--navy); color: var(--navy); background: #fff; border-radius: 999px; padding: 6px 12px; font-size: 0.84rem; font-weight: 700; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.onboard-choices button:hover { background: var(--navy); color: #fff; }
+.onboard-choices .onboard-skip { border-color: var(--line); color: var(--muted); font-weight: 600; }
+.onboard-label { width: 100%; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-top: 4px; }
+.onboarding .bubble-who img { width: 18px; height: 18px; border-radius: 50%; display: inline-block; vertical-align: -4px; }
+
+.era-banner, .rival-banner { position: relative; overflow: hidden; }
+.era-banner { background: var(--navy-900); color: #f4efe4; }
+.era-banner-inner, .rival-banner-inner { display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: center; padding-top: 22px; padding-bottom: 22px; }
+.era-banner img, .rival-banner img { width: 220px; aspect-ratio: 1; object-fit: cover; border-radius: 14px; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35); animation: art-in 0.6s var(--spring); }
+.era-banner h2, .rival-banner h2 { color: inherit; margin: 0 0 6px; }
+.era-banner p { margin: 0 0 8px; max-width: 620px; }
+.era-kicker, .rival-kicker { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.72rem; font-weight: 800; opacity: 0.85; }
+.era-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 10px !important; }
+.era-banner .link-btn, .rival-banner .link-btn { color: inherit; opacity: 0.85; }
+@media (max-width: 640px) {
+  .era-banner-inner, .rival-banner-inner { grid-template-columns: 96px 1fr; gap: 14px; }
+  .era-banner img, .rival-banner img { width: 96px; }
+  .era-banner p:not(.era-kicker):not(.era-actions), .rival-banner p:not(.rival-kicker):not(.era-actions) { display: none; }
+}
+
+/* Generic hooks every themed decade uses: surfaces follow --surface, text follows --ink. */
+html[data-era] body { background: var(--bg); color: var(--ink); }
+html[data-era] .header, html[data-era] .nav-links { background: var(--surface); }
+html[data-era] .card, html[data-era] .studio-step, html[data-era] .auth-card, html[data-era] .bag-item,
+html[data-era] .bubble-assistant, html[data-era] .chat-list, html[data-era] .chat-form, html[data-era] .gear,
+html[data-era] .design-tile, html[data-era] .rail-card, html[data-era] .bag-summary { background: var(--surface); color: var(--ink); }
+html[data-era] .card-title, html[data-era] .card-desc, html[data-era] .nav-links a, html[data-era] .footer a { color: var(--ink-soft); }
+html[data-era] h1, html[data-era] h2 { font-family: var(--serif); }
+html[data-era] .footer { background: var(--cream); }
+
+/* ---------- 1920s: Art Deco / Great Gatsby ---------- */
+html[data-era='1920s'] {
+  --navy: #c9a646; --navy-500: #e0c26a; --navy-700: #a8852c; --navy-900: #0b0b0c; --navy-100: #2a2416;
+  --brass: #d4af37; --brass-100: #2a2416; --bg: #0e0e10; --paper: #121214; --cream: #17161a; --surface: #141416;
+  --ink: #f3e9cf; --ink-soft: #e2d4ae; --muted: #a8977a; --line: rgba(212, 175, 55, 0.35);
+  --serif: 'Limelight', 'Libre Caslon Display', serif; --sans: 'Josefin Sans', system-ui, sans-serif; --radius: 0px;
+}
+html[data-era='1920s'] body {
+  background-color: #0e0e10;
+  background-image:
+    radial-gradient(circle at 50% 100%, transparent 38%, rgba(212, 175, 55, 0.09) 39%, rgba(212, 175, 55, 0.09) 41%, transparent 42%, transparent 52%, rgba(212, 175, 55, 0.07) 53%, rgba(212, 175, 55, 0.07) 55%, transparent 56%);
+  background-size: 120px 60px;
+}
+html[data-era='1920s'] .announcement { background: #d4af37; color: #0b0b0c; letter-spacing: 0.3em; text-transform: uppercase; }
+html[data-era='1920s'] .header { border-bottom: 4px double #d4af37; }
+html[data-era='1920s'] .brand-mark { background: #0b0b0c; color: #d4af37; border: 2px solid #d4af37; border-radius: 0; transform: rotate(45deg) scale(0.8); }
+html[data-era='1920s'] .brand-mark > * { transform: rotate(-45deg); }
+html[data-era='1920s'] h1, html[data-era='1920s'] h2 { color: #d4af37; text-transform: uppercase; letter-spacing: 0.08em; }
+html[data-era='1920s'] .section-head h2::before, html[data-era='1920s'] .section-head h2::after { content: ' ◆ '; color: #d4af37; font-size: 0.6em; vertical-align: middle; }
+html[data-era='1920s'] .card { border: 1px solid #d4af37; outline: 1px solid rgba(212, 175, 55, 0.4); outline-offset: -6px; }
+html[data-era='1920s'] .btn { border-radius: 0; text-transform: uppercase; letter-spacing: 0.18em; border: 1px solid #d4af37; }
+html[data-era='1920s'] .btn-brass, html[data-era='1920s'] .btn-primary { background: #d4af37; color: #0b0b0c; box-shadow: 0 0 0 3px #0e0e10, 0 0 0 4px #d4af37; }
+html[data-era='1920s'] .hero2 { background: linear-gradient(180deg, #0b0b0c, #1b1608); }
+html[data-era='1920s'] .chat-head, html[data-era='1920s'] .chat-fab, html[data-era='1920s'] .bubble-user { background: #0b0b0c; color: #d4af37; border: 1px solid #d4af37; }
+html[data-era='1920s'] .era-banner { background: linear-gradient(90deg, #0b0b0c, #1f1a0b 50%, #0b0b0c); border-bottom: 4px double #d4af37; color: #f3e9cf; }
+html[data-era='1920s'] .era-banner img { border-radius: 0; border: 3px solid #d4af37; outline: 1px solid #d4af37; outline-offset: 5px; }
+html[data-era='1920s'] .era-banner h2 { color: #d4af37; }
+
+/* ---------- 1930s: Streamline Moderne / golden age of radio ---------- */
+html[data-era='1930s'] {
+  --navy: #1d6a6a; --navy-500: #2b8a8a; --navy-700: #155252; --navy-900: #123c3c; --navy-100: #dcebe8;
+  --brass: #b5462b; --brass-100: #f3dccf; --bg: #efe6d2; --paper: #f4ecdb; --cream: #e6dac0; --surface: #f8f1e2;
+  --ink: #2a2620; --ink-soft: #4a4337; --muted: #7c7262; --line: rgba(42, 38, 32, 0.18);
+  --serif: 'Big Shoulders Display', 'Libre Caslon Display', serif; --sans: 'Libre Baskerville', Georgia, serif; --radius: 26px;
+}
+html[data-era='1930s'] h1, html[data-era='1930s'] h2 { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 800; }
+html[data-era='1930s'] .section-head h2::after { content: ''; display: block; width: 120px; height: 14px; margin-top: 8px; background: repeating-linear-gradient(180deg, var(--brass) 0 3px, transparent 3px 5px); }
+html[data-era='1930s'] .btn { background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 50%, rgba(0, 0, 0, 0.12)); border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em; }
+html[data-era='1930s'] .card { border: 2px solid #b9b2a3; box-shadow: 6px 6px 0 rgba(29, 106, 106, 0.18); }
+html[data-era='1930s'] .header { border-bottom: 6px solid; border-image: repeating-linear-gradient(180deg, #1d6a6a 0 2px, #efe6d2 2px 4px) 6; }
+html[data-era='1930s'] .era-banner { background: linear-gradient(90deg, #123c3c, #1d6a6a); }
+
+/* ---------- 1940s: swing era / wartime poster ---------- */
+html[data-era='1940s'] {
+  --navy: #2f3d1c; --navy-500: #4b5320; --navy-700: #26310f; --navy-900: #1f2a12; --navy-100: #e5e3cc;
+  --brass: #a4161a; --brass-100: #f2d7d0; --bg: #efe4c8; --paper: #f2e9d0; --cream: #e4d6b2; --surface: #f6eeda;
+  --ink: #23201a; --ink-soft: #3e3a30; --muted: #6f6855; --line: rgba(35, 32, 26, 0.25);
+  --serif: 'Bebas Neue', Impact, sans-serif; --sans: 'Courier Prime', 'Courier New', monospace; --radius: 4px;
+}
+html[data-era='1940s'] body { background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.025) 0 1px, transparent 1px 3px); }
+html[data-era='1940s'] h1, html[data-era='1940s'] h2 { letter-spacing: 0.04em; }
+html[data-era='1940s'] .kicker::before { content: '★ '; color: var(--brass); }
+html[data-era='1940s'] .card { border: 2px dashed rgba(35, 32, 26, 0.45); }
+html[data-era='1940s'] .btn { border-radius: 2px; text-transform: uppercase; letter-spacing: 0.1em; transform: rotate(-1deg); font-family: 'Special Elite', monospace; }
+html[data-era='1940s'] .btn-brass { background: #a4161a; box-shadow: 3px 3px 0 #23201a; }
+html[data-era='1940s'] .announcement { background: #a4161a; font-family: 'Special Elite', monospace; }
+html[data-era='1940s'] .era-banner { background: #2f3d1c; border-top: 6px solid #a4161a; border-bottom: 6px solid #a4161a; }
+
+/* ---------- 1950s: atomic-age diner ---------- */
+html[data-era='1950s'] {
+  --navy: #1f9e93; --navy-500: #2bb5a7; --navy-700: #177a72; --navy-900: #0f4e49; --navy-100: #d7f2ef;
+  --brass: #e2557f; --brass-100: #fbd9e5; --bg: #fdf6ec; --paper: #fff9f0; --cream: #f9e9d8; --surface: #ffffff;
+  --ink: #2b2b2b; --ink-soft: #4a4a4a; --muted: #7b7b7b; --line: rgba(31, 158, 147, 0.25);
+  --serif: 'Pacifico', cursive; --sans: 'Nunito', system-ui, sans-serif; --radius: 22px;
+}
+html[data-era='1950s'] body { background-image: radial-gradient(circle, rgba(226, 85, 127, 0.14) 2px, transparent 3px), radial-gradient(circle, rgba(31, 158, 147, 0.12) 2px, transparent 3px); background-size: 46px 46px, 46px 46px; background-position: 0 0, 23px 23px; }
+html[data-era='1950s'] .header::after { content: ''; display: block; height: 14px; background: repeating-conic-gradient(#222 0 25%, #fff 0 50%) 0 0 / 14px 14px; } /* diner checkerboard trim */
+html[data-era='1950s'] .card { border: 3px solid #c9ced3; border-top: 8px solid #e2557f; }
+html[data-era='1950s'] .btn { border-radius: 999px; box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5), 0 4px 0 rgba(0, 0, 0, 0.18); }
+html[data-era='1950s'] .kicker::before { content: '✦ '; }
+html[data-era='1950s'] .era-banner { background: linear-gradient(135deg, #1f9e93, #0f4e49); }
+
+/* ---------- 1960s: mod & flower power ---------- */
+html[data-era='1960s'] {
+  --navy: #e8590c; --navy-500: #ff7a1a; --navy-700: #c24a08; --navy-900: #6a1b4d; --navy-100: #ffe8d6;
+  --brass: #d81b60; --brass-100: #fbd3e3; --bg: #fffdf5; --paper: #fffaf0; --cream: #fff1c9; --surface: #ffffff;
+  --ink: #2a1a33; --ink-soft: #4a3352; --muted: #7d6a83; --line: rgba(232, 89, 12, 0.25);
+  --serif: 'Righteous', sans-serif; --sans: 'Quicksand', system-ui, sans-serif; --radius: 32px;
+}
+html[data-era='1960s'] body { background-image: repeating-radial-gradient(circle at 85% 20%, transparent 0 22px, rgba(216, 27, 96, 0.05) 22px 44px); }
+html[data-era='1960s'] .kicker::before { content: '✿ '; color: #fdd835; }
+html[data-era='1960s'] .card { border: 3px solid #fdd835; border-radius: 32px 8px 32px 8px; }
+html[data-era='1960s'] .btn { border-radius: 999px; font-weight: 800; }
+html[data-era='1960s'] .btn-brass { background: linear-gradient(90deg, #e8590c, #d81b60); }
+html[data-era='1960s'] .header { border-bottom: 8px solid; border-image: linear-gradient(90deg, #e8590c, #fdd835, #d81b60, #6a1b4d) 1; }
+html[data-era='1960s'] .era-banner { background: linear-gradient(120deg, #6a1b4d, #d81b60 55%, #e8590c); }
+
+/* ---------- 1970s: disco & earth tones ---------- */
+html[data-era='1970s'] {
+  --navy: #6b3e26; --navy-500: #8a5233; --navy-700: #4f2c1a; --navy-900: #3b2112; --navy-100: #f1e0c7;
+  --brass: #e07a1f; --brass-100: #f8dcc0; --bg: #f5e6c8; --paper: #f8ebd2; --cream: #ecd5ab; --surface: #fbf1dd;
+  --ink: #3b2112; --ink-soft: #5a3a25; --muted: #8a6a50; --line: rgba(107, 62, 38, 0.25);
+  --serif: 'Shrikhand', cursive; --sans: 'Nunito', system-ui, sans-serif; --radius: 18px;
+}
+html[data-era='1970s'] .header, html[data-era='1970s'] .footer { border-bottom: 18px solid; border-image: linear-gradient(180deg, #6b3e26 0 25%, #e07a1f 25% 50%, #e1ad21 50% 75%, #8a9a3b 75%) 1; }
+html[data-era='1970s'] .footer { border-bottom: none; border-top: 18px solid; }
+html[data-era='1970s'] .card { border: 3px solid #6b3e26; }
+html[data-era='1970s'] .btn { border-radius: 999px; box-shadow: 0 4px 0 #3b2112; }
+html[data-era='1970s'] .kicker::before { content: '☮ '; }
+html[data-era='1970s'] .era-banner { background: linear-gradient(180deg, #3b2112, #6b3e26); border-bottom: 18px solid; border-image: linear-gradient(180deg, #6b3e26 0 25%, #e07a1f 25% 50%, #e1ad21 50% 75%, #8a9a3b 75%) 1; }
+
+/* ---------- 1980s: neon synthwave ---------- */
+html[data-era='1980s'] {
+  --navy: #ff2a6d; --navy-500: #ff5c8f; --navy-700: #d1004b; --navy-900: #0d0221; --navy-100: #2a0d3f;
+  --brass: #05d9e8; --brass-100: #0a2a3a; --bg: #0d0221; --paper: #120430; --cream: #160636; --surface: #1a0b3b;
+  --ink: #f2e9ff; --ink-soft: #d9c8ff; --muted: #9a86c9; --line: rgba(5, 217, 232, 0.35);
+  --serif: 'Monoton', sans-serif; --sans: 'Exo 2', system-ui, sans-serif; --radius: 6px;
+}
+html[data-era='1980s'] body { background-image: linear-gradient(rgba(255, 42, 109, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(5, 217, 232, 0.1) 1px, transparent 1px); background-size: 48px 48px; }
+html[data-era='1980s'] h1, html[data-era='1980s'] h2 { color: #ff2a6d; font-weight: 400; text-shadow: 0 0 8px rgba(255, 42, 109, 0.8), 0 0 22px rgba(255, 42, 109, 0.5); letter-spacing: 0.04em; }
+html[data-era='1980s'] .card { border: 1px solid #05d9e8; box-shadow: 0 0 14px rgba(5, 217, 232, 0.35); }
+html[data-era='1980s'] .btn { background: transparent; border: 2px solid #05d9e8; color: #05d9e8; box-shadow: 0 0 12px rgba(5, 217, 232, 0.5); text-transform: uppercase; }
+html[data-era='1980s'] .btn-brass, html[data-era='1980s'] .btn-primary { border-color: #ff2a6d; color: #fff; background: rgba(255, 42, 109, 0.25); box-shadow: 0 0 14px rgba(255, 42, 109, 0.7); }
+html[data-era='1980s'] .header { border-bottom: 2px solid #ff2a6d; box-shadow: 0 0 18px rgba(255, 42, 109, 0.6); }
+html[data-era='1980s'] .chat-head, html[data-era='1980s'] .chat-fab { background: linear-gradient(90deg, #ff2a6d, #7700a6); }
+html[data-era='1980s'] .era-banner { background: linear-gradient(180deg, #0d0221 0%, #2a0d3f 60%, #ff2a6d 140%); }
+html[data-era='1980s'] .era-banner h2 { color: #05d9e8; font-family: var(--serif); }
+
+/* ---------- 1990s: early web & Memphis confetti ---------- */
+html[data-era='1990s'] {
+  --navy: #008080; --navy-500: #00a3a3; --navy-700: #006666; --navy-900: #1b0f3a; --navy-100: #d9f2f2;
+  --brass: #6a0dad; --brass-100: #ecdcf7; --bg: #e9e9e9; --paper: #f2f2f2; --cream: #dcdcdc; --surface: #ffffff;
+  --ink: #111; --ink-soft: #333; --muted: #666; --line: #111;
+  --serif: 'Permanent Marker', cursive; --sans: Verdana, Geneva, Tahoma, sans-serif; --radius: 0px;
+}
+html[data-era='1990s'] body {
+  background-image:
+    linear-gradient(45deg, transparent 46%, rgba(106, 13, 173, 0.22) 46% 54%, transparent 54%),
+    radial-gradient(circle, rgba(0, 128, 128, 0.22) 3px, transparent 4px),
+    linear-gradient(-30deg, transparent 47%, rgba(255, 196, 0, 0.3) 47% 53%, transparent 53%);
+  background-size: 70px 70px, 53px 53px, 91px 91px;
+}
+html[data-era='1990s'] .card { border: 2px solid #111; box-shadow: 5px 5px 0 #6a0dad; }
+html[data-era='1990s'] .btn { border-radius: 0; border: 3px outset #c0c0c0; background: #c0c0c0; color: #111; box-shadow: none; font-family: Verdana, sans-serif; }
+html[data-era='1990s'] .btn-brass, html[data-era='1990s'] .btn-primary { background: #008080; color: #fff; border-color: #00b3b3; }
+html[data-era='1990s'] .announcement { background: #000080; font-family: 'Courier New', monospace; }
+html[data-era='1990s'] .era-banner { background: linear-gradient(90deg, #1b0f3a, #6a0dad, #008080); }
+
+/* ---------- 2000s: Y2K gloss ---------- */
+html[data-era='2000s'] {
+  --navy: #0077cc; --navy-500: #2a9df4; --navy-700: #005a9e; --navy-900: #0b2a4a; --navy-100: #def2ff;
+  --brass: #9aa5b1; --brass-100: #eef2f6; --bg: #eaf7ff; --paper: #f4fbff; --cream: #e3f1fb; --surface: #ffffff;
+  --ink: #12263a; --ink-soft: #2f4a63; --muted: #66809a; --line: rgba(0, 119, 204, 0.2);
+  --serif: 'Orbitron', sans-serif; --sans: 'Trebuchet MS', 'Lucida Grande', sans-serif; --radius: 18px;
+}
+html[data-era='2000s'] body { background-image: radial-gradient(circle at 20% 15%, rgba(42, 157, 244, 0.18), transparent 30%), radial-gradient(circle at 80% 60%, rgba(154, 165, 177, 0.25), transparent 35%), linear-gradient(180deg, #eaf7ff, #ffffff); background-attachment: fixed; }
+html[data-era='2000s'] .btn { background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(0, 0, 0, 0.05) 51%, rgba(255, 255, 255, 0.2) 100%); border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 999px; }
+html[data-era='2000s'] .card { border: 1px solid #b9c7d3; box-shadow: 0 8px 18px rgba(0, 119, 204, 0.15), inset 0 1px 0 #fff; }
+html[data-era='2000s'] h1, html[data-era='2000s'] h2 { letter-spacing: 0.04em; background: linear-gradient(180deg, #2a9df4, #0b2a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+html[data-era='2000s'] .era-banner { background: linear-gradient(180deg, #2a9df4, #0b2a4a); }
+html[data-era='2000s'] .era-banner h2 { background: none; color: #fff; }
+
+/* ---------- 2010s: flat design ---------- */
+html[data-era='2010s'] {
+  --navy: #16a085; --navy-500: #1abc9c; --navy-700: #12806a; --navy-900: #2c3e50; --navy-100: #d5f5ee;
+  --brass: #e74c3c; --brass-100: #fadbd8; --bg: #ecf0f1; --paper: #f4f6f7; --cream: #e5e9ea; --surface: #ffffff;
+  --ink: #2c3e50; --ink-soft: #34495e; --muted: #7f8c8d; --line: #dfe4e6;
+  --serif: 'Lobster', cursive; --sans: 'Raleway', system-ui, sans-serif; --radius: 4px;
+}
+html[data-era='2010s'] .btn, html[data-era='2010s'] .card { box-shadow: none !important; transform: none; }
+html[data-era='2010s'] .btn { border-radius: 4px; }
+html[data-era='2010s'] .era-banner { background: #2c3e50; }
+
+/* ---------- Rival mode: Yale overload ---------- */
+html[data-rival] {
+  --brass: #00356b; --brass-100: #e8eef6; --navy-100: #dbe6f3;
+}
+html[data-rival] body {
+  background-color: #f2f6fb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='120'%3E%3Ctext x='10' y='70' font-family='Georgia,serif' font-size='46' font-weight='700' fill='%2300356b' fill-opacity='0.06' transform='rotate(-12 110 60)'%3EYALE%3C/text%3E%3C/svg%3E");
+}
+html[data-rival] .announcement { background: #00356b; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; }
+html[data-rival] .header { background: #00356b; border-bottom: 6px solid #fff; box-shadow: 0 6px 0 #00356b; }
+html[data-rival] .brand-text, html[data-rival] .nav-links a, html[data-rival] .brand-text small { color: #fff; }
+html[data-rival] .brand-mark { background: #fff; color: #00356b; }
+html[data-rival] .nav-links a.nav-cta, html[data-rival] .nav-button { background: #fff; color: #00356b; }
+html[data-rival] .section-head h2::before { content: 'YALE · '; color: #00356b; font-weight: 700; }
+html[data-rival] .card::after { content: 'YALE'; position: absolute; top: 12px; right: -30px; transform: rotate(35deg); background: #00356b; color: #fff; font: 800 0.7rem var(--sans); letter-spacing: 0.2em; padding: 3px 34px; z-index: 3; }
+html[data-rival] .footer { background: #00356b; color: #e8eef6; position: relative; overflow: hidden; }
+html[data-rival] .footer::before { content: 'YALE'; position: absolute; right: -10px; bottom: -40px; font: 700 12rem/1 var(--serif); color: rgba(255, 255, 255, 0.08); pointer-events: none; }
+html[data-rival] .footer a, html[data-rival] .footer h3, html[data-rival] .footer h4 { color: #fff; }
+html[data-rival] .btn-brass { background: #00356b; box-shadow: 0 6px 18px rgba(0, 53, 107, 0.4); }
+html[data-rival] .hero2 h1::before { content: 'YALE'; display: block; font-size: 1.8em; letter-spacing: 0.12em; color: #fff; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.25); }
+
+.rival-banner { background: #00356b; color: #fff; }
+.rival-banner h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+.rival-banner h2 span { background: #fff; color: #00356b; padding: 0 0.2em; letter-spacing: 0.08em; }
+.rival-banner img { border: 4px solid #fff; }
+.rival-marquee { display: flex; overflow: hidden; white-space: nowrap; background: #fff; color: #00356b; font: 800 1.1rem var(--serif); letter-spacing: 0.2em; padding: 8px 0; }
+.rival-marquee span { animation: marquee 22s linear infinite; padding-right: 2em; }
+@keyframes marquee { to { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .rival-marquee span { animation: none; } }
+html[data-rival] .rival-banner .btn-brass { background: #fff; color: #00356b; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); }
+html[data-rival] .nav-toggle { color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+html[data-rival] .nav-links.open { background: #00356b; }

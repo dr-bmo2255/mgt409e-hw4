@@ -1,0 +1,26 @@
+{
+ "inventory": {
+  "reply": "CAMPUS CUSTOMS\n\nThe Yale Bowl T-Shirt is sold out in XL. It\u2019s in stock in M, with only 5 left. The listed price is $32.00.\n\n\ud83d\udc36 Dan's in the game: Football\nYale Bowl T-Shirt\n$32.00 \u00b7 In stock: XS, S, M, L, XXL",
+  "db": {
+   "price": 32.0,
+   "stock": {
+    "L": 12,
+    "M": 5,
+    "S": 15,
+    "XL": 0,
+    "XS": 25,
+    "XXL": 20
+   }
+  }
+ },
+ "hoodies": {
+  "reply": "CAMPUS CUSTOMS\n\nWe have 27 hoodies; 12 are shown on the page. Highlights include the Basic Hoodie Big Yale, Champion Full Zip Hood, and District Vintage Bulldog styles. Boola boola!\n\n\ud83d\udc36 Dan's wearing it: Hoodies\nBasic Hoodie Big Yale\n$68.00 \u00b7 In stock: XS, S, M, L, XL, XXL\nBrooks Brothers Double Knit Full Zip Hoodie Yale\n$88.00 \u00b7 In stock: S, M, L, XL, XXL\nChampion Full Zip Hood\n$88.00 \u00b7 In stock: XS, S, M, L, XL, XXL\n+9 more shown on the page",
+  "cards_on_page": 12,
+  "db_hoodies": 27
+ },
+ "usability": {
+  "expanded_after_reply": true,
+  "still_open_after_outside_click": true,
+  "expanded_after_outside_click": false
+ }
+}

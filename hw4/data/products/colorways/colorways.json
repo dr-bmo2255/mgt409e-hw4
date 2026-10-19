@@ -1,0 +1,679 @@
+{
+ "2025-yale-vs-harvard-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/2025-yale-vs-harvard-t-shirt.jpg",
+   "white": "/media/products/colorways/2025-yale-vs-harvard-t-shirt__white.webp",
+   "red": "/media/products/colorways/2025-yale-vs-harvard-t-shirt__red.webp",
+   "navy blue": "/media/products/colorways/2025-yale-vs-harvard-t-shirt__navy-blue.webp"
+  }
+ },
+ "baseball-left-chest-crewneck": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/baseball-left-chest-crewneck.jpg",
+   "white": "/media/products/colorways/baseball-left-chest-crewneck__white.webp"
+  }
+ },
+ "basic-hoodie-big-yale": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/basic-hoodie-big-yale.jpg",
+   "white": "/media/products/colorways/basic-hoodie-big-yale__white.webp"
+  }
+ },
+ "benjamin-franklin-1-4-zip": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/benjamin-franklin-1-4-zip.jpg",
+   "blue": "/media/products/colorways/benjamin-franklin-1-4-zip__blue.webp",
+   "red": "/media/products/colorways/benjamin-franklin-1-4-zip__red.webp",
+   "white": "/media/products/colorways/benjamin-franklin-1-4-zip__white.webp"
+  }
+ },
+ "benjamin-franklin-fleece-jacket": {
+  "base": "gray",
+  "images": {
+   "gray": "/media/products/benjamin-franklin-fleece-jacket.jpg",
+   "blue": "/media/products/colorways/benjamin-franklin-fleece-jacket__blue.webp",
+   "red": "/media/products/colorways/benjamin-franklin-fleece-jacket__red.webp",
+   "white": "/media/products/colorways/benjamin-franklin-fleece-jacket__white.webp"
+  }
+ },
+ "berkeley-1-4-zip": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/berkeley-1-4-zip.jpg",
+   "red": "/media/products/colorways/berkeley-1-4-zip__red.webp"
+  }
+ },
+ "big-yale-tri-blend-t-shirt": {
+  "base": "dusty coral",
+  "images": {
+   "dusty coral": "/media/products/big-yale-tri-blend-t-shirt.jpg",
+   "white": "/media/products/colorways/big-yale-tri-blend-t-shirt__white.webp"
+  }
+ },
+ "boola-boola-t-shirt": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/boola-boola-t-shirt.jpg",
+   "white": "/media/products/colorways/boola-boola-t-shirt__white.webp",
+   "gray": "/media/products/colorways/boola-boola-t-shirt__gray.webp"
+  }
+ },
+ "branford-1-4-zip": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/branford-1-4-zip.jpg",
+   "green": "/media/products/colorways/branford-1-4-zip__green.webp",
+   "yellow": "/media/products/colorways/branford-1-4-zip__yellow.webp",
+   "blue": "/media/products/colorways/branford-1-4-zip__blue.webp",
+   "white": "/media/products/colorways/branford-1-4-zip__white.webp"
+  }
+ },
+ "brooks-brothers-bomber-jacket-yale": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/brooks-brothers-bomber-jacket-yale.jpg",
+   "white": "/media/products/colorways/brooks-brothers-bomber-jacket-yale__white.webp"
+  }
+ },
+ "brooks-brothers-double-knit-full-zip-hoodie-yale": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/brooks-brothers-double-knit-full-zip-hoodie-yale.jpg",
+   "white": "/media/products/colorways/brooks-brothers-double-knit-full-zip-hoodie-yale__white.webp"
+  }
+ },
+ "champion-full-zip-hood": {
+  "base": "charcoal gray",
+  "images": {
+   "charcoal gray": "/media/products/champion-full-zip-hood.jpg",
+   "white": "/media/products/colorways/champion-full-zip-hood__white.webp",
+   "navy blue": "/media/products/colorways/champion-full-zip-hood__navy-blue.webp"
+  }
+ },
+ "champion-mens-triumph-raglan-crew": {
+  "base": "dark heather gray",
+  "images": {
+   "dark heather gray": "/media/products/champion-mens-triumph-raglan-crew.jpg",
+   "white": "/media/products/colorways/champion-mens-triumph-raglan-crew__white.webp"
+  }
+ },
+ "champion-reverse-weave-crewneck": {
+  "base": "light gray",
+  "images": {
+   "light gray": "/media/products/champion-reverse-weave-crewneck.jpg",
+   "navy blue": "/media/products/colorways/champion-reverse-weave-crewneck__navy-blue.webp"
+  }
+ },
+ "champion-reverse-weave-hoodie-1": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/champion-reverse-weave-hoodie-1.jpg",
+   "white": "/media/products/colorways/champion-reverse-weave-hoodie-1__white.webp"
+  }
+ },
+ "davenport-college-crewneck": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/davenport-college-crewneck.jpg",
+   "black": "/media/products/colorways/davenport-college-crewneck__black.webp",
+   "white": "/media/products/colorways/davenport-college-crewneck__white.webp"
+  }
+ },
+ "district-tri-blend-t-shirt-vintage-shield": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/district-tri-blend-t-shirt-vintage-shield.jpg",
+   "navy": "/media/products/colorways/district-tri-blend-t-shirt-vintage-shield__navy.webp",
+   "white": "/media/products/colorways/district-tri-blend-t-shirt-vintage-shield__white.webp"
+  }
+ },
+ "district-vit-crewneck-vintage-bulldog": {
+  "base": "dark heather charcoal",
+  "images": {
+   "dark heather charcoal": "/media/products/district-vit-crewneck-vintage-bulldog.jpg",
+   "white": "/media/products/colorways/district-vit-crewneck-vintage-bulldog__white.webp"
+  }
+ },
+ "district-vit-crewneck-vintage-standing-bulldog": {
+  "base": "heather charcoal gray",
+  "images": {
+   "heather charcoal gray": "/media/products/district-vit-crewneck-vintage-standing-bulldog.jpg",
+   "navy blue": "/media/products/colorways/district-vit-crewneck-vintage-standing-bulldog__navy-blue.webp",
+   "white": "/media/products/colorways/district-vit-crewneck-vintage-standing-bulldog__white.webp"
+  }
+ },
+ "district-vit-hoodie-vintage-bulldog": {
+  "base": "dark heather gray",
+  "images": {
+   "dark heather gray": "/media/products/district-vit-hoodie-vintage-bulldog.jpg",
+   "white": "/media/products/colorways/district-vit-hoodie-vintage-bulldog__white.webp"
+  }
+ },
+ "district-vit-hoodie-vintage-sailor-bulldog": {
+  "base": "charcoal gray",
+  "images": {
+   "charcoal gray": "/media/products/district-vit-hoodie-vintage-sailor-bulldog.jpg",
+   "white": "/media/products/colorways/district-vit-hoodie-vintage-sailor-bulldog__white.webp"
+  }
+ },
+ "diving-left-chest-crewneck": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/diving-left-chest-crewneck.jpg",
+   "white": "/media/products/colorways/diving-left-chest-crewneck__white.webp"
+  }
+ },
+ "dry-zone-long-sleeve": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/dry-zone-long-sleeve.jpg",
+   "white": "/media/products/colorways/dry-zone-long-sleeve__white.webp"
+  }
+ },
+ "football-left-chest-t-shirt": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/football-left-chest-t-shirt.jpg",
+   "white": "/media/products/colorways/football-left-chest-t-shirt__white.webp"
+  }
+ },
+ "grace-hopper-logo-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/grace-hopper-logo-t-shirt.jpg",
+   "blue": "/media/products/colorways/grace-hopper-logo-t-shirt__blue.webp",
+   "yellow": "/media/products/colorways/grace-hopper-logo-t-shirt__yellow.webp",
+   "black": "/media/products/colorways/grace-hopper-logo-t-shirt__black.webp",
+   "white": "/media/products/colorways/grace-hopper-logo-t-shirt__white.webp"
+  }
+ },
+ "hype-and-vice-yale-university-offside-crewneck": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/hype-and-vice-yale-university-offside-crewneck.jpg",
+   "white": "/media/products/colorways/hype-and-vice-yale-university-offside-crewneck__white.webp"
+  }
+ },
+ "hype-and-vice-yale-university-premium-crewneck": {
+  "base": "white",
+  "images": {
+   "white": "/media/products/hype-and-vice-yale-university-premium-crewneck.jpg",
+   "navy blue": "/media/products/colorways/hype-and-vice-yale-university-premium-crewneck__navy-blue.webp",
+   "gray": "/media/products/colorways/hype-and-vice-yale-university-premium-crewneck__gray.webp",
+   "green": "/media/products/colorways/hype-and-vice-yale-university-premium-crewneck__green.webp",
+   "gold": "/media/products/colorways/hype-and-vice-yale-university-premium-crewneck__gold.webp"
+  }
+ },
+ "ice-hockey-left-chest-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/ice-hockey-left-chest-hoodie.jpg",
+   "white": "/media/products/colorways/ice-hockey-left-chest-hoodie__white.webp"
+  }
+ },
+ "jonathan-edwards-college-crewneck": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/jonathan-edwards-college-crewneck.jpg",
+   "green": "/media/products/colorways/jonathan-edwards-college-crewneck__green.webp",
+   "white": "/media/products/colorways/jonathan-edwards-college-crewneck__white.webp"
+  }
+ },
+ "lacrosse-left-chest-crewneck": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/lacrosse-left-chest-crewneck.jpg",
+   "white": "/media/products/colorways/lacrosse-left-chest-crewneck__white.webp"
+  }
+ },
+ "morse-1-4-zip": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/morse-1-4-zip.jpg",
+   "white": "/media/products/colorways/morse-1-4-zip__white.webp",
+   "red": "/media/products/colorways/morse-1-4-zip__red.webp",
+   "black": "/media/products/colorways/morse-1-4-zip__black.webp"
+  }
+ },
+ "morse-logo-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/morse-logo-t-shirt.jpg",
+   "white": "/media/products/colorways/morse-logo-t-shirt__white.webp",
+   "black": "/media/products/colorways/morse-logo-t-shirt__black.webp",
+   "red": "/media/products/colorways/morse-logo-t-shirt__red.webp"
+  }
+ },
+ "pierson-college-crewneck": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/pierson-college-crewneck.jpg",
+   "black": "/media/products/colorways/pierson-college-crewneck__black.webp",
+   "yellow": "/media/products/colorways/pierson-college-crewneck__yellow.webp"
+  }
+ },
+ "pierson-logo-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/pierson-logo-t-shirt.jpg",
+   "black": "/media/products/colorways/pierson-logo-t-shirt__black.webp",
+   "yellow": "/media/products/colorways/pierson-logo-t-shirt__yellow.webp"
+  }
+ },
+ "poly-twill-crewneck-arched-yale": {
+  "base": "cream",
+  "images": {
+   "cream": "/media/products/poly-twill-crewneck-arched-yale.jpg",
+   "navy blue": "/media/products/colorways/poly-twill-crewneck-arched-yale__navy-blue.webp"
+  }
+ },
+ "saybrook-college-crewneck": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/saybrook-college-crewneck.jpg",
+   "yellow": "/media/products/colorways/saybrook-college-crewneck__yellow.webp",
+   "blue": "/media/products/colorways/saybrook-college-crewneck__blue.webp"
+  }
+ },
+ "saybrook-logo-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/saybrook-logo-t-shirt.jpg",
+   "blue": "/media/products/colorways/saybrook-logo-t-shirt__blue.webp",
+   "yellow": "/media/products/colorways/saybrook-logo-t-shirt__yellow.webp",
+   "black": "/media/products/colorways/saybrook-logo-t-shirt__black.webp"
+  }
+ },
+ "saybrook-sweater-fleece-jacket": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/saybrook-sweater-fleece-jacket.jpg",
+   "charcoal gray": "/media/products/colorways/saybrook-sweater-fleece-jacket__charcoal-gray.webp",
+   "yellow": "/media/products/colorways/saybrook-sweater-fleece-jacket__yellow.webp",
+   "blue": "/media/products/colorways/saybrook-sweater-fleece-jacket__blue.webp"
+  }
+ },
+ "school-of-architecture-crewneck": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/school-of-architecture-crewneck.jpg",
+   "white": "/media/products/colorways/school-of-architecture-crewneck__white.webp",
+   "light blue": "/media/products/colorways/school-of-architecture-crewneck__light-blue.webp"
+  }
+ },
+ "school-of-engineering-1-4-zip": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/school-of-engineering-1-4-zip.jpg",
+   "white": "/media/products/colorways/school-of-engineering-1-4-zip__white.webp",
+   "gold": "/media/products/colorways/school-of-engineering-1-4-zip__gold.webp",
+   "light blue": "/media/products/colorways/school-of-engineering-1-4-zip__light-blue.webp"
+  }
+ },
+ "school-of-management-crest-t-shirt": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/school-of-management-crest-t-shirt.jpg",
+   "white": "/media/products/colorways/school-of-management-crest-t-shirt__white.webp",
+   "light blue": "/media/products/colorways/school-of-management-crest-t-shirt__light-blue.webp"
+  }
+ },
+ "school-of-medicine-1-4-zip": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/school-of-medicine-1-4-zip.jpg",
+   "white": "/media/products/colorways/school-of-medicine-1-4-zip__white.webp",
+   "red": "/media/products/colorways/school-of-medicine-1-4-zip__red.webp",
+   "green": "/media/products/colorways/school-of-medicine-1-4-zip__green.webp"
+  }
+ },
+ "school-of-music-fleece-sweater": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/school-of-music-fleece-sweater.jpg",
+   "white": "/media/products/colorways/school-of-music-fleece-sweater__white.webp",
+   "red": "/media/products/colorways/school-of-music-fleece-sweater__red.webp",
+   "yellow": "/media/products/colorways/school-of-music-fleece-sweater__yellow.webp"
+  }
+ },
+ "school-of-nursing-crest-t-shirt": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/school-of-nursing-crest-t-shirt.jpg",
+   "white": "/media/products/colorways/school-of-nursing-crest-t-shirt__white.webp",
+   "black": "/media/products/colorways/school-of-nursing-crest-t-shirt__black.webp",
+   "royal blue": "/media/products/colorways/school-of-nursing-crest-t-shirt__royal-blue.webp",
+   "gold": "/media/products/colorways/school-of-nursing-crest-t-shirt__gold.webp"
+  }
+ },
+ "school-of-public-health-1-4-zip": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/school-of-public-health-1-4-zip.jpg",
+   "white": "/media/products/colorways/school-of-public-health-1-4-zip__white.webp",
+   "red": "/media/products/colorways/school-of-public-health-1-4-zip__red.webp",
+   "blue": "/media/products/colorways/school-of-public-health-1-4-zip__blue.webp",
+   "gold": "/media/products/colorways/school-of-public-health-1-4-zip__gold.webp"
+  }
+ },
+ "soccer-left-chest-crewneck": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/soccer-left-chest-crewneck.jpg",
+   "white": "/media/products/colorways/soccer-left-chest-crewneck__white.webp"
+  }
+ },
+ "squash-left-chest-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/squash-left-chest-hoodie.jpg",
+   "white": "/media/products/colorways/squash-left-chest-hoodie__white.webp"
+  }
+ },
+ "squash-left-chest-tennis": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/squash-left-chest-tennis.jpg",
+   "white": "/media/products/colorways/squash-left-chest-tennis__white.webp"
+  }
+ },
+ "super-heavyweight-crewneck-arched-yale-crest": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/super-heavyweight-crewneck-arched-yale-crest.jpg",
+   "navy": "/media/products/colorways/super-heavyweight-crewneck-arched-yale-crest__navy.webp",
+   "white": "/media/products/colorways/super-heavyweight-crewneck-arched-yale-crest__white.webp"
+  }
+ },
+ "t-felt-y-heavyweight": {
+  "base": "cream",
+  "images": {
+   "cream": "/media/products/t-felt-y-heavyweight.jpg",
+   "navy": "/media/products/colorways/t-felt-y-heavyweight__navy.webp"
+  }
+ },
+ "the-forest-school-hoodie": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/the-forest-school-hoodie.jpg",
+   "white": "/media/products/colorways/the-forest-school-hoodie__white.webp"
+  }
+ },
+ "track-field-left-chest-t-shirt": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/track-field-left-chest-t-shirt.jpg",
+   "white": "/media/products/colorways/track-field-left-chest-t-shirt__white.webp"
+  }
+ },
+ "tri-blend-sports-baseball-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/tri-blend-sports-baseball-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/tri-blend-sports-baseball-t-shirt__navy-blue.webp"
+  }
+ },
+ "tri-blend-sports-basketball-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/tri-blend-sports-basketball-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/tri-blend-sports-basketball-t-shirt__navy-blue.webp"
+  }
+ },
+ "tri-blend-sports-football-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/tri-blend-sports-football-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/tri-blend-sports-football-t-shirt__navy-blue.webp"
+  }
+ },
+ "tri-blend-sports-hockey-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/tri-blend-sports-hockey-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/tri-blend-sports-hockey-t-shirt__navy-blue.webp"
+  }
+ },
+ "tri-blend-sports-soccer-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/tri-blend-sports-soccer-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/tri-blend-sports-soccer-t-shirt__navy-blue.webp"
+  }
+ },
+ "tri-blend-sports-tennis-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/tri-blend-sports-tennis-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/tri-blend-sports-tennis-t-shirt__navy-blue.webp"
+  }
+ },
+ "tri-blend-sports-track-and-field-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/tri-blend-sports-track-and-field-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/tri-blend-sports-track-and-field-t-shirt__navy-blue.webp"
+  }
+ },
+ "trumbull-1-4-zip": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/trumbull-1-4-zip.jpg",
+   "black": "/media/products/colorways/trumbull-1-4-zip__black.webp"
+  }
+ },
+ "ua-gameday-double-knit-hood": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/ua-gameday-double-knit-hood.jpg",
+   "white": "/media/products/colorways/ua-gameday-double-knit-hood__white.webp"
+  }
+ },
+ "ua-mens-tech-l-s-2-0": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/ua-mens-tech-l-s-2-0.jpg",
+   "white": "/media/products/colorways/ua-mens-tech-l-s-2-0__white.webp"
+  }
+ },
+ "volleyball-left-chest-hoodie": {
+  "base": "navy",
+  "images": {
+   "navy": "/media/products/volleyball-left-chest-hoodie.jpg",
+   "white": "/media/products/colorways/volleyball-left-chest-hoodie__white.webp"
+  }
+ },
+ "yale-aunt-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/yale-aunt-hoodie.jpg",
+   "white": "/media/products/colorways/yale-aunt-hoodie__white.webp"
+  }
+ },
+ "yale-bowl-t-shirt": {
+  "base": "ivory",
+  "images": {
+   "ivory": "/media/products/yale-bowl-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/yale-bowl-t-shirt__navy-blue.webp"
+  }
+ },
+ "yale-brother-crewneck": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-brother-crewneck.jpg",
+   "navy blue": "/media/products/colorways/yale-brother-crewneck__navy-blue.webp"
+  }
+ },
+ "yale-cousin-crewneck": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-cousin-crewneck.jpg",
+   "navy": "/media/products/colorways/yale-cousin-crewneck__navy.webp"
+  }
+ },
+ "yale-dad-crewneck": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-dad-crewneck.jpg",
+   "navy blue": "/media/products/colorways/yale-dad-crewneck__navy-blue.webp"
+  }
+ },
+ "yale-dad-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/yale-dad-hoodie.jpg",
+   "white": "/media/products/colorways/yale-dad-hoodie__white.webp"
+  }
+ },
+ "yale-dad-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-dad-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/yale-dad-t-shirt__navy-blue.webp"
+  }
+ },
+ "yale-diving-t-shirt": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-diving-t-shirt.jpg",
+   "navy blue": "/media/products/colorways/yale-diving-t-shirt__navy-blue.webp"
+  }
+ },
+ "yale-grandma-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/yale-grandma-hoodie.jpg",
+   "white": "/media/products/colorways/yale-grandma-hoodie__white.webp"
+  }
+ },
+ "yale-grandpa-crewneck": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-grandpa-crewneck.jpg",
+   "navy blue": "/media/products/colorways/yale-grandpa-crewneck__navy-blue.webp"
+  }
+ },
+ "yale-grandpa-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/yale-grandpa-hoodie.jpg",
+   "white": "/media/products/colorways/yale-grandpa-hoodie__white.webp"
+  }
+ },
+ "yale-maplehouse-diana-mockneck": {
+  "base": "cream",
+  "images": {
+   "cream": "/media/products/yale-maplehouse-diana-mockneck.jpg",
+   "blue": "/media/products/colorways/yale-maplehouse-diana-mockneck__blue.webp"
+  }
+ },
+ "yale-mom-crewneck": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-mom-crewneck.jpg",
+   "navy": "/media/products/colorways/yale-mom-crewneck__navy.webp"
+  }
+ },
+ "yale-mom-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/yale-mom-hoodie.jpg",
+   "white": "/media/products/colorways/yale-mom-hoodie__white.webp"
+  }
+ },
+ "yale-sports-creqneck-field-hockey": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-creqneck-field-hockey.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-creqneck-field-hockey__navy-blue.webp"
+  }
+ },
+ "yale-sports-crewneck-baseball": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-crewneck-baseball.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-crewneck-baseball__navy-blue.webp"
+  }
+ },
+ "yale-sports-crewneck-golf": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-crewneck-golf.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-crewneck-golf__navy-blue.webp"
+  }
+ },
+ "yale-sports-crewneck-volleyball": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-crewneck-volleyball.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-crewneck-volleyball__navy-blue.webp"
+  }
+ },
+ "yale-sports-hoodie-baseball": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-hoodie-baseball.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-hoodie-baseball__navy-blue.webp"
+  }
+ },
+ "yale-sports-hoodie-diving": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-hoodie-diving.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-hoodie-diving__navy-blue.webp"
+  }
+ },
+ "yale-sports-hoodie-golf": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-hoodie-golf.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-hoodie-golf__navy-blue.webp"
+  }
+ },
+ "yale-sports-hoodie-hockey": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-hoodie-hockey.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-hoodie-hockey__navy-blue.webp"
+  }
+ },
+ "yale-sports-hoodie-soccer": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-hoodie-soccer.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-hoodie-soccer__navy-blue.webp"
+  }
+ },
+ "yale-sports-hoodie-swimming": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-hoodie-swimming.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-hoodie-swimming__navy-blue.webp"
+  }
+ },
+ "yale-sports-hoodie-tennis": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-hoodie-tennis.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-hoodie-tennis__navy-blue.webp"
+  }
+ },
+ "yale-sports-t-shirt-field-hockey": {
+  "base": "heather gray",
+  "images": {
+   "heather gray": "/media/products/yale-sports-t-shirt-field-hockey.jpg",
+   "navy blue": "/media/products/colorways/yale-sports-t-shirt-field-hockey__navy-blue.webp"
+  }
+ },
+ "yale-uncle-hoodie": {
+  "base": "navy blue",
+  "images": {
+   "navy blue": "/media/products/yale-uncle-hoodie.jpg",
+   "white": "/media/products/colorways/yale-uncle-hoodie__white.webp"
+  }
+ }
+}

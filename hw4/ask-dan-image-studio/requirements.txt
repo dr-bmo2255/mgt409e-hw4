@@ -1,0 +1,11 @@
+# Ask Dan Image Studio (local tool). Mirrors backend/pyproject.toml; install from ask-dan-image-studio/backend.
+fastapi>=0.143
+uvicorn[standard]>=0.54
+pydantic>=2.9
+# PydanticAI slim (OpenAI provider only) for the studio's chat art director. Not the full pydantic-ai.
+pydantic-ai-slim[openai]>=2.57.0
+pillow>=11
+openpyxl>=3.1
+httpx>=0.28
+python-dotenv>=1.2
+python-multipart>=0.0.20

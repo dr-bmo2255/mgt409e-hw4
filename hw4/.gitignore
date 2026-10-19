@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------------------------
+# Campus Customs (hw4). What is NOT in the repo and why.
+# ---------------------------------------------------------------------------------------------
+
+# Secrets: never committed. .env.example lists variable names only.
+.env
+.env.*
+!.env.example
+*.local.txt
+
+# The data pack we were given: the database and the product photos stay local.
+# Graders place their own copy in data/ (see README). Everything WE rendered is committed:
+# all Handsome Dan art (data/dan/), the custom-gear mockups, and the 137 rendered product colorways.
+data/*
+!data/dan/
+!data/custom/
+data/custom/designs/
+!data/products/
+data/products/*
+!data/products/colorways/
+*.db
+*.zip
+
+# Image-studio working files: full-size PNG sources, run state, and the course input zips
+Dan Image Resources/
+Dan Image Generator Files/
+ask-dan-image-studio/output/
+ask-dan-image-studio/state/
+ask-dan-image-studio/references/shields_bad_v1/
+
+# Review sheets that contain product photos (like the product images, kept local)
+output/colorway_review/
+output/colorway_pilot.jpg
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node / Vite (the studio's built dashboard in ask-dan-image-studio/frontend/dist IS committed so it runs without npm)
+node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store

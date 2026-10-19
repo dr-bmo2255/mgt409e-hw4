@@ -1,0 +1,486 @@
+{
+ "products": {
+  "2025-yale-vs-harvard-t-shirt": "dan_rival_harvard",
+  "baseball-left-chest-crewneck": "dan_sport_baseball",
+  "basic-hoodie-big-yale": "dan_hoodie",
+  "benjamin-franklin-1-4-zip": "dan_college_benjamin_franklin",
+  "benjamin-franklin-fleece-jacket": "dan_college_benjamin_franklin",
+  "benjamin-franklin-t-shirt": "dan_college_benjamin_franklin",
+  "berkeley-1-4-zip": "dan_college_berkeley",
+  "berkeley-sweater-fleece-jacket": "dan_college_berkeley",
+  "big-yale-tri-blend-t-shirt": "dan_tshirt",
+  "boola-boola-t-shirt": "dan_tshirt",
+  "branford-1-4-zip": "dan_college_branford",
+  "brooks-brothers-bomber-jacket-yale": "dan_jacket",
+  "brooks-brothers-double-knit-full-zip-hoodie-yale": "dan_hoodie",
+  "champion-full-zip-hood": "dan_hoodie",
+  "champion-mens-triumph-raglan-crew": "dan_crewneck",
+  "champion-reverse-weave-crewneck": "dan_crewneck",
+  "champion-reverse-weave-hoodie-1": "dan_hoodie",
+  "crew-left-chest-hoodie": "dan_sport_rowing",
+  "davenport-college-crewneck": "dan_college_davenport",
+  "district-tri-blend-t-shirt-vintage-shield": "dan_tshirt",
+  "district-vit-crewneck-vintage-bulldog": "dan_crewneck",
+  "district-vit-crewneck-vintage-standing-bulldog": "dan_crewneck",
+  "district-vit-hoodie-vintage-bulldog": "dan_hoodie",
+  "district-vit-hoodie-vintage-sailor-bulldog": "dan_hoodie",
+  "diving-left-chest-crewneck": "dan_sport_diving",
+  "divinity-school-fleece-sweater": "dan_school_divinity",
+  "dry-zone-long-sleeve": "dan_performance",
+  "fencing-left-chest-hoodie": "dan_sport_fencing",
+  "football-left-chest-t-shirt": "dan_sport_football",
+  "grace-hopper-college-crewneck": "dan_college_grace_hopper",
+  "grace-hopper-logo-t-shirt": "dan_college_grace_hopper",
+  "hype-and-vice-yale-university-offside-crewneck": "dan_crewneck",
+  "hype-and-vice-yale-university-premium-crewneck": "dan_crewneck",
+  "ice-hockey-left-chest-hoodie": "dan_sport_ice_hockey",
+  "jonathan-edwards-college-crewneck": "dan_college_jonathan_edwards",
+  "lacrosse-left-chest-crewneck": "dan_sport_lacrosse",
+  "morse-1-4-zip": "dan_college_morse",
+  "morse-logo-t-shirt": "dan_college_morse",
+  "pierson-college-crewneck": "dan_college_pierson",
+  "pierson-logo-t-shirt": "dan_college_pierson",
+  "poly-twill-crewneck-arched-yale": "dan_crewneck",
+  "sailing-left-chest-hoodie": "dan_sport_sailing",
+  "saybrook-college-crewneck": "dan_college_saybrook",
+  "saybrook-logo-t-shirt": "dan_college_saybrook",
+  "saybrook-sweater-fleece-jacket": "dan_college_saybrook",
+  "school-of-architecture-crewneck": "dan_school_architecture",
+  "school-of-architecture-fleece-sweater": "dan_school_architecture",
+  "school-of-art-1-4-zip": "dan_school_art",
+  "school-of-art-fleece-sweater": "dan_school_art",
+  "school-of-engineering-1-4-zip": "dan_school_engineering_and_applied_science",
+  "school-of-management-crest-t-shirt": "dan_school_management",
+  "school-of-medicine-1-4-zip": "dan_school_medicine",
+  "school-of-music-fleece-sweater": "dan_school_music",
+  "school-of-nursing-crest-t-shirt": "dan_school_nursing",
+  "school-of-public-health-1-4-zip": "dan_school_public_health",
+  "soccer-left-chest-crewneck": "dan_sport_soccer",
+  "squash-left-chest-hoodie": "dan_sport_squash",
+  "squash-left-chest-tennis": "dan_sport_squash",
+  "super-heavyweight-crewneck-arched-yale-crest": "dan_crewneck",
+  "t-felt-y-heavyweight": "dan_tshirt",
+  "the-forest-school-hoodie": "dan_school_environment",
+  "timothy-dwight-college-crewneck": "dan_college_timothy_dwight",
+  "track-field-left-chest-t-shirt": "dan_sport_track_and_field",
+  "tri-blend-sports-baseball-t-shirt": "dan_sport_baseball",
+  "tri-blend-sports-basketball-t-shirt": "dan_sport_basketball",
+  "tri-blend-sports-football-t-shirt": "dan_sport_football",
+  "tri-blend-sports-hockey-t-shirt": "dan_sport_ice_hockey",
+  "tri-blend-sports-soccer-t-shirt": "dan_sport_soccer",
+  "tri-blend-sports-tennis-t-shirt": "dan_sport_tennis",
+  "tri-blend-sports-track-and-field-t-shirt": "dan_sport_track_and_field",
+  "trumbull-1-4-zip": "dan_college_trumbull",
+  "ua-gameday-double-knit-hood": "dan_hoodie",
+  "ua-mens-tech-l-s-2-0": "dan_performance",
+  "volleyball-left-chest-hoodie": "dan_sport_volleyball",
+  "yale-aunt-hoodie": "dan_family_aunt",
+  "yale-bowl-t-shirt": "dan_sport_football",
+  "yale-brother-crewneck": "dan_family_brother",
+  "yale-cousin-crewneck": "dan_family_cousin",
+  "yale-dad-crewneck": "dan_family_dad",
+  "yale-dad-hoodie": "dan_family_dad",
+  "yale-dad-t-shirt": "dan_family_dad",
+  "yale-diving-t-shirt": "dan_sport_diving",
+  "yale-grandma-hoodie": "dan_family_grandma",
+  "yale-grandpa-crewneck": "dan_family_grandpa",
+  "yale-grandpa-hoodie": "dan_family_grandpa",
+  "yale-law-school-1-4-zip": "dan_school_law",
+  "yale-maplehouse-diana-mockneck": "dan_apparel_other",
+  "yale-mom-crewneck": "dan_family_mom",
+  "yale-mom-hoodie": "dan_family_mom",
+  "yale-sports-creqneck-field-hockey": "dan_sport_field_hockey",
+  "yale-sports-crewneck-baseball": "dan_sport_baseball",
+  "yale-sports-crewneck-golf": "dan_sport_golf",
+  "yale-sports-crewneck-volleyball": "dan_sport_volleyball",
+  "yale-sports-hoodie-baseball": "dan_sport_baseball",
+  "yale-sports-hoodie-diving": "dan_sport_diving",
+  "yale-sports-hoodie-golf": "dan_sport_golf",
+  "yale-sports-hoodie-hockey": "dan_sport_ice_hockey",
+  "yale-sports-hoodie-soccer": "dan_sport_soccer",
+  "yale-sports-hoodie-swimming": "dan_sport_swimming",
+  "yale-sports-hoodie-tennis": "dan_sport_tennis",
+  "yale-sports-t-shirt-field-hockey": "dan_sport_field_hockey",
+  "yale-uncle-hoodie": "dan_family_uncle"
+ },
+ "assets": {
+  "dan_apparel_other": {
+   "group": "Apparel",
+   "category": "Other Apparel",
+   "caption": "Dan's wearing it: Other Apparel",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_crewneck": {
+   "group": "Apparel",
+   "category": "Crewnecks",
+   "caption": "Dan's wearing it: Crewnecks",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_hoodie": {
+   "group": "Apparel",
+   "category": "Hoodies",
+   "caption": "Dan's wearing it: Hoodies",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_jacket": {
+   "group": "Apparel",
+   "category": "Jackets / Full-Zips",
+   "caption": "Dan's wearing it: Jackets / Full-Zips",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_performance": {
+   "group": "Apparel",
+   "category": "Performance Apparel",
+   "caption": "Dan's wearing it: Performance Apparel",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_tshirt": {
+   "group": "Apparel",
+   "category": "T-Shirts",
+   "caption": "Dan's wearing it: T-Shirts",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_benjamin_franklin": {
+   "group": "Colleges",
+   "category": "Benjamin Franklin",
+   "caption": "Dan's college pride: Benjamin Franklin",
+   "aspect": 1.0,
+   "origin": "original Dan Final Images"
+  },
+  "dan_college_berkeley": {
+   "group": "Colleges",
+   "category": "Berkeley",
+   "caption": "Dan's college pride: Berkeley",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_branford": {
+   "group": "Colleges",
+   "category": "Branford",
+   "caption": "Dan's college pride: Branford",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_davenport": {
+   "group": "Colleges",
+   "category": "Davenport",
+   "caption": "Dan's college pride: Davenport",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_grace_hopper": {
+   "group": "Colleges",
+   "category": "Grace Hopper",
+   "caption": "Dan's college pride: Grace Hopper",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_jonathan_edwards": {
+   "group": "Colleges",
+   "category": "Jonathan Edwards",
+   "caption": "Dan's college pride: Jonathan Edwards",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_morse": {
+   "group": "Colleges",
+   "category": "Morse",
+   "caption": "Dan's college pride: Morse",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_pierson": {
+   "group": "Colleges",
+   "category": "Pierson",
+   "caption": "Dan's college pride: Pierson",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_saybrook": {
+   "group": "Colleges",
+   "category": "Saybrook",
+   "caption": "Dan's college pride: Saybrook",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_timothy_dwight": {
+   "group": "Colleges",
+   "category": "Timothy Dwight",
+   "caption": "Dan's college pride: Timothy Dwight",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_college_trumbull": {
+   "group": "Colleges",
+   "category": "Trumbull",
+   "caption": "Dan's college pride: Trumbull",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_aunt": {
+   "group": "Family",
+   "category": "Aunt",
+   "caption": "Dan's gift pick: Aunt",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_brother": {
+   "group": "Family",
+   "category": "Brother",
+   "caption": "Dan's gift pick: Brother",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_cousin": {
+   "group": "Family",
+   "category": "Cousin",
+   "caption": "Dan's gift pick: Cousin",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_dad": {
+   "group": "Family",
+   "category": "Dad",
+   "caption": "Dan's gift pick: Dad",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_grandma": {
+   "group": "Family",
+   "category": "Grandma",
+   "caption": "Dan's gift pick: Grandma",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_grandpa": {
+   "group": "Family",
+   "category": "Grandpa",
+   "caption": "Dan's gift pick: Grandpa",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_mom": {
+   "group": "Family",
+   "category": "Mom",
+   "caption": "Dan's gift pick: Mom",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_family_uncle": {
+   "group": "Family",
+   "category": "Uncle",
+   "caption": "Dan's gift pick: Uncle",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_rival_harvard": {
+   "group": "Rivalries",
+   "category": "Harvard",
+   "caption": "Dan vs. the rivals: Harvard",
+   "aspect": 1.2,
+   "origin": "original Dan Final Images"
+  },
+  "dan_school_architecture": {
+   "group": "Schools",
+   "category": "Architecture",
+   "caption": "Dan goes to grad school: Architecture",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_art": {
+   "group": "Schools",
+   "category": "Art",
+   "caption": "Dan goes to grad school: Art",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_divinity": {
+   "group": "Schools",
+   "category": "Divinity",
+   "caption": "Dan goes to grad school: Divinity",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_engineering_and_applied_science": {
+   "group": "Schools",
+   "category": "Engineering & Applied Science",
+   "caption": "Dan goes to grad school: Engineering & Applied Science",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_environment": {
+   "group": "Schools",
+   "category": "Environment",
+   "caption": "Dan goes to grad school: Environment",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_law": {
+   "group": "Schools",
+   "category": "Law",
+   "caption": "Dan goes to grad school: Law",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_management": {
+   "group": "Schools",
+   "category": "Management",
+   "caption": "Dan goes to grad school: Management",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_medicine": {
+   "group": "Schools",
+   "category": "Medicine",
+   "caption": "Dan goes to grad school: Medicine",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_music": {
+   "group": "Schools",
+   "category": "Music",
+   "caption": "Dan goes to grad school: Music",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_nursing": {
+   "group": "Schools",
+   "category": "Nursing",
+   "caption": "Dan goes to grad school: Nursing",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_school_public_health": {
+   "group": "Schools",
+   "category": "Public Health",
+   "caption": "Dan goes to grad school: Public Health",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_baseball": {
+   "group": "Sports",
+   "category": "Baseball",
+   "caption": "Dan's in the game: Baseball",
+   "aspect": 1.094,
+   "origin": "original Dan Final Images"
+  },
+  "dan_sport_basketball": {
+   "group": "Sports",
+   "category": "Basketball",
+   "caption": "Dan's in the game: Basketball",
+   "aspect": 1.094,
+   "origin": "original Dan Final Images"
+  },
+  "dan_sport_diving": {
+   "group": "Sports",
+   "category": "Diving",
+   "caption": "Dan's in the game: Diving",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_fencing": {
+   "group": "Sports",
+   "category": "Fencing",
+   "caption": "Dan's in the game: Fencing",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_field_hockey": {
+   "group": "Sports",
+   "category": "Field Hockey",
+   "caption": "Dan's in the game: Field Hockey",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_football": {
+   "group": "Sports",
+   "category": "Football",
+   "caption": "Dan's in the game: Football",
+   "aspect": 1.094,
+   "origin": "original Dan Final Images"
+  },
+  "dan_sport_golf": {
+   "group": "Sports",
+   "category": "Golf",
+   "caption": "Dan's in the game: Golf",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_ice_hockey": {
+   "group": "Sports",
+   "category": "Ice Hockey",
+   "caption": "Dan's in the game: Ice Hockey",
+   "aspect": 1.094,
+   "origin": "original Dan Final Images"
+  },
+  "dan_sport_lacrosse": {
+   "group": "Sports",
+   "category": "Lacrosse",
+   "caption": "Dan's in the game: Lacrosse",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_rowing": {
+   "group": "Sports",
+   "category": "Rowing",
+   "caption": "Dan's in the game: Rowing",
+   "aspect": 1.5,
+   "origin": "original Dan Final Images"
+  },
+  "dan_sport_sailing": {
+   "group": "Sports",
+   "category": "Sailing",
+   "caption": "Dan's in the game: Sailing",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_soccer": {
+   "group": "Sports",
+   "category": "Soccer",
+   "caption": "Dan's in the game: Soccer",
+   "aspect": 0.506,
+   "origin": "original Dan Final Images"
+  },
+  "dan_sport_squash": {
+   "group": "Sports",
+   "category": "Squash",
+   "caption": "Dan's in the game: Squash",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_swimming": {
+   "group": "Sports",
+   "category": "Swimming",
+   "caption": "Dan's in the game: Swimming",
+   "aspect": 1.094,
+   "origin": "original Dan Final Images"
+  },
+  "dan_sport_tennis": {
+   "group": "Sports",
+   "category": "Tennis",
+   "caption": "Dan's in the game: Tennis",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_track_and_field": {
+   "group": "Sports",
+   "category": "Track & Field",
+   "caption": "Dan's in the game: Track & Field",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  },
+  "dan_sport_volleyball": {
+   "group": "Sports",
+   "category": "Volleyball",
+   "caption": "Dan's in the game: Volleyball",
+   "aspect": 1.0,
+   "origin": "created in Ask Dan Image Studio"
+  }
+ }
+}

@@ -1,0 +1,3446 @@
+{
+  "version": 1,
+  "inputs": {
+    "spec": {
+      "file": "ASK_DAN_CLAUDE_CODE_IMAGE_STUDIO_SPEC.txt",
+      "sha256": "787a01735ad388591e67933d9093ab70ab991a9bcf9b8a2194a8f84dedb9fa85"
+    },
+    "dan_final_zip": {
+      "file": "Dan Final Images(2).zip",
+      "sha256": "e5943f3f7677462028610c2616601f7a6363174ef181fd26a41e1a1369bcd7c6"
+    },
+    "dan_refs_zip": {
+      "file": "Dan Image References.zip",
+      "sha256": "3167aab05e5d2aaaab7608211e5bda5254beec32064ee204dfd28697a3beb2e6"
+    },
+    "catalogue_zip": {
+      "file": "data 2.zip",
+      "sha256": "33e059f34f2354b2857f45b5a1d44a55d242391a990aee1019d5f064edb81a85"
+    },
+    "audit_xlsx": {
+      "file": "ask_dan_data2_audit.xlsx",
+      "sha256": "a133b38fe6ee59c26cdd1b1790f86cb24972557d36655ff82f7e4447f5997f46"
+    },
+    "checklist_txt": {
+      "file": "ask_dan_data2_checklist.txt",
+      "sha256": "dc469c1ede723c59d0495b943281c598a29e0f1abc963e481b267351bae671cd"
+    }
+  },
+  "missing_inputs": [],
+  "counts": {
+    "catalogue_products": 102,
+    "product_photos_present": 102,
+    "dan_assets_required": 54,
+    "existing_assets": 19,
+    "missing_assets": 35,
+    "dan_files_in_archive": 33,
+    "dan_files_out_of_scope": 9,
+    "collages_excluded": 1,
+    "deprecated_dan2": 0,
+    "shields_available": 31,
+    "dan_references": 5
+  },
+  "previous_audit_counts": {
+    "catalogue_products": 102,
+    "dan_assets_required": 54,
+    "existing_assets": 19,
+    "missing_assets": 35
+  },
+  "discrepancies": [
+    {
+      "product_id": "2025-yale-vs-harvard-t-shirt",
+      "issue": "audit filename not found in archive",
+      "audit": "Dan Harvard Sideeye.png",
+      "studio": "Dan Ivy Harvard Sideeye.png"
+    },
+    {
+      "product_id": "crew-left-chest-hoodie",
+      "issue": "audit filename not found in archive",
+      "audit": "Dan Harvard Crew Rowing.png",
+      "studio": "Dan Crew Rowing.png"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "dan_apparel_other",
+      "group": "Apparel",
+      "category": "Other Apparel",
+      "product_ids": [
+        "yale-maplehouse-diana-mockneck"
+      ],
+      "product_count": 1,
+      "display_name": "Other Apparel",
+      "canonical_filename": "dan_apparel_other.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "airy studio with soft natural light and a cream backdrop",
+      "outfit": "cream knit mock-neck sweater (matches the Maplehouse 'Diana' mockneck style)",
+      "pose": "seated, head tilted, fashion-editorial pose",
+      "humor": "unexpectedly elegant, like a magazine cover shoot; a single tennis ball as a prop",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_crewneck",
+      "group": "Apparel",
+      "category": "Crewnecks",
+      "product_ids": [
+        "champion-mens-triumph-raglan-crew",
+        "champion-reverse-weave-crewneck",
+        "district-vit-crewneck-vintage-bulldog",
+        "district-vit-crewneck-vintage-standing-bulldog",
+        "hype-and-vice-yale-university-offside-crewneck",
+        "hype-and-vice-yale-university-premium-crewneck",
+        "poly-twill-crewneck-arched-yale",
+        "super-heavyweight-crewneck-arched-yale-crest"
+      ],
+      "product_count": 8,
+      "display_name": "Crewnecks",
+      "canonical_filename": "dan_crewneck.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "cozy dorm common room with a worn leather chair and a window onto snowy courtyard",
+      "outfit": "classic navy Yale crewneck sweatshirt with white arched YALE lettering",
+      "pose": "sitting upright, chest out, proudly modeling the sweatshirt",
+      "humor": "looks like he just won a sweater contest; one paw on a folded stack of spare crewnecks",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_hoodie",
+      "group": "Apparel",
+      "category": "Hoodies",
+      "product_ids": [
+        "basic-hoodie-big-yale",
+        "brooks-brothers-double-knit-full-zip-hoodie-yale",
+        "champion-full-zip-hood",
+        "champion-reverse-weave-hoodie-1",
+        "district-vit-hoodie-vintage-bulldog",
+        "district-vit-hoodie-vintage-sailor-bulldog",
+        "ua-gameday-double-knit-hood"
+      ],
+      "product_count": 7,
+      "display_name": "Hoodies",
+      "canonical_filename": "dan_hoodie.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": true,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "bright college bedroom floor with a rug, morning light",
+      "outfit": "an ENORMOUS oversized navy Yale hoodie, many sizes too big",
+      "pose": "almost swallowed by the hoodie: only his face pokes out of the hood opening, sleeves pooling far past his paws",
+      "humor": "comically lost inside the giant hoodie yet completely content; hood drawstrings dangling on his nose",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_jacket",
+      "group": "Apparel",
+      "category": "Jackets / Full-Zips",
+      "product_ids": [
+        "brooks-brothers-bomber-jacket-yale"
+      ],
+      "product_count": 1,
+      "display_name": "Jackets / Full-Zips",
+      "canonical_filename": "dan_jacket.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "breezy fall sidewalk on a college street, leaves blowing",
+      "outfit": "navy collegiate bomber / full-zip jacket with a small YALE chest mark, collar popped",
+      "pose": "mid-stride strut toward camera like a runway model",
+      "humor": "wind ruffles his jowls; he wears it like a varsity legend",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_performance",
+      "group": "Apparel",
+      "category": "Performance Apparel",
+      "product_ids": [
+        "dry-zone-long-sleeve",
+        "ua-mens-tech-l-s-2-0"
+      ],
+      "product_count": 2,
+      "display_name": "Performance Apparel",
+      "canonical_filename": "dan_performance.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "outdoor stadium running track at dawn, light mist",
+      "outfit": "navy long-sleeve athletic performance shirt with YALE and BULLDOGS lettering",
+      "pose": "powerful warm-up jog, ears flapping, motion blur on background",
+      "humor": "intensely serious athlete face, slightly out of breath",
+      "permitted_text": [
+        "YALE",
+        "BULLDOGS"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_tshirt",
+      "group": "Apparel",
+      "category": "T-Shirts",
+      "product_ids": [
+        "big-yale-tri-blend-t-shirt",
+        "boola-boola-t-shirt",
+        "district-tri-blend-t-shirt-vintage-shield",
+        "t-felt-y-heavyweight"
+      ],
+      "product_count": 4,
+      "display_name": "T-Shirts",
+      "canonical_filename": "dan_tshirt.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "sunny green lawn with picnic blanket and frisbee",
+      "outfit": "heather gray Yale T-shirt with navy YALE lettering",
+      "pose": "lying on the blanket, frisbee in mouth, tail wagging",
+      "humor": "classic carefree summer-on-the-quad energy",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_benjamin_franklin",
+      "group": "Colleges",
+      "category": "Benjamin Franklin",
+      "product_ids": [
+        "benjamin-franklin-1-4-zip",
+        "benjamin-franklin-fleece-jacket",
+        "benjamin-franklin-t-shirt"
+      ],
+      "product_count": 3,
+      "display_name": "Benjamin Franklin",
+      "canonical_filename": "dan_college_benjamin_franklin.png",
+      "existing_files": [
+        "Dan Benjamin Franklin.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_berkeley",
+      "group": "Colleges",
+      "category": "Berkeley",
+      "product_ids": [
+        "berkeley-1-4-zip",
+        "berkeley-sweater-fleece-jacket"
+      ],
+      "product_count": 2,
+      "display_name": "Berkeley",
+      "canonical_filename": "dan_college_berkeley.png",
+      "existing_files": [
+        "Dan Berkely College.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_branford",
+      "group": "Colleges",
+      "category": "Branford",
+      "product_ids": [
+        "branford-1-4-zip"
+      ],
+      "product_count": 1,
+      "display_name": "Branford",
+      "canonical_filename": "dan_college_branford.png",
+      "existing_files": [
+        "Dan Branford.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_davenport",
+      "group": "Colleges",
+      "category": "Davenport",
+      "product_ids": [
+        "davenport-college-crewneck"
+      ],
+      "product_count": 1,
+      "display_name": "Davenport",
+      "canonical_filename": "dan_college_davenport.png",
+      "existing_files": [
+        "Dan Davenport.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_grace_hopper",
+      "group": "Colleges",
+      "category": "Grace Hopper",
+      "product_ids": [
+        "grace-hopper-college-crewneck",
+        "grace-hopper-logo-t-shirt"
+      ],
+      "product_count": 2,
+      "display_name": "Grace Hopper",
+      "canonical_filename": "dan_college_grace_hopper.png",
+      "existing_files": [
+        "Dan Grace Hopper.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_jonathan_edwards",
+      "group": "Colleges",
+      "category": "Jonathan Edwards",
+      "product_ids": [
+        "jonathan-edwards-college-crewneck"
+      ],
+      "product_count": 1,
+      "display_name": "Jonathan Edwards",
+      "canonical_filename": "dan_college_jonathan_edwards.png",
+      "existing_files": [
+        "Dan Jonathan Edwards.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_morse",
+      "group": "Colleges",
+      "category": "Morse",
+      "product_ids": [
+        "morse-1-4-zip",
+        "morse-logo-t-shirt"
+      ],
+      "product_count": 2,
+      "display_name": "Morse",
+      "canonical_filename": "dan_college_morse.png",
+      "existing_files": [
+        "Dan Morse.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_pierson",
+      "group": "Colleges",
+      "category": "Pierson",
+      "product_ids": [
+        "pierson-college-crewneck",
+        "pierson-logo-t-shirt"
+      ],
+      "product_count": 2,
+      "display_name": "Pierson",
+      "canonical_filename": "dan_college_pierson.png",
+      "existing_files": [
+        "Dan Pierson.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_saybrook",
+      "group": "Colleges",
+      "category": "Saybrook",
+      "product_ids": [
+        "saybrook-college-crewneck",
+        "saybrook-logo-t-shirt",
+        "saybrook-sweater-fleece-jacket"
+      ],
+      "product_count": 3,
+      "display_name": "Saybrook",
+      "canonical_filename": "dan_college_saybrook.png",
+      "existing_files": [
+        "Dan Saybrook.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_timothy_dwight",
+      "group": "Colleges",
+      "category": "Timothy Dwight",
+      "product_ids": [
+        "timothy-dwight-college-crewneck"
+      ],
+      "product_count": 1,
+      "display_name": "Timothy Dwight",
+      "canonical_filename": "dan_college_timothy_dwight.png",
+      "existing_files": [
+        "Dan Timothy Dwight.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_college_trumbull",
+      "group": "Colleges",
+      "category": "Trumbull",
+      "product_ids": [
+        "trumbull-1-4-zip"
+      ],
+      "product_count": 1,
+      "display_name": "Trumbull",
+      "canonical_filename": "dan_college_trumbull.png",
+      "existing_files": [
+        "Dan Trumbull.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_aunt",
+      "group": "Family",
+      "category": "Aunt",
+      "product_ids": [
+        "yale-aunt-hoodie"
+      ],
+      "product_count": 1,
+      "display_name": "Aunt",
+      "canonical_filename": "dan_family_aunt.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "festive kitchen with a gift box and tissue paper",
+      "outfit": "navy hoodie with YALE and small AUNT lettering, string of pearls",
+      "pose": "presenting a wrapped gift with a paw",
+      "humor": "the 'fun aunt' who spoils everyone; party hat askew",
+      "permitted_text": [
+        "YALE",
+        "AUNT"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_brother",
+      "group": "Family",
+      "category": "Brother",
+      "product_ids": [
+        "yale-brother-crewneck"
+      ],
+      "product_count": 1,
+      "display_name": "Brother",
+      "canonical_filename": "dan_family_brother.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "backyard with a basketball hoop at golden hour",
+      "outfit": "gray crewneck with YALE and BROTHER lettering",
+      "pose": "playful bow mid-game, basketball at paws",
+      "humor": "big-brother bravado, about to steal the ball",
+      "permitted_text": [
+        "YALE",
+        "BROTHER"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_cousin",
+      "group": "Family",
+      "category": "Cousin",
+      "product_ids": [
+        "yale-cousin-crewneck"
+      ],
+      "product_count": 1,
+      "display_name": "Cousin",
+      "canonical_filename": "dan_family_cousin.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "family reunion picnic table with lemonade",
+      "outfit": "gray crewneck with YALE and COUSIN lettering",
+      "pose": "sneaking a hot dog off the table",
+      "humor": "the mischievous cousin caught mid-heist",
+      "permitted_text": [
+        "YALE",
+        "COUSIN"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_dad",
+      "group": "Family",
+      "category": "Dad",
+      "product_ids": [
+        "yale-dad-crewneck",
+        "yale-dad-hoodie",
+        "yale-dad-t-shirt"
+      ],
+      "product_count": 3,
+      "display_name": "Dad",
+      "canonical_filename": "dan_family_dad.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "suburban driveway with a grill and lawn chair",
+      "outfit": "gray YALE DAD crewneck, reading glasses, grilling apron over it",
+      "pose": "flipping burgers with tongs, proud stance",
+      "humor": "peak dad energy: dad-joke grin and a spatula",
+      "permitted_text": [
+        "YALE",
+        "DAD"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_grandma",
+      "group": "Family",
+      "category": "Grandma",
+      "product_ids": [
+        "yale-grandma-hoodie"
+      ],
+      "product_count": 1,
+      "display_name": "Grandma",
+      "canonical_filename": "dan_family_grandma.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "sunlit living room with knitting basket and armchair",
+      "outfit": "navy YALE GRANDMA hoodie, half-moon glasses",
+      "pose": "knitting a tiny Yale-blue scarf with yarn tangled around a paw",
+      "humor": "charming and a little bewildered by the yarn",
+      "permitted_text": [
+        "YALE",
+        "GRANDMA"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_grandpa",
+      "group": "Family",
+      "category": "Grandpa",
+      "product_ids": [
+        "yale-grandpa-crewneck",
+        "yale-grandpa-hoodie"
+      ],
+      "product_count": 2,
+      "display_name": "Grandpa",
+      "canonical_filename": "dan_family_grandpa.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "wood-paneled den with a fireplace and an old radio",
+      "outfit": "gray YALE GRANDPA crewneck, tweed flat cap, cardigan",
+      "pose": "settled in an armchair, newspaper on lap",
+      "humor": "distinguished elder dozing mid-story",
+      "permitted_text": [
+        "YALE",
+        "GRANDPA"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_mom",
+      "group": "Family",
+      "category": "Mom",
+      "product_ids": [
+        "yale-mom-crewneck",
+        "yale-mom-hoodie"
+      ],
+      "product_count": 2,
+      "display_name": "Mom",
+      "canonical_filename": "dan_family_mom.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "bright kitchen with a 'proud of you' refrigerator full of drawings",
+      "outfit": "navy YALE MOM hoodie",
+      "pose": "sitting tall beside a framed graduation photo (photo shows a bulldog puppy)",
+      "humor": "beaming proud mom",
+      "permitted_text": [
+        "YALE",
+        "MOM"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_family_uncle",
+      "group": "Family",
+      "category": "Uncle",
+      "product_ids": [
+        "yale-uncle-hoodie"
+      ],
+      "product_count": 1,
+      "display_name": "Uncle",
+      "canonical_filename": "dan_family_uncle.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "lakeside dock with fishing gear",
+      "outfit": "navy YALE UNCLE hoodie, bucket hat with lures",
+      "pose": "holding a fishing rod, tiny fish on the line",
+      "humor": "the uncle with the tall tales: 'it was THIS big'",
+      "permitted_text": [
+        "YALE",
+        "UNCLE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_rival_harvard",
+      "group": "Rivalries",
+      "category": "Harvard",
+      "product_ids": [
+        "2025-yale-vs-harvard-t-shirt"
+      ],
+      "product_count": 1,
+      "display_name": "Harvard",
+      "canonical_filename": "dan_rival_harvard.png",
+      "existing_files": [
+        "Dan Ivy Harvard Sideeye.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_architecture",
+      "group": "Schools",
+      "category": "Architecture",
+      "product_ids": [
+        "school-of-architecture-crewneck",
+        "school-of-architecture-fleece-sweater"
+      ],
+      "product_count": 2,
+      "display_name": "School of Architecture",
+      "canonical_filename": "dan_school_architecture.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_architecture",
+      "shield_path": "references/shields/school_of_architecture.png",
+      "setting": "concrete studio space inspired by Rudolph Hall's brutalist interiors, drafting tables",
+      "outfit": "black turtleneck, round architect glasses, small School of Architecture shield on chest",
+      "pose": "proudly presenting an ambitious white foam-core model of a doghouse skyscraper",
+      "humor": "very serious about his oversized model",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF ARCHITECTURE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_art",
+      "group": "Schools",
+      "category": "Art",
+      "product_ids": [
+        "school-of-art-1-4-zip",
+        "school-of-art-fleece-sweater"
+      ],
+      "product_count": 2,
+      "display_name": "School of Art",
+      "canonical_filename": "dan_school_art.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_art",
+      "shield_path": "references/shields/school_of_art.png",
+      "setting": "messy painting studio with canvases and paint-splattered floor",
+      "outfit": "paint-splattered smock over a navy sweater with the School of Art shield",
+      "pose": "standing before a giant abstract canvas, paintbrush in mouth, paw prints everywhere",
+      "humor": "the abstract 'masterpiece' is clearly made of paw prints",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF ART"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_divinity",
+      "group": "Schools",
+      "category": "Divinity",
+      "product_ids": [
+        "divinity-school-fleece-sweater"
+      ],
+      "product_count": 1,
+      "display_name": "Divinity School",
+      "canonical_filename": "dan_school_divinity.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "divinity_school",
+      "shield_path": "references/shields/divinity_school.png",
+      "setting": "quiet, sunlit colonnaded quadrangle inspired by Sterling Divinity Quadrangle, white columns and lawn",
+      "outfit": "navy cardigan with the Divinity School shield",
+      "pose": "sitting peacefully on a bench beside an open (untitled) book, gazing thoughtfully",
+      "humor": "gentle and serene; a butterfly on his nose; respectful, never mocking",
+      "permitted_text": [
+        "YALE",
+        "DIVINITY SCHOOL"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_engineering_and_applied_science",
+      "group": "Schools",
+      "category": "Engineering & Applied Science",
+      "product_ids": [
+        "school-of-engineering-1-4-zip"
+      ],
+      "product_count": 1,
+      "display_name": "School of Engineering & Applied Science",
+      "canonical_filename": "dan_school_engineering_and_applied_science.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_engineering_and_applied_science",
+      "shield_path": "references/shields/school_of_engineering_and_applied_science.png",
+      "setting": "bright maker lab with 3D printers, circuit boards and a small robot arm",
+      "outfit": "safety goggles pushed up, navy lab hoodie with the Engineering & Applied Science shield",
+      "pose": "operating a small robot that is handing him a tennis ball",
+      "humor": "engineered the perfect fetch machine",
+      "permitted_text": [
+        "YALE",
+        "ENGINEERING & APPLIED SCIENCE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_environment",
+      "group": "Schools",
+      "category": "Environment",
+      "product_ids": [
+        "the-forest-school-hoodie"
+      ],
+      "product_count": 1,
+      "display_name": "School of the Environment",
+      "canonical_filename": "dan_school_environment.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_the_environment",
+      "shield_path": "references/shields/school_of_the_environment.png",
+      "setting": "deep green New England forest inspired by Yale-Myers Forest, ferns and stone wall",
+      "outfit": "field vest with the School of the Environment shield patch, rain boots",
+      "pose": "doing fieldwork: measuring a tree with a tape, carrying a very excellent stick",
+      "humor": "takes the stick sampling extremely seriously",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF THE ENVIRONMENT"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_law",
+      "group": "Schools",
+      "category": "Law",
+      "product_ids": [
+        "yale-law-school-1-4-zip"
+      ],
+      "product_count": 1,
+      "display_name": "Law School",
+      "canonical_filename": "dan_school_law.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "law_school",
+      "shield_path": "references/shields/law_school.png",
+      "setting": "grand wood-paneled law library with tall windows and towering shelves",
+      "outfit": "tailored navy suit jacket and tie with the Law School shield",
+      "pose": "standing on a stack of enormous (untitled) law books, paw raised as if objecting",
+      "humor": "'Objection!' energy: a tiny gavel nearby",
+      "permitted_text": [
+        "YALE",
+        "LAW SCHOOL"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_management",
+      "group": "Schools",
+      "category": "Management",
+      "product_ids": [
+        "school-of-management-crest-t-shirt"
+      ],
+      "product_count": 1,
+      "display_name": "School of Management",
+      "canonical_filename": "dan_school_management.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": true,
+      "shield_slug": "school_of_management",
+      "shield_path": "references/shields/school_of_management.png",
+      "setting": "sleek glass-and-steel modern business school atrium inspired by Evans Hall, bright and airy",
+      "outfit": "sharp navy blazer, crisp shirt and tie, School of Management shield on the blazer pocket",
+      "pose": "executive pose at a glass table, presenting a bar chart on a laptop where the bars are dog bones",
+      "humor": "CEO of Treats Inc.: dog-bone bar chart trending up",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF MANAGEMENT"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_medicine",
+      "group": "Schools",
+      "category": "Medicine",
+      "product_ids": [
+        "school-of-medicine-1-4-zip"
+      ],
+      "product_count": 1,
+      "display_name": "School of Medicine",
+      "canonical_filename": "dan_school_medicine.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_medicine",
+      "shield_path": "references/shields/school_of_medicine.png",
+      "setting": "modern research lab with microscopes and soft clinical light",
+      "outfit": "light blue scrubs and white coat with the School of Medicine shield, stethoscope",
+      "pose": "listening with the stethoscope to a plush teddy bear patient",
+      "humor": "very gentle bedside manner; respectful, not gross",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF MEDICINE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_music",
+      "group": "Schools",
+      "category": "Music",
+      "product_ids": [
+        "school-of-music-fleece-sweater"
+      ],
+      "product_count": 1,
+      "display_name": "School of Music",
+      "canonical_filename": "dan_school_music.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_music",
+      "shield_path": "references/shields/school_of_music.png",
+      "setting": "elegant recital hall stage with warm lights and a grand piano",
+      "outfit": "concert black tuxedo with the School of Music shield pin",
+      "pose": "conducting with a baton (a chew stick), sheet music on the stand",
+      "humor": "conducting with dramatic flair, ears flying",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF MUSIC"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_nursing",
+      "group": "Schools",
+      "category": "Nursing",
+      "product_ids": [
+        "school-of-nursing-crest-t-shirt"
+      ],
+      "product_count": 1,
+      "display_name": "School of Nursing",
+      "canonical_filename": "dan_school_nursing.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_nursing",
+      "shield_path": "references/shields/school_of_nursing.png",
+      "setting": "bright clinical simulation lab with a hospital bed and monitors",
+      "outfit": "navy scrubs with the School of Nursing shield and a lanyard",
+      "pose": "carefully checking a training mannequin's chart on a clipboard",
+      "humor": "diligent and caring; respectful clinical learning",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF NURSING"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_school_public_health",
+      "group": "Schools",
+      "category": "Public Health",
+      "product_ids": [
+        "school-of-public-health-1-4-zip"
+      ],
+      "product_count": 1,
+      "display_name": "School of Public Health",
+      "canonical_filename": "dan_school_public_health.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": "school_of_public_health",
+      "shield_path": "references/shields/school_of_public_health.png",
+      "setting": "community health fair booth outdoors with charts and a data dashboard on a screen",
+      "outfit": "navy polo with the School of Public Health shield",
+      "pose": "pointing a paw at an epidemiology curve on the screen",
+      "humor": "earnest data-driven Dan; a 'wash your paws' poster vibe (no readable text)",
+      "permitted_text": [
+        "YALE",
+        "SCHOOL OF PUBLIC HEALTH"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_baseball",
+      "group": "Sports",
+      "category": "Baseball",
+      "product_ids": [
+        "baseball-left-chest-crewneck",
+        "tri-blend-sports-baseball-t-shirt",
+        "yale-sports-crewneck-baseball",
+        "yale-sports-hoodie-baseball"
+      ],
+      "product_count": 4,
+      "display_name": "Baseball",
+      "canonical_filename": "dan_sport_baseball.png",
+      "existing_files": [
+        "Dan Baseball Babe Ruth.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_basketball",
+      "group": "Sports",
+      "category": "Basketball",
+      "product_ids": [
+        "tri-blend-sports-basketball-t-shirt"
+      ],
+      "product_count": 1,
+      "display_name": "Basketball",
+      "canonical_filename": "dan_sport_basketball.png",
+      "existing_files": [
+        "Dan Basketball Dunk.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_diving",
+      "group": "Sports",
+      "category": "Diving",
+      "product_ids": [
+        "diving-left-chest-crewneck",
+        "yale-diving-t-shirt",
+        "yale-sports-hoodie-diving"
+      ],
+      "product_count": 3,
+      "display_name": "Diving",
+      "canonical_filename": "dan_sport_diving.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "indoor natatorium with a high diving board and Yale-blue lane ropes",
+      "outfit": "Yale swim cap and goggles",
+      "pose": "mid-air off the diving board in a tucked flip, water far below",
+      "humor": "fearless cannonball form, ears streaming upward",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_fencing",
+      "group": "Sports",
+      "category": "Fencing",
+      "product_ids": [
+        "fencing-left-chest-hoodie"
+      ],
+      "product_count": 1,
+      "display_name": "Fencing",
+      "canonical_filename": "dan_sport_fencing.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "fencing strip in a historic gymnasium with dramatic light",
+      "outfit": "full fencing whites and mesh mask pushed up, Yale blue trim",
+      "pose": "en garde lunge with a foil",
+      "humor": "noble and theatrical, an Ivy duelist",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_field_hockey",
+      "group": "Sports",
+      "category": "Field Hockey",
+      "product_ids": [
+        "yale-sports-creqneck-field-hockey",
+        "yale-sports-t-shirt-field-hockey"
+      ],
+      "product_count": 2,
+      "display_name": "Field Hockey",
+      "canonical_filename": "dan_sport_field_hockey.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "bright blue artificial TURF field with goal cage (NOT ice)",
+      "outfit": "Yale field hockey kit with kilt-style skort, shin guards, mouthguard",
+      "pose": "dribbling a field hockey ball with a proper field hockey stick, low and fast",
+      "humor": "fierce focus, tongue out",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_football",
+      "group": "Sports",
+      "category": "Football",
+      "product_ids": [
+        "football-left-chest-t-shirt",
+        "tri-blend-sports-football-t-shirt",
+        "yale-bowl-t-shirt"
+      ],
+      "product_count": 3,
+      "display_name": "Football",
+      "canonical_filename": "dan_sport_football.png",
+      "existing_files": [
+        "Dan FootBall C.png",
+        "Dan Football A.png",
+        "Dan Football B.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_golf",
+      "group": "Sports",
+      "category": "Golf",
+      "product_ids": [
+        "yale-sports-crewneck-golf",
+        "yale-sports-hoodie-golf"
+      ],
+      "product_count": 2,
+      "display_name": "Golf",
+      "canonical_filename": "dan_sport_golf.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "manicured green golf course with rolling hills at golden hour",
+      "outfit": "preppy argyle sweater vest, white polo, flat cap",
+      "pose": "finishing a golf swing, watching the ball fly",
+      "humor": "country-club smugness; caddy bag of tennis balls",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_ice_hockey",
+      "group": "Sports",
+      "category": "Ice Hockey",
+      "product_ids": [
+        "ice-hockey-left-chest-hoodie",
+        "tri-blend-sports-hockey-t-shirt",
+        "yale-sports-hoodie-hockey"
+      ],
+      "product_count": 3,
+      "display_name": "Ice Hockey",
+      "canonical_filename": "dan_sport_ice_hockey.png",
+      "existing_files": [
+        "Dan Ice Hockey.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_lacrosse",
+      "group": "Sports",
+      "category": "Lacrosse",
+      "product_ids": [
+        "lacrosse-left-chest-crewneck"
+      ],
+      "product_count": 1,
+      "display_name": "Lacrosse",
+      "canonical_filename": "dan_sport_lacrosse.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": true,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "grass lacrosse stadium on a sunny spring afternoon, crowd blurred",
+      "outfit": "Yale lacrosse helmet, gloves, navy jersey",
+      "pose": "dynamic sprint cradling the ball in a correctly strung lacrosse stick, dodging",
+      "humor": "unstoppable charge; one ear flipped inside out",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_rowing",
+      "group": "Sports",
+      "category": "Rowing",
+      "product_ids": [
+        "crew-left-chest-hoodie"
+      ],
+      "product_count": 1,
+      "display_name": "Rowing",
+      "canonical_filename": "dan_sport_rowing.png",
+      "existing_files": [
+        "Dan Crew Rowing.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_sailing",
+      "group": "Sports",
+      "category": "Sailing",
+      "product_ids": [
+        "sailing-left-chest-hoodie"
+      ],
+      "product_count": 1,
+      "display_name": "Sailing",
+      "canonical_filename": "dan_sport_sailing.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "small racing sailboat on a sparkling harbor, other boats in distance",
+      "outfit": "navy sailing jacket and life vest",
+      "pose": "hiking out over the side holding the mainsheet, plausible rigging",
+      "humor": "salty sea-dog skipper, jowls in the wind",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_soccer",
+      "group": "Sports",
+      "category": "Soccer",
+      "product_ids": [
+        "soccer-left-chest-crewneck",
+        "tri-blend-sports-soccer-t-shirt",
+        "yale-sports-hoodie-soccer"
+      ],
+      "product_count": 3,
+      "display_name": "Soccer",
+      "canonical_filename": "dan_sport_soccer.png",
+      "existing_files": [
+        "Dan Soccer A.png",
+        "Dan Soccer B.png",
+        "Dan Soccer C.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_squash",
+      "group": "Sports",
+      "category": "Squash",
+      "product_ids": [
+        "squash-left-chest-hoodie",
+        "squash-left-chest-tennis"
+      ],
+      "product_count": 2,
+      "display_name": "Squash",
+      "canonical_filename": "dan_sport_squash.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "white glass-backed indoor squash court with red lines",
+      "outfit": "white athletic polo, Yale blue shorts, protective eyewear",
+      "pose": "lunging for a shot with a squash racquet",
+      "humor": "dramatic diving get; tiny squash ball",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_swimming",
+      "group": "Sports",
+      "category": "Swimming",
+      "product_ids": [
+        "yale-sports-hoodie-swimming"
+      ],
+      "product_count": 1,
+      "display_name": "Swimming",
+      "canonical_filename": "dan_sport_swimming.png",
+      "existing_files": [
+        "Dan Swimming.png"
+      ],
+      "status": "EXISTING_REVIEWED",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": null,
+      "outfit": null,
+      "pose": null,
+      "humor": null,
+      "permitted_text": [],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_tennis",
+      "group": "Sports",
+      "category": "Tennis",
+      "product_ids": [
+        "tri-blend-sports-tennis-t-shirt",
+        "yale-sports-hoodie-tennis"
+      ],
+      "product_count": 2,
+      "display_name": "Tennis",
+      "canonical_filename": "dan_sport_tennis.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "outdoor hard tennis court, bright summer day",
+      "outfit": "crisp tennis whites, Yale blue headband",
+      "pose": "leaping forehand with a tennis racquet",
+      "humor": "obviously tempted to chase the ball instead of hitting it",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_track_and_field",
+      "group": "Sports",
+      "category": "Track & Field",
+      "product_ids": [
+        "track-field-left-chest-t-shirt",
+        "tri-blend-sports-track-and-field-t-shirt"
+      ],
+      "product_count": 2,
+      "display_name": "Track & Field",
+      "canonical_filename": "dan_sport_track_and_field.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "red outdoor running track with lane lines, stadium in background",
+      "outfit": "Yale singlet and racing bib (no numbers needed)",
+      "pose": "explosive sprint out of starting blocks",
+      "humor": "determined bulldog sprinter, surprisingly fast",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    },
+    {
+      "asset_id": "dan_sport_volleyball",
+      "group": "Sports",
+      "category": "Volleyball",
+      "product_ids": [
+        "volleyball-left-chest-hoodie",
+        "yale-sports-crewneck-volleyball"
+      ],
+      "product_count": 2,
+      "display_name": "Volleyball",
+      "canonical_filename": "dan_sport_volleyball.png",
+      "existing_files": [],
+      "status": "MISSING",
+      "pilot": false,
+      "shield_slug": null,
+      "shield_path": null,
+      "setting": "indoor volleyball court with net and bright gym lights",
+      "outfit": "Yale volleyball jersey and knee pads",
+      "pose": "leaping at the net to block a spike, paws high",
+      "humor": "huge airtime for a bulldog; teammates' shadows blurred",
+      "permitted_text": [
+        "YALE"
+      ],
+      "qa_warnings": []
+    }
+  ],
+  "products": [
+    {
+      "product_id": "2025-yale-vs-harvard-t-shirt",
+      "name": "2025 Yale Vs Harvard T Shirt",
+      "garment_type": "short-sleeve T-shirt",
+      "price": 32.0,
+      "photo_file": "2025-yale-vs-harvard-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/2025-yale-vs-harvard-t-shirt.jpg",
+      "dan_group": "Rivalries",
+      "dan_category": "Harvard",
+      "dan_asset_id": "dan_rival_harvard",
+      "mapping_reason": "name mentions Harvard (The Game)"
+    },
+    {
+      "product_id": "baseball-left-chest-crewneck",
+      "name": "Baseball Left Chest Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "baseball-left-chest-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/baseball-left-chest-crewneck.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Baseball",
+      "dan_asset_id": "dan_sport_baseball",
+      "mapping_reason": "sport 'baseball' in product id"
+    },
+    {
+      "product_id": "basic-hoodie-big-yale",
+      "name": "Basic Hoodie Big Yale",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "basic-hoodie-big-yale.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/basic-hoodie-big-yale.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Hoodies",
+      "dan_asset_id": "dan_hoodie",
+      "mapping_reason": "garment_type 'pullover hoodie'"
+    },
+    {
+      "product_id": "benjamin-franklin-1-4-zip",
+      "name": "Benjamin Franklin 1 4 Zip",
+      "garment_type": "quarter-zip pullover sweatshirt",
+      "price": 72.0,
+      "photo_file": "benjamin-franklin-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/benjamin-franklin-1-4-zip.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Benjamin Franklin",
+      "dan_asset_id": "dan_college_benjamin_franklin",
+      "mapping_reason": "residential college name 'Benjamin Franklin' in product id"
+    },
+    {
+      "product_id": "benjamin-franklin-fleece-jacket",
+      "name": "Benjamin Franklin Fleece Jacket",
+      "garment_type": "full-zip fleece jacket",
+      "price": 98.0,
+      "photo_file": "benjamin-franklin-fleece-jacket.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/benjamin-franklin-fleece-jacket.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Benjamin Franklin",
+      "dan_asset_id": "dan_college_benjamin_franklin",
+      "mapping_reason": "residential college name 'Benjamin Franklin' in product id"
+    },
+    {
+      "product_id": "benjamin-franklin-t-shirt",
+      "name": "Benjamin Franklin T Shirt",
+      "garment_type": "t-shirt",
+      "price": 32.0,
+      "photo_file": "benjamin-franklin-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/benjamin-franklin-t-shirt.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Benjamin Franklin",
+      "dan_asset_id": "dan_college_benjamin_franklin",
+      "mapping_reason": "residential college name 'Benjamin Franklin' in product id"
+    },
+    {
+      "product_id": "berkeley-1-4-zip",
+      "name": "Berkeley 1 4 Zip",
+      "garment_type": "quarter-zip pullover sweatshirt",
+      "price": 72.0,
+      "photo_file": "berkeley-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/berkeley-1-4-zip.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Berkeley",
+      "dan_asset_id": "dan_college_berkeley",
+      "mapping_reason": "residential college name 'Berkeley' in product id"
+    },
+    {
+      "product_id": "berkeley-sweater-fleece-jacket",
+      "name": "Berkeley Sweater Fleece Jacket",
+      "garment_type": "jacket",
+      "price": 98.0,
+      "photo_file": "berkeley-sweater-fleece-jacket.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/berkeley-sweater-fleece-jacket.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Berkeley",
+      "dan_asset_id": "dan_college_berkeley",
+      "mapping_reason": "residential college name 'Berkeley' in product id"
+    },
+    {
+      "product_id": "big-yale-tri-blend-t-shirt",
+      "name": "Big Yale Tri Blend T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "big-yale-tri-blend-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/big-yale-tri-blend-t-shirt.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "T-Shirts",
+      "dan_asset_id": "dan_tshirt",
+      "mapping_reason": "garment_type 'short-sleeve t-shirt'"
+    },
+    {
+      "product_id": "boola-boola-t-shirt",
+      "name": "Boola Boola T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "boola-boola-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/boola-boola-t-shirt.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "T-Shirts",
+      "dan_asset_id": "dan_tshirt",
+      "mapping_reason": "garment_type 'short-sleeve t-shirt'"
+    },
+    {
+      "product_id": "branford-1-4-zip",
+      "name": "Branford 1 4 Zip",
+      "garment_type": "quarter-zip pullover",
+      "price": 72.0,
+      "photo_file": "branford-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/branford-1-4-zip.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Branford",
+      "dan_asset_id": "dan_college_branford",
+      "mapping_reason": "residential college name 'Branford' in product id"
+    },
+    {
+      "product_id": "brooks-brothers-bomber-jacket-yale",
+      "name": "Brooks Brothers Bomber Jacket Yale",
+      "garment_type": "bomber jacket",
+      "price": 98.0,
+      "photo_file": "brooks-brothers-bomber-jacket-yale.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/brooks-brothers-bomber-jacket-yale.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Jackets / Full-Zips",
+      "dan_asset_id": "dan_jacket",
+      "mapping_reason": "garment_type 'bomber jacket'"
+    },
+    {
+      "product_id": "brooks-brothers-double-knit-full-zip-hoodie-yale",
+      "name": "Brooks Brothers Double Knit Full Zip Hoodie Yale",
+      "garment_type": "full-zip hooded sweatshirt",
+      "price": 88.0,
+      "photo_file": "brooks-brothers-double-knit-full-zip-hoodie-yale.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/brooks-brothers-double-knit-full-zip-hoodie-yale.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Hoodies",
+      "dan_asset_id": "dan_hoodie",
+      "mapping_reason": "garment_type 'full-zip hooded sweatshirt'"
+    },
+    {
+      "product_id": "champion-full-zip-hood",
+      "name": "Champion Full Zip Hood",
+      "garment_type": "full-zip hooded sweatshirt",
+      "price": 88.0,
+      "photo_file": "champion-full-zip-hood.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/champion-full-zip-hood.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Hoodies",
+      "dan_asset_id": "dan_hoodie",
+      "mapping_reason": "garment_type 'full-zip hooded sweatshirt'"
+    },
+    {
+      "product_id": "champion-mens-triumph-raglan-crew",
+      "name": "Champion Mens Triumph Raglan Crew",
+      "garment_type": "raglan crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "champion-mens-triumph-raglan-crew.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/champion-mens-triumph-raglan-crew.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'raglan crewneck sweatshirt'"
+    },
+    {
+      "product_id": "champion-reverse-weave-crewneck",
+      "name": "Champion Reverse Weave Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "champion-reverse-weave-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/champion-reverse-weave-crewneck.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'crewneck sweatshirt'"
+    },
+    {
+      "product_id": "champion-reverse-weave-hoodie-1",
+      "name": "Champion Reverse Weave Hoodie 1",
+      "garment_type": "hoodie",
+      "price": 68.0,
+      "photo_file": "champion-reverse-weave-hoodie-1.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/champion-reverse-weave-hoodie-1.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Hoodies",
+      "dan_asset_id": "dan_hoodie",
+      "mapping_reason": "garment_type 'hoodie'"
+    },
+    {
+      "product_id": "crew-left-chest-hoodie",
+      "name": "Crew Left Chest Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "crew-left-chest-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/crew-left-chest-hoodie.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Rowing",
+      "dan_asset_id": "dan_sport_rowing",
+      "mapping_reason": "'Crew' left-chest design = Yale crew (rowing), not a crewneck"
+    },
+    {
+      "product_id": "davenport-college-crewneck",
+      "name": "Davenport College Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "davenport-college-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/davenport-college-crewneck.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Davenport",
+      "dan_asset_id": "dan_college_davenport",
+      "mapping_reason": "residential college name 'Davenport' in product id"
+    },
+    {
+      "product_id": "district-tri-blend-t-shirt-vintage-shield",
+      "name": "District Tri Blend T Shirt Vintage Shield",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "district-tri-blend-t-shirt-vintage-shield.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/district-tri-blend-t-shirt-vintage-shield.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "T-Shirts",
+      "dan_asset_id": "dan_tshirt",
+      "mapping_reason": "garment_type 'short-sleeve t-shirt'"
+    },
+    {
+      "product_id": "district-vit-crewneck-vintage-bulldog",
+      "name": "District Vit Crewneck Vintage Bulldog",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "district-vit-crewneck-vintage-bulldog.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/district-vit-crewneck-vintage-bulldog.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'crewneck sweatshirt'"
+    },
+    {
+      "product_id": "district-vit-crewneck-vintage-standing-bulldog",
+      "name": "District Vit Crewneck Vintage Standing Bulldog",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "district-vit-crewneck-vintage-standing-bulldog.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/district-vit-crewneck-vintage-standing-bulldog.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'crewneck sweatshirt'"
+    },
+    {
+      "product_id": "district-vit-hoodie-vintage-bulldog",
+      "name": "District Vit Hoodie Vintage Bulldog",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "district-vit-hoodie-vintage-bulldog.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/district-vit-hoodie-vintage-bulldog.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Hoodies",
+      "dan_asset_id": "dan_hoodie",
+      "mapping_reason": "garment_type 'pullover hoodie'"
+    },
+    {
+      "product_id": "district-vit-hoodie-vintage-sailor-bulldog",
+      "name": "District Vit Hoodie Vintage Sailor Bulldog",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "district-vit-hoodie-vintage-sailor-bulldog.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/district-vit-hoodie-vintage-sailor-bulldog.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Hoodies",
+      "dan_asset_id": "dan_hoodie",
+      "mapping_reason": "garment_type 'pullover hoodie'"
+    },
+    {
+      "product_id": "diving-left-chest-crewneck",
+      "name": "Diving Left Chest Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "diving-left-chest-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/diving-left-chest-crewneck.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Diving",
+      "dan_asset_id": "dan_sport_diving",
+      "mapping_reason": "sport 'diving' in product id"
+    },
+    {
+      "product_id": "divinity-school-fleece-sweater",
+      "name": "Divinity School Fleece Sweater",
+      "garment_type": "full-zip fleece jacket",
+      "price": 98.0,
+      "photo_file": "divinity-school-fleece-sweater.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/divinity-school-fleece-sweater.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Divinity",
+      "dan_asset_id": "dan_school_divinity",
+      "mapping_reason": "Yale school 'Divinity' in product id"
+    },
+    {
+      "product_id": "dry-zone-long-sleeve",
+      "name": "Dry Zone Long Sleeve",
+      "garment_type": "long-sleeve performance shirt",
+      "price": 45.0,
+      "photo_file": "dry-zone-long-sleeve.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/dry-zone-long-sleeve.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Performance Apparel",
+      "dan_asset_id": "dan_performance",
+      "mapping_reason": "garment_type 'long-sleeve performance shirt'"
+    },
+    {
+      "product_id": "fencing-left-chest-hoodie",
+      "name": "Fencing Left Chest Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "fencing-left-chest-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/fencing-left-chest-hoodie.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Fencing",
+      "dan_asset_id": "dan_sport_fencing",
+      "mapping_reason": "sport 'fencing' in product id"
+    },
+    {
+      "product_id": "football-left-chest-t-shirt",
+      "name": "Football Left Chest T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "football-left-chest-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/football-left-chest-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Football",
+      "dan_asset_id": "dan_sport_football",
+      "mapping_reason": "sport 'football' in product id"
+    },
+    {
+      "product_id": "grace-hopper-college-crewneck",
+      "name": "Grace Hopper College Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "grace-hopper-college-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/grace-hopper-college-crewneck.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Grace Hopper",
+      "dan_asset_id": "dan_college_grace_hopper",
+      "mapping_reason": "residential college name 'Grace Hopper' in product id"
+    },
+    {
+      "product_id": "grace-hopper-logo-t-shirt",
+      "name": "Grace Hopper Logo T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "grace-hopper-logo-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/grace-hopper-logo-t-shirt.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Grace Hopper",
+      "dan_asset_id": "dan_college_grace_hopper",
+      "mapping_reason": "residential college name 'Grace Hopper' in product id"
+    },
+    {
+      "product_id": "hype-and-vice-yale-university-offside-crewneck",
+      "name": "Hype And Vice Yale University Offside Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "hype-and-vice-yale-university-offside-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/hype-and-vice-yale-university-offside-crewneck.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'crewneck sweatshirt'"
+    },
+    {
+      "product_id": "hype-and-vice-yale-university-premium-crewneck",
+      "name": "Hype And Vice Yale University Premium Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "hype-and-vice-yale-university-premium-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/hype-and-vice-yale-university-premium-crewneck.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'crewneck sweatshirt'"
+    },
+    {
+      "product_id": "ice-hockey-left-chest-hoodie",
+      "name": "Ice Hockey Left Chest Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "ice-hockey-left-chest-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/ice-hockey-left-chest-hoodie.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Ice Hockey",
+      "dan_asset_id": "dan_sport_ice_hockey",
+      "mapping_reason": "sport 'hockey' in product id"
+    },
+    {
+      "product_id": "jonathan-edwards-college-crewneck",
+      "name": "Jonathan Edwards College Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "jonathan-edwards-college-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/jonathan-edwards-college-crewneck.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Jonathan Edwards",
+      "dan_asset_id": "dan_college_jonathan_edwards",
+      "mapping_reason": "residential college name 'Jonathan Edwards' in product id"
+    },
+    {
+      "product_id": "lacrosse-left-chest-crewneck",
+      "name": "Lacrosse Left Chest Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "lacrosse-left-chest-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/lacrosse-left-chest-crewneck.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Lacrosse",
+      "dan_asset_id": "dan_sport_lacrosse",
+      "mapping_reason": "sport 'lacrosse' in product id"
+    },
+    {
+      "product_id": "morse-1-4-zip",
+      "name": "Morse 1 4 Zip",
+      "garment_type": "quarter-zip pullover sweatshirt",
+      "price": 72.0,
+      "photo_file": "morse-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/morse-1-4-zip.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Morse",
+      "dan_asset_id": "dan_college_morse",
+      "mapping_reason": "residential college name 'Morse' in product id"
+    },
+    {
+      "product_id": "morse-logo-t-shirt",
+      "name": "Morse Logo T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "morse-logo-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/morse-logo-t-shirt.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Morse",
+      "dan_asset_id": "dan_college_morse",
+      "mapping_reason": "residential college name 'Morse' in product id"
+    },
+    {
+      "product_id": "pierson-college-crewneck",
+      "name": "Pierson College Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "pierson-college-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/pierson-college-crewneck.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Pierson",
+      "dan_asset_id": "dan_college_pierson",
+      "mapping_reason": "residential college name 'Pierson' in product id"
+    },
+    {
+      "product_id": "pierson-logo-t-shirt",
+      "name": "Pierson Logo T Shirt",
+      "garment_type": "short-sleeve T-shirt",
+      "price": 32.0,
+      "photo_file": "pierson-logo-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/pierson-logo-t-shirt.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Pierson",
+      "dan_asset_id": "dan_college_pierson",
+      "mapping_reason": "residential college name 'Pierson' in product id"
+    },
+    {
+      "product_id": "poly-twill-crewneck-arched-yale",
+      "name": "Poly Twill Crewneck Arched Yale",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "poly-twill-crewneck-arched-yale.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/poly-twill-crewneck-arched-yale.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'crewneck sweatshirt'"
+    },
+    {
+      "product_id": "sailing-left-chest-hoodie",
+      "name": "Sailing Left Chest Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "sailing-left-chest-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/sailing-left-chest-hoodie.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Sailing",
+      "dan_asset_id": "dan_sport_sailing",
+      "mapping_reason": "sport 'sailing' in product id"
+    },
+    {
+      "product_id": "saybrook-college-crewneck",
+      "name": "Saybrook College Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "saybrook-college-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/saybrook-college-crewneck.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Saybrook",
+      "dan_asset_id": "dan_college_saybrook",
+      "mapping_reason": "residential college name 'Saybrook' in product id"
+    },
+    {
+      "product_id": "saybrook-logo-t-shirt",
+      "name": "Saybrook Logo T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "saybrook-logo-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/saybrook-logo-t-shirt.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Saybrook",
+      "dan_asset_id": "dan_college_saybrook",
+      "mapping_reason": "residential college name 'Saybrook' in product id"
+    },
+    {
+      "product_id": "saybrook-sweater-fleece-jacket",
+      "name": "Saybrook Sweater Fleece Jacket",
+      "garment_type": "fleece jacket",
+      "price": 98.0,
+      "photo_file": "saybrook-sweater-fleece-jacket.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/saybrook-sweater-fleece-jacket.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Saybrook",
+      "dan_asset_id": "dan_college_saybrook",
+      "mapping_reason": "residential college name 'Saybrook' in product id"
+    },
+    {
+      "product_id": "school-of-architecture-crewneck",
+      "name": "School Of Architecture Crewneck",
+      "garment_type": "quarter-zip pullover sweatshirt",
+      "price": 72.0,
+      "photo_file": "school-of-architecture-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-architecture-crewneck.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Architecture",
+      "dan_asset_id": "dan_school_architecture",
+      "mapping_reason": "Yale school 'Architecture' in product id"
+    },
+    {
+      "product_id": "school-of-architecture-fleece-sweater",
+      "name": "School Of Architecture Fleece Sweater",
+      "garment_type": "full-zip fleece jacket",
+      "price": 98.0,
+      "photo_file": "school-of-architecture-fleece-sweater.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-architecture-fleece-sweater.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Architecture",
+      "dan_asset_id": "dan_school_architecture",
+      "mapping_reason": "Yale school 'Architecture' in product id"
+    },
+    {
+      "product_id": "school-of-art-1-4-zip",
+      "name": "School Of Art 1 4 Zip",
+      "garment_type": "quarter-zip pullover",
+      "price": 72.0,
+      "photo_file": "school-of-art-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-art-1-4-zip.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Art",
+      "dan_asset_id": "dan_school_art",
+      "mapping_reason": "Yale school 'Art' in product id"
+    },
+    {
+      "product_id": "school-of-art-fleece-sweater",
+      "name": "School Of Art Fleece Sweater",
+      "garment_type": "full-zip fleece jacket",
+      "price": 98.0,
+      "photo_file": "school-of-art-fleece-sweater.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-art-fleece-sweater.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Art",
+      "dan_asset_id": "dan_school_art",
+      "mapping_reason": "Yale school 'Art' in product id"
+    },
+    {
+      "product_id": "school-of-engineering-1-4-zip",
+      "name": "School Of Engineering 1 4 Zip",
+      "garment_type": "quarter-zip pullover",
+      "price": 72.0,
+      "photo_file": "school-of-engineering-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-engineering-1-4-zip.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Engineering & Applied Science",
+      "dan_asset_id": "dan_school_engineering_and_applied_science",
+      "mapping_reason": "Yale school 'Engineering & Applied Science' in product id"
+    },
+    {
+      "product_id": "school-of-management-crest-t-shirt",
+      "name": "School Of Management Crest T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "school-of-management-crest-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-management-crest-t-shirt.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Management",
+      "dan_asset_id": "dan_school_management",
+      "mapping_reason": "Yale school 'Management' in product id"
+    },
+    {
+      "product_id": "school-of-medicine-1-4-zip",
+      "name": "School Of Medicine 1 4 Zip",
+      "garment_type": "quarter-zip pullover sweatshirt",
+      "price": 72.0,
+      "photo_file": "school-of-medicine-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-medicine-1-4-zip.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Medicine",
+      "dan_asset_id": "dan_school_medicine",
+      "mapping_reason": "Yale school 'Medicine' in product id"
+    },
+    {
+      "product_id": "school-of-music-fleece-sweater",
+      "name": "School Of Music Fleece Sweater",
+      "garment_type": "full-zip fleece jacket",
+      "price": 98.0,
+      "photo_file": "school-of-music-fleece-sweater.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-music-fleece-sweater.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Music",
+      "dan_asset_id": "dan_school_music",
+      "mapping_reason": "Yale school 'Music' in product id"
+    },
+    {
+      "product_id": "school-of-nursing-crest-t-shirt",
+      "name": "School Of Nursing Crest T Shirt",
+      "garment_type": "short-sleeve crew-neck t-shirt",
+      "price": 32.0,
+      "photo_file": "school-of-nursing-crest-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-nursing-crest-t-shirt.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Nursing",
+      "dan_asset_id": "dan_school_nursing",
+      "mapping_reason": "Yale school 'Nursing' in product id"
+    },
+    {
+      "product_id": "school-of-public-health-1-4-zip",
+      "name": "School Of Public Health 1 4 Zip",
+      "garment_type": "quarter-zip pullover",
+      "price": 72.0,
+      "photo_file": "school-of-public-health-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/school-of-public-health-1-4-zip.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Public Health",
+      "dan_asset_id": "dan_school_public_health",
+      "mapping_reason": "Yale school 'Public Health' in product id"
+    },
+    {
+      "product_id": "soccer-left-chest-crewneck",
+      "name": "Soccer Left Chest Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "soccer-left-chest-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/soccer-left-chest-crewneck.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Soccer",
+      "dan_asset_id": "dan_sport_soccer",
+      "mapping_reason": "sport 'soccer' in product id"
+    },
+    {
+      "product_id": "squash-left-chest-hoodie",
+      "name": "Squash Left Chest Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "squash-left-chest-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/squash-left-chest-hoodie.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Squash",
+      "dan_asset_id": "dan_sport_squash",
+      "mapping_reason": "sport 'squash' in product id"
+    },
+    {
+      "product_id": "squash-left-chest-tennis",
+      "name": "Squash Left Chest Tennis",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "squash-left-chest-tennis.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/squash-left-chest-tennis.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Squash",
+      "dan_asset_id": "dan_sport_squash",
+      "mapping_reason": "sport 'squash' in product id"
+    },
+    {
+      "product_id": "super-heavyweight-crewneck-arched-yale-crest",
+      "name": "Super Heavyweight Crewneck Arched Yale Crest",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "super-heavyweight-crewneck-arched-yale-crest.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/super-heavyweight-crewneck-arched-yale-crest.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Crewnecks",
+      "dan_asset_id": "dan_crewneck",
+      "mapping_reason": "garment_type 'crewneck sweatshirt'"
+    },
+    {
+      "product_id": "t-felt-y-heavyweight",
+      "name": "T Felt Y Heavyweight",
+      "garment_type": "heavyweight short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "t-felt-y-heavyweight.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/t-felt-y-heavyweight.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "T-Shirts",
+      "dan_asset_id": "dan_tshirt",
+      "mapping_reason": "garment_type 'heavyweight short-sleeve t-shirt'"
+    },
+    {
+      "product_id": "the-forest-school-hoodie",
+      "name": "The Forest School Hoodie",
+      "garment_type": "hoodie",
+      "price": 68.0,
+      "photo_file": "the-forest-school-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/the-forest-school-hoodie.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Environment",
+      "dan_asset_id": "dan_school_environment",
+      "mapping_reason": "Yale school 'Environment' in product id"
+    },
+    {
+      "product_id": "timothy-dwight-college-crewneck",
+      "name": "Timothy Dwight College Crewneck",
+      "garment_type": "crewneck",
+      "price": 58.0,
+      "photo_file": "timothy-dwight-college-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/timothy-dwight-college-crewneck.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Timothy Dwight",
+      "dan_asset_id": "dan_college_timothy_dwight",
+      "mapping_reason": "residential college name 'Timothy Dwight' in product id"
+    },
+    {
+      "product_id": "track-field-left-chest-t-shirt",
+      "name": "Track Field Left Chest T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "track-field-left-chest-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/track-field-left-chest-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Track & Field",
+      "dan_asset_id": "dan_sport_track_and_field",
+      "mapping_reason": "sport 'track' in product id"
+    },
+    {
+      "product_id": "tri-blend-sports-baseball-t-shirt",
+      "name": "Tri Blend Sports Baseball T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "tri-blend-sports-baseball-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/tri-blend-sports-baseball-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Baseball",
+      "dan_asset_id": "dan_sport_baseball",
+      "mapping_reason": "sport 'baseball' in product id"
+    },
+    {
+      "product_id": "tri-blend-sports-basketball-t-shirt",
+      "name": "Tri Blend Sports Basketball T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "tri-blend-sports-basketball-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/tri-blend-sports-basketball-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Basketball",
+      "dan_asset_id": "dan_sport_basketball",
+      "mapping_reason": "sport 'basketball' in product id"
+    },
+    {
+      "product_id": "tri-blend-sports-football-t-shirt",
+      "name": "Tri Blend Sports Football T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "tri-blend-sports-football-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/tri-blend-sports-football-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Football",
+      "dan_asset_id": "dan_sport_football",
+      "mapping_reason": "sport 'football' in product id"
+    },
+    {
+      "product_id": "tri-blend-sports-hockey-t-shirt",
+      "name": "Tri Blend Sports Hockey T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "tri-blend-sports-hockey-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/tri-blend-sports-hockey-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Ice Hockey",
+      "dan_asset_id": "dan_sport_ice_hockey",
+      "mapping_reason": "sport 'hockey' in product id"
+    },
+    {
+      "product_id": "tri-blend-sports-soccer-t-shirt",
+      "name": "Tri Blend Sports Soccer T Shirt",
+      "garment_type": "short-sleeve T-shirt",
+      "price": 32.0,
+      "photo_file": "tri-blend-sports-soccer-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/tri-blend-sports-soccer-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Soccer",
+      "dan_asset_id": "dan_sport_soccer",
+      "mapping_reason": "sport 'soccer' in product id"
+    },
+    {
+      "product_id": "tri-blend-sports-tennis-t-shirt",
+      "name": "Tri Blend Sports Tennis T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "tri-blend-sports-tennis-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/tri-blend-sports-tennis-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Tennis",
+      "dan_asset_id": "dan_sport_tennis",
+      "mapping_reason": "sport 'tennis' in product id"
+    },
+    {
+      "product_id": "tri-blend-sports-track-and-field-t-shirt",
+      "name": "Tri Blend Sports Track And Field T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "tri-blend-sports-track-and-field-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/tri-blend-sports-track-and-field-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Track & Field",
+      "dan_asset_id": "dan_sport_track_and_field",
+      "mapping_reason": "sport 'track' in product id"
+    },
+    {
+      "product_id": "trumbull-1-4-zip",
+      "name": "Trumbull 1 4 Zip",
+      "garment_type": "quarter-zip pullover sweatshirt",
+      "price": 72.0,
+      "photo_file": "trumbull-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/trumbull-1-4-zip.jpg",
+      "dan_group": "Colleges",
+      "dan_category": "Trumbull",
+      "dan_asset_id": "dan_college_trumbull",
+      "mapping_reason": "residential college name 'Trumbull' in product id"
+    },
+    {
+      "product_id": "ua-gameday-double-knit-hood",
+      "name": "Ua Gameday Double Knit Hood",
+      "garment_type": "hooded pullover sweatshirt",
+      "price": 45.0,
+      "photo_file": "ua-gameday-double-knit-hood.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/ua-gameday-double-knit-hood.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Hoodies",
+      "dan_asset_id": "dan_hoodie",
+      "mapping_reason": "garment_type 'hooded pullover sweatshirt'"
+    },
+    {
+      "product_id": "ua-mens-tech-l-s-2-0",
+      "name": "Ua Mens Tech L S 2 0",
+      "garment_type": "men's long-sleeve performance shirt",
+      "price": 45.0,
+      "photo_file": "ua-mens-tech-l-s-2-0.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/ua-mens-tech-l-s-2-0.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Performance Apparel",
+      "dan_asset_id": "dan_performance",
+      "mapping_reason": "garment_type 'men's long-sleeve performance shirt'"
+    },
+    {
+      "product_id": "volleyball-left-chest-hoodie",
+      "name": "Volleyball Left Chest Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "volleyball-left-chest-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/volleyball-left-chest-hoodie.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Volleyball",
+      "dan_asset_id": "dan_sport_volleyball",
+      "mapping_reason": "sport 'volleyball' in product id"
+    },
+    {
+      "product_id": "yale-aunt-hoodie",
+      "name": "Yale Aunt Hoodie",
+      "garment_type": "hoodie",
+      "price": 68.0,
+      "photo_file": "yale-aunt-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-aunt-hoodie.jpg",
+      "dan_group": "Family",
+      "dan_category": "Aunt",
+      "dan_asset_id": "dan_family_aunt",
+      "mapping_reason": "family gift word 'aunt' in product id"
+    },
+    {
+      "product_id": "yale-bowl-t-shirt",
+      "name": "Yale Bowl T Shirt",
+      "garment_type": "short-sleeve T-shirt",
+      "price": 32.0,
+      "photo_file": "yale-bowl-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-bowl-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Football",
+      "dan_asset_id": "dan_sport_football",
+      "mapping_reason": "sport 'yale-bowl' in product id"
+    },
+    {
+      "product_id": "yale-brother-crewneck",
+      "name": "Yale Brother Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-brother-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-brother-crewneck.jpg",
+      "dan_group": "Family",
+      "dan_category": "Brother",
+      "dan_asset_id": "dan_family_brother",
+      "mapping_reason": "family gift word 'brother' in product id"
+    },
+    {
+      "product_id": "yale-cousin-crewneck",
+      "name": "Yale Cousin Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-cousin-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-cousin-crewneck.jpg",
+      "dan_group": "Family",
+      "dan_category": "Cousin",
+      "dan_asset_id": "dan_family_cousin",
+      "mapping_reason": "family gift word 'cousin' in product id"
+    },
+    {
+      "product_id": "yale-dad-crewneck",
+      "name": "Yale Dad Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-dad-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-dad-crewneck.jpg",
+      "dan_group": "Family",
+      "dan_category": "Dad",
+      "dan_asset_id": "dan_family_dad",
+      "mapping_reason": "family gift word 'dad' in product id"
+    },
+    {
+      "product_id": "yale-dad-hoodie",
+      "name": "Yale Dad Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-dad-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-dad-hoodie.jpg",
+      "dan_group": "Family",
+      "dan_category": "Dad",
+      "dan_asset_id": "dan_family_dad",
+      "mapping_reason": "family gift word 'dad' in product id"
+    },
+    {
+      "product_id": "yale-dad-t-shirt",
+      "name": "Yale Dad T Shirt",
+      "garment_type": "short-sleeve t-shirt",
+      "price": 32.0,
+      "photo_file": "yale-dad-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-dad-t-shirt.jpg",
+      "dan_group": "Family",
+      "dan_category": "Dad",
+      "dan_asset_id": "dan_family_dad",
+      "mapping_reason": "family gift word 'dad' in product id"
+    },
+    {
+      "product_id": "yale-diving-t-shirt",
+      "name": "Yale Diving T Shirt",
+      "garment_type": "short-sleeve T-shirt",
+      "price": 32.0,
+      "photo_file": "yale-diving-t-shirt.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-diving-t-shirt.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Diving",
+      "dan_asset_id": "dan_sport_diving",
+      "mapping_reason": "sport 'diving' in product id"
+    },
+    {
+      "product_id": "yale-grandma-hoodie",
+      "name": "Yale Grandma Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-grandma-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-grandma-hoodie.jpg",
+      "dan_group": "Family",
+      "dan_category": "Grandma",
+      "dan_asset_id": "dan_family_grandma",
+      "mapping_reason": "family gift word 'grandma' in product id"
+    },
+    {
+      "product_id": "yale-grandpa-crewneck",
+      "name": "Yale Grandpa Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-grandpa-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-grandpa-crewneck.jpg",
+      "dan_group": "Family",
+      "dan_category": "Grandpa",
+      "dan_asset_id": "dan_family_grandpa",
+      "mapping_reason": "family gift word 'grandpa' in product id"
+    },
+    {
+      "product_id": "yale-grandpa-hoodie",
+      "name": "Yale Grandpa Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-grandpa-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-grandpa-hoodie.jpg",
+      "dan_group": "Family",
+      "dan_category": "Grandpa",
+      "dan_asset_id": "dan_family_grandpa",
+      "mapping_reason": "family gift word 'grandpa' in product id"
+    },
+    {
+      "product_id": "yale-law-school-1-4-zip",
+      "name": "Yale Law School 1 4 Zip",
+      "garment_type": "quarter-zip pullover",
+      "price": 72.0,
+      "photo_file": "yale-law-school-1-4-zip.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-law-school-1-4-zip.jpg",
+      "dan_group": "Schools",
+      "dan_category": "Law",
+      "dan_asset_id": "dan_school_law",
+      "mapping_reason": "Yale school 'Law' in product id"
+    },
+    {
+      "product_id": "yale-maplehouse-diana-mockneck",
+      "name": "Yale Maplehouse Diana Mockneck",
+      "garment_type": "mockneck sweatshirt",
+      "price": 45.0,
+      "photo_file": "yale-maplehouse-diana-mockneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-maplehouse-diana-mockneck.jpg",
+      "dan_group": "Apparel",
+      "dan_category": "Other Apparel",
+      "dan_asset_id": "dan_apparel_other",
+      "mapping_reason": "garment_type 'mockneck sweatshirt' fits no main apparel group"
+    },
+    {
+      "product_id": "yale-mom-crewneck",
+      "name": "Yale Mom Crewneck",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-mom-crewneck.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-mom-crewneck.jpg",
+      "dan_group": "Family",
+      "dan_category": "Mom",
+      "dan_asset_id": "dan_family_mom",
+      "mapping_reason": "family gift word 'mom' in product id"
+    },
+    {
+      "product_id": "yale-mom-hoodie",
+      "name": "Yale Mom Hoodie",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-mom-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-mom-hoodie.jpg",
+      "dan_group": "Family",
+      "dan_category": "Mom",
+      "dan_asset_id": "dan_family_mom",
+      "mapping_reason": "family gift word 'mom' in product id"
+    },
+    {
+      "product_id": "yale-sports-creqneck-field-hockey",
+      "name": "Yale Sports Creqneck Field Hockey",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-sports-creqneck-field-hockey.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-creqneck-field-hockey.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Field Hockey",
+      "dan_asset_id": "dan_sport_field_hockey",
+      "mapping_reason": "sport 'field-hockey' in product id"
+    },
+    {
+      "product_id": "yale-sports-crewneck-baseball",
+      "name": "Yale Sports Crewneck Baseball",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-sports-crewneck-baseball.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-crewneck-baseball.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Baseball",
+      "dan_asset_id": "dan_sport_baseball",
+      "mapping_reason": "sport 'baseball' in product id"
+    },
+    {
+      "product_id": "yale-sports-crewneck-golf",
+      "name": "Yale Sports Crewneck Golf",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-sports-crewneck-golf.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-crewneck-golf.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Golf",
+      "dan_asset_id": "dan_sport_golf",
+      "mapping_reason": "sport 'golf' in product id"
+    },
+    {
+      "product_id": "yale-sports-crewneck-volleyball",
+      "name": "Yale Sports Crewneck Volleyball",
+      "garment_type": "crewneck sweatshirt",
+      "price": 58.0,
+      "photo_file": "yale-sports-crewneck-volleyball.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-crewneck-volleyball.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Volleyball",
+      "dan_asset_id": "dan_sport_volleyball",
+      "mapping_reason": "sport 'volleyball' in product id"
+    },
+    {
+      "product_id": "yale-sports-hoodie-baseball",
+      "name": "Yale Sports Hoodie Baseball",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-sports-hoodie-baseball.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-hoodie-baseball.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Baseball",
+      "dan_asset_id": "dan_sport_baseball",
+      "mapping_reason": "sport 'baseball' in product id"
+    },
+    {
+      "product_id": "yale-sports-hoodie-diving",
+      "name": "Yale Sports Hoodie Diving",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-sports-hoodie-diving.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-hoodie-diving.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Diving",
+      "dan_asset_id": "dan_sport_diving",
+      "mapping_reason": "sport 'diving' in product id"
+    },
+    {
+      "product_id": "yale-sports-hoodie-golf",
+      "name": "Yale Sports Hoodie Golf",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-sports-hoodie-golf.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-hoodie-golf.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Golf",
+      "dan_asset_id": "dan_sport_golf",
+      "mapping_reason": "sport 'golf' in product id"
+    },
+    {
+      "product_id": "yale-sports-hoodie-hockey",
+      "name": "Yale Sports Hoodie Hockey",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-sports-hoodie-hockey.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-hoodie-hockey.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Ice Hockey",
+      "dan_asset_id": "dan_sport_ice_hockey",
+      "mapping_reason": "sport 'hockey' in product id"
+    },
+    {
+      "product_id": "yale-sports-hoodie-soccer",
+      "name": "Yale Sports Hoodie Soccer",
+      "garment_type": "pullover hoodie",
+      "price": 68.0,
+      "photo_file": "yale-sports-hoodie-soccer.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-hoodie-soccer.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Soccer",
+      "dan_asset_id": "dan_sport_soccer",
+      "mapping_reason": "sport 'soccer' in product id"
+    },
+    {
+      "product_id": "yale-sports-hoodie-swimming",
+      "name": "Yale Sports Hoodie Swimming",
+      "garment_type": "hoodie",
+      "price": 68.0,
+      "photo_file": "yale-sports-hoodie-swimming.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-hoodie-swimming.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Swimming",
+      "dan_asset_id": "dan_sport_swimming",
+      "mapping_reason": "sport 'swimming' in product id"
+    },
+    {
+      "product_id": "yale-sports-hoodie-tennis",
+      "name": "Yale Sports Hoodie Tennis",
+      "garment_type": "hooded sweatshirt",
+      "price": 45.0,
+      "photo_file": "yale-sports-hoodie-tennis.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-hoodie-tennis.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Tennis",
+      "dan_asset_id": "dan_sport_tennis",
+      "mapping_reason": "sport 'tennis' in product id"
+    },
+    {
+      "product_id": "yale-sports-t-shirt-field-hockey",
+      "name": "Yale Sports T Shirt Field Hockey",
+      "garment_type": "short-sleeve T-shirt",
+      "price": 32.0,
+      "photo_file": "yale-sports-t-shirt-field-hockey.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-sports-t-shirt-field-hockey.jpg",
+      "dan_group": "Sports",
+      "dan_category": "Field Hockey",
+      "dan_asset_id": "dan_sport_field_hockey",
+      "mapping_reason": "sport 'field-hockey' in product id"
+    },
+    {
+      "product_id": "yale-uncle-hoodie",
+      "name": "Yale Uncle Hoodie",
+      "garment_type": "hoodie",
+      "price": 68.0,
+      "photo_file": "yale-uncle-hoodie.jpg",
+      "photo_present": true,
+      "photo_rel": "output/work/catalogue/data/products/yale-uncle-hoodie.jpg",
+      "dan_group": "Family",
+      "dan_category": "Uncle",
+      "dan_asset_id": "dan_family_uncle",
+      "mapping_reason": "family gift word 'uncle' in product id"
+    }
+  ],
+  "dan_files": [
+    {
+      "filename": "Dan Baseball Babe Ruth.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Baseball Babe Ruth.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "asset_id": "dan_sport_baseball",
+      "disposition": "mapped",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Basketball Dunk.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Basketball Dunk.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "asset_id": "dan_sport_basketball",
+      "disposition": "mapped",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Benjamin Franklin.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Benjamin Franklin.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_benjamin_franklin",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Berkely College.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Berkely College.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_berkeley",
+      "disposition": "mapped",
+      "notes": [
+        "Filename misspells Berkeley (kept as-is; mapped, not renamed)",
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Branford.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Branford.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_branford",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Crew Rowing.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Crew Rowing.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "asset_id": "dan_sport_rowing",
+      "disposition": "mapped",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Davenport.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Davenport.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_davenport",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Ezra Stiles.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ezra Stiles.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_ezra_stiles",
+      "disposition": "out_of_scope",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan FootBall C.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan FootBall C.png",
+      "size": [
+        1042,
+        732
+      ],
+      "asset_id": "dan_sport_football",
+      "disposition": "mapped",
+      "notes": [
+        "Below 1024px on one side (1042\u00d7732)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Football A.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Football A.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "asset_id": "dan_sport_football",
+      "disposition": "mapped",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Football B.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Football B.png",
+      "size": [
+        1048,
+        678
+      ],
+      "asset_id": "dan_sport_football",
+      "disposition": "mapped",
+      "notes": [
+        "Below 1024px on one side (1048\u00d7678)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Grace Hopper.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Grace Hopper.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_grace_hopper",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Ice Hockey.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ice Hockey.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "asset_id": "dan_sport_ice_hockey",
+      "disposition": "mapped",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Ivy Brown.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ivy Brown.png",
+      "size": [
+        1078,
+        710
+      ],
+      "asset_id": "dan_rival_brown",
+      "disposition": "out_of_scope",
+      "notes": [
+        "Below 1024px on one side (1078\u00d7710)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Ivy Columbia.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ivy Columbia.png",
+      "size": [
+        1076,
+        712
+      ],
+      "asset_id": "dan_rival_columbia",
+      "disposition": "out_of_scope",
+      "notes": [
+        "Below 1024px on one side (1076\u00d7712)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Ivy Cornell.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ivy Cornell.png",
+      "size": [
+        1076,
+        714
+      ],
+      "asset_id": "dan_rival_cornell",
+      "disposition": "out_of_scope",
+      "notes": [
+        "Below 1024px on one side (1076\u00d7714)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Ivy Dartmouth.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ivy Dartmouth.png",
+      "size": [
+        1072,
+        712
+      ],
+      "asset_id": "dan_rival_dartmouth",
+      "disposition": "out_of_scope",
+      "notes": [
+        "Below 1024px on one side (1072\u00d7712)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Ivy Harvard Sideeye.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ivy Harvard Sideeye.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "asset_id": "dan_rival_harvard",
+      "disposition": "mapped",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Ivy Princeton.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ivy Princeton.png",
+      "size": [
+        1404,
+        1274
+      ],
+      "asset_id": "dan_rival_princeton",
+      "disposition": "out_of_scope",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Ivy UPenn.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Ivy UPenn.png",
+      "size": [
+        1360,
+        1270
+      ],
+      "asset_id": "dan_rival_upenn",
+      "disposition": "out_of_scope",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Jonathan Edwards.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Jonathan Edwards.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_jonathan_edwards",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Morse.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Morse.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_morse",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Pauli Murray.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Pauli Murray.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_pauli_murray",
+      "disposition": "out_of_scope",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Pierson.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Pierson.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_pierson",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Saybrook.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Saybrook.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_saybrook",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Silliman.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Silliman.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_silliman",
+      "disposition": "out_of_scope",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Soccer A.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Soccer A.png",
+      "size": [
+        712,
+        1406
+      ],
+      "asset_id": "dan_sport_soccer",
+      "disposition": "mapped",
+      "notes": [
+        "Below 1024px on one side (712\u00d71406)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Soccer B.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Soccer B.png",
+      "size": [
+        696,
+        1410
+      ],
+      "asset_id": "dan_sport_soccer",
+      "disposition": "mapped",
+      "notes": [
+        "Below 1024px on one side (696\u00d71410)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Soccer C.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Soccer C.png",
+      "size": [
+        712,
+        1426
+      ],
+      "asset_id": "dan_sport_soccer",
+      "disposition": "mapped",
+      "notes": [
+        "Below 1024px on one side (712\u00d71426)",
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Socks and Hoodie.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Socks and Hoodie.png",
+      "size": [
+        1855,
+        848
+      ],
+      "asset_id": null,
+      "disposition": "collage_excluded",
+      "notes": [
+        "Two-panel collage: not an individual asset"
+      ]
+    },
+    {
+      "filename": "Dan Swimming.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Swimming.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "asset_id": "dan_sport_swimming",
+      "disposition": "mapped",
+      "notes": [
+        "Not square"
+      ]
+    },
+    {
+      "filename": "Dan Timothy Dwight.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Timothy Dwight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_timothy_dwight",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    },
+    {
+      "filename": "Dan Trumbull.png",
+      "rel_path": "output/work/dan_final/Dan Final Images/Dan Trumbull.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "asset_id": "dan_college_trumbull",
+      "disposition": "mapped",
+      "notes": [
+        "College shield/lettering should be visually checked against references/shields"
+      ]
+    }
+  ],
+  "references": {
+    "shields": [
+      {
+        "slug": "yale_university",
+        "label": "Yale University",
+        "path": "references/shields/yale_university.png",
+        "source": "Screenshot 2026-10-10 at 9.16.06\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "yale_college",
+        "label": "Yale College",
+        "path": "references/shields/yale_college.png",
+        "source": "Screenshot 2026-10-10 at 9.16.10\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "graduate_school_of_arts_and_sciences",
+        "label": "Graduate School of Arts and Sciences",
+        "path": "references/shields/graduate_school_of_arts_and_sciences.png",
+        "source": "Screenshot 2026-10-10 at 9.16.15\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "faculty_of_arts_and_sciences",
+        "label": "Faculty of Arts and Sciences",
+        "path": "references/shields/faculty_of_arts_and_sciences.png",
+        "source": "Screenshot 2026-10-10 at 9.16.20\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_architecture",
+        "label": "School of Architecture",
+        "path": "references/shields/school_of_architecture.png",
+        "source": "Screenshot 2026-10-10 at 9.16.25\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_art",
+        "label": "School of Art",
+        "path": "references/shields/school_of_art.png",
+        "source": "Screenshot 2026-10-10 at 9.16.29\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "divinity_school",
+        "label": "Divinity School",
+        "path": "references/shields/divinity_school.png",
+        "source": "Screenshot 2026-10-10 at 9.16.34\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_drama",
+        "label": "David Geffen School of Drama",
+        "path": "references/shields/school_of_drama.png",
+        "source": "Screenshot 2026-10-10 at 9.16.39\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_engineering_and_applied_science",
+        "label": "School of Engineering & Applied Science",
+        "path": "references/shields/school_of_engineering_and_applied_science.png",
+        "source": "Screenshot 2026-10-10 at 9.16.45\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_the_environment",
+        "label": "School of the Environment",
+        "path": "references/shields/school_of_the_environment.png",
+        "source": "Screenshot 2026-10-10 at 9.16.50\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "jackson_school_of_global_affairs",
+        "label": "Jackson School of Global Affairs",
+        "path": "references/shields/jackson_school_of_global_affairs.png",
+        "source": "Screenshot 2026-10-10 at 9.16.55\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "law_school",
+        "label": "Law School",
+        "path": "references/shields/law_school.png",
+        "source": "Screenshot 2026-10-10 at 9.16.59\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_management",
+        "label": "School of Management",
+        "path": "references/shields/school_of_management.png",
+        "source": "Screenshot 2026-10-10 at 9.17.03\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_medicine",
+        "label": "School of Medicine",
+        "path": "references/shields/school_of_medicine.png",
+        "source": "Screenshot 2026-10-10 at 9.17.07\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_music",
+        "label": "School of Music",
+        "path": "references/shields/school_of_music.png",
+        "source": "Screenshot 2026-10-10 at 9.17.10\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_nursing",
+        "label": "School of Nursing",
+        "path": "references/shields/school_of_nursing.png",
+        "source": "Screenshot 2026-10-10 at 9.17.14\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "school_of_public_health",
+        "label": "School of Public Health",
+        "path": "references/shields/school_of_public_health.png",
+        "source": "Screenshot 2026-10-10 at 9.17.18\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "berkeley_college",
+        "label": "Berkeley College",
+        "path": "references/shields/berkeley_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.23\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "branford_college",
+        "label": "Branford College",
+        "path": "references/shields/branford_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.26\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "davenport_college",
+        "label": "Davenport College",
+        "path": "references/shields/davenport_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.30\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "benjamin_franklin_college",
+        "label": "Benjamin Franklin College",
+        "path": "references/shields/benjamin_franklin_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.34\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "grace_hopper_college",
+        "label": "Grace Hopper College",
+        "path": "references/shields/grace_hopper_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.37\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "jonathan_edwards_college",
+        "label": "Jonathan Edwards College",
+        "path": "references/shields/jonathan_edwards_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.41\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "morse_college",
+        "label": "Morse College",
+        "path": "references/shields/morse_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.45\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "pauli_murray_college",
+        "label": "Pauli Murray College",
+        "path": "references/shields/pauli_murray_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.49\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "pierson_college",
+        "label": "Pierson College",
+        "path": "references/shields/pierson_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.53\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "saybrook_college",
+        "label": "Saybrook College",
+        "path": "references/shields/saybrook_college.png",
+        "source": "Screenshot 2026-10-10 at 9.17.57\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "silliman_college",
+        "label": "Silliman College",
+        "path": "references/shields/silliman_college.png",
+        "source": "Screenshot 2026-10-10 at 9.18.00\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "ezra_stiles_college",
+        "label": "Ezra Stiles College",
+        "path": "references/shields/ezra_stiles_college.png",
+        "source": "Screenshot 2026-10-10 at 9.18.04\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "timothy_dwight_college",
+        "label": "Timothy Dwight College",
+        "path": "references/shields/timothy_dwight_college.png",
+        "source": "Screenshot 2026-10-10 at 9.18.08\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      },
+      {
+        "slug": "trumbull_college",
+        "label": "Trumbull College",
+        "path": "references/shields/trumbull_college.png",
+        "source": "Screenshot 2026-10-10 at 9.18.11\u0393\u00c7\u00bbPM.png",
+        "mapping": "read from label printed in source image"
+      }
+    ],
+    "dan_references": [
+      {
+        "name": "Welcome Dan.png",
+        "path": "references/dan/Welcome_Dan.png"
+      },
+      {
+        "name": "Dan Baseball Babe Ruth.png",
+        "path": "references/dan/Dan_Baseball_Babe_Ruth.png"
+      },
+      {
+        "name": "Dan Swimming.png",
+        "path": "references/dan/Dan_Swimming.png"
+      },
+      {
+        "name": "Dan Ice Hockey.png",
+        "path": "references/dan/Dan_Ice_Hockey.png"
+      },
+      {
+        "name": "Dan Ivy Harvard Sideeye.png",
+        "path": "references/dan/Dan_Ivy_Harvard_Sideeye.png"
+      }
+    ],
+    "unmapped_reference_files": []
+  }
+}
