@@ -638,3 +638,24 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 > Put the code in a folder named "hw4" and push it to a public GitHub repository.  I will submit the URL(s)  for the repo - the link graders can open and clone.  There will not be a zip to upload to Canvas for this assignment.  Do Not put real .env campus_customs or product images in the GitHub repo.  You can use the .gitignore for that.  You can use env.example as a placeholder. BUT, for any of the images that WE rendered (like all the Dans), we will need to upload those. I also want to make sure that it was clear to the prof, TAs, and the AI grading tool that significant work went into the enhancements of this project.  I want to make sure that the executive summary page is available to them.  I want to make sure that they see the Dan image creation studio is available to them to inspect and you can encourage them try out.  The basic agent itself is four files under backend/: prompts/prompt.md, agent.py, tools.py, and models.py.  Readme.md should explain how to run the front and back end after placing the data pack.  See uploaded basic file structure.  Additional folders will be needed to add the enhancements, I'm sure.
 >
 > *(Attached: the expected file structure — `hw4/` with `AI_prompts.md`, `requirements.txt`, `.env.example`, `.gitignore`, `README.md`, `frontend/`, `backend/` (`main.py`, `agent.py`, `models.py`, `tools.py`, `prompts/prompt.md`), `output/` (`harness.md`, `design.md`, `usability.md`, `app_check.html`, `app_check_images/`, `audit_trail.json`); local-only data pack `data/` with `campus_customs.db` and `products/`.)*
+
+**Follow-up (mid-task)**
+> this is the first AI project for this class on github.  i would do one repo per project
+
+*Why I needed it:* This is the class's first AI project on GitHub, and I want one repository per project.
+
+**Summary of Problem 13 (what was done)**
+- **Repo:** public, one repo for this project: **https://github.com/dr-bmo2255/mgt409e-hw4**, with all code in **`hw4/`** following the given structure.
+  - The project folder moved to `mgt409e-hw4/hw4/` (Python environments rebuilt, launch configs updated).
+  - `AI_Prompt.md` was renamed to `AI_prompts.md`, and `requirements.txt` moved to the top of `hw4/`.
+- **Not in the repo:** `.env` files, `campus_customs.db`, the original product photos, customer designs, the studio's run state, and the course zips. `.env.example` is the placeholder.
+  - The backend finds the owner's `.env` outside the repo, or a grader's `hw4/.env`.
+- **In the repo:** every image we rendered — all Handsome Dan art (`data/dan/`), the custom-gear mockups, and the 137 product colorways — plus the briefing images and the app-check screenshots.
+- **README:** "Graders: start here" links to the Executive Briefing, the App Check, the Image Studio, the harness and this log. It also has the core 4-file agent table, the 11 enhancements, the repo layout, run steps after placing the data pack, and an invitation to try the Ask Dan Image Studio in free mock mode.
+- **Live pages (GitHub Pages):** the Executive Briefing and the App Check open in a browser.
+- **Verified from a clean clone** with the data pack placed:
+  - The backend starts **even without a key** (the store works and the chat explains the setup), which was fixed during this check.
+  - With a key, the chat answers correctly.
+  - All images load.
+  - The website builds.
+  - The Image Studio starts in mock mode and makes a $0.00 test image.
