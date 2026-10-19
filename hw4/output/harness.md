@@ -56,7 +56,7 @@ cp ../.env.example ../.env                # hw4/.env: fill in PORTKEY_API_KEY an
 cd .. && backend/.venv/bin/python scripts/import_dan_images.py   # Dan art + mockups → data/ (needs Dan Image Resources/)
 backend/.venv/bin/python scripts/colorways.py build              # colorway photos → data/products/colorways/
 ```
-Place the data pack (`campus_customs.db` + product photos) in `data/`; it is git-ignored. Our rendered images (`data/dan/`, `data/custom/mockups/`, `data/products/colorways/`) are committed, so graders don't need to run the import scripts, which also need the local-only `Dan Image Resources/`.
+Place the ORIGINAL data pack (`campus_customs.db` + product photos) in `data/`; it is git-ignored. On first start the backend upgrades it to the project's version: `db.ensure_schema()` adds the new tables and applies the 3 Problem 2 catalogue fixes from `backend/data_fixes.json`, and `prepare_data.prepare_product_photos()` re-applies the Problem 3 white backgrounds (originals kept in `data/products_original/`). Verified byte-identical from a clean clone. Our rendered images (`data/dan/`, `data/custom/mockups/`, `data/products/colorways/`) are committed, so graders don't need to run the import scripts, which also need the local-only `Dan Image Resources/`.
 
 **Run (two terminals)**
 ```bash

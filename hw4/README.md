@@ -114,15 +114,27 @@ hw4/
 
 ## Run it
 
-### 1. Place the data pack
-Copy the assignment's data pack into `hw4/data/`:
+### 1. Place the data pack: use the ORIGINAL files from the assignment
+Copy the assignment's data pack, **unchanged**, into `hw4/data/`:
 ```
 data/
-├── campus_customs.db        # the store database
-└── products/                # product images referenced by the catalogue (*.jpg)
-                             # (data/products/colorways/ is already here — keep it)
+├── campus_customs.db        # the store database, exactly as provided
+└── products/                # the product photos (*.jpg), exactly as provided
+                             # (data/products/colorways/ is already here from the repo — keep it)
 ```
-The backend adds its own tables on first start (customer designs, bag, chat voice). It never drops or rewrites existing data.
+**Use the original database and photos from the assignment.** Don't substitute another copy, and don't edit them by hand. On first start the backend upgrades them to exactly the version this project was built and tested with. The upgrade is automatic, one-time, and logged:
+
+| What we changed during the project | What the backend does on first start | Log line |
+|---|---|---|
+| **Problem 2:** 3 catalogue rows ship as stubs with no colors and a "Vision blocked" description (Benjamin Franklin T-Shirt, Berkeley Sweater Fleece Jacket, Timothy Dwight College Crewneck). The owner reviewed the photos and supplied the real details. | Fills in those 3 rows from [`backend/data_fixes.json`](backend/data_fixes.json), only while they're still the original stubs | `[db] Applied Problem 2 catalogue fixes to 3 product(s)` |
+| **Problems 4–10:** new tables (customer designs, bag) and a `voice` column for saved chats | Adds them. It never drops or rewrites existing data. | (silent) |
+| **Problem 3:** 74 product photos have black backgrounds (flattened transparent PNGs); we made them white for a consistent storefront | Keeps the originals in `data/products_original/` and writes white-background versions with the same script ([`scripts/whiten_image_backgrounds.py`](scripts/whiten_image_backgrounds.py)), about 15 s | `[setup] Done: 74 of 102 photos updated` |
+
+**Why the database isn't uploaded:**
+- The assignment asks us not to commit `campus_customs.db` or the product images.
+- Our working copy also holds **test accounts** (with password hashes) and **test chat histories** that shouldn't be published.
+
+Instead, the only content changes we made are applied in code to the original file. We verified this from a fresh clone using the untouched data pack: after the first start, the catalogue and inventory match our working database row for row, and all 102 photos match ours byte for byte.
 
 ### 2. Add your keys
 ```bash

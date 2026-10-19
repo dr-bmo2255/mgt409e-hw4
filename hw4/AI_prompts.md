@@ -664,3 +664,16 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 > i'm just thinking that we altered the database file when we made the Custom Dan image ordering page.   We may need to upload the database rather than ignore it.  If so, update the readme file, explain why and be sure that the graders use the correct db file
 
 *Why I needed it:* I realized we had changed the database during the project, so graders using the original file might not get a working site.
+
+*Result:* I checked the original data-pack database against ours.
+- **What actually changed:**
+  - The only catalogue changes were the **3 Problem 2 fixes** (colors, description, garment type, tags for the 3 "Vision blocked" stubs).
+  - Everything else was additive: new tables and the chat `voice` column, which the backend already creates.
+  - Inventory was unchanged.
+  - Our copy also holds test accounts and chats.
+  - Separately, **74 product photos** had been given white backgrounds in Problem 3.
+- **Decision:** don't upload the database. The assignment says not to commit it, and our copy contains test accounts' password hashes and chats. Instead, the backend upgrades the ORIGINAL data pack on first start:
+  1. the 3 catalogue fixes come from `backend/data_fixes.json`, applied only while the rows are still stubs
+  2. the 74 photo backgrounds are whitened with the same script, originals kept
+- **Verified** from a fresh clone with the untouched data pack: the catalogue and inventory are row-for-row identical to ours, and 102 of 102 photos are byte-identical.
+- **README:** "Place the data pack" now says to use the ORIGINAL files, shows what is upgraded automatically (with the log lines to look for), and explains why the database isn't uploaded.
