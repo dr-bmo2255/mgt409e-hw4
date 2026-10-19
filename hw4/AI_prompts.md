@@ -659,3 +659,8 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
   - All images load.
   - The website builds.
   - The Image Studio starts in mock mode and makes a $0.00 test image.
+
+**Prompt 2** *(follow-up)*
+> i'm just thinking that we altered the database file when we made the Custom Dan image ordering page.   We may need to upload the database rather than ignore it.  If so, update the readme file, explain why and be sure that the graders use the correct db file
+
+*Why I needed it:* I realized we had changed the database during the project, so graders using the original file might not get a working site.

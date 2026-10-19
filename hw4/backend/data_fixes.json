@@ -1,0 +1,63 @@
+{
+ "_about": "Problem 2 data fixes: 3 catalogue rows in the original data pack are filename-based stubs (no colors, 'Vision blocked' description). The owner reviewed the product photos and supplied these values. db.ensure_schema() applies them on startup, only while a row is still the original stub.",
+ "catalogue": [
+  {
+   "product_id": "benjamin-franklin-t-shirt",
+   "garment_type": "short-sleeve T-shirt",
+   "colors": [
+    "gray"
+   ],
+   "search_tags": [
+    "Yale",
+    "Benjamin Franklin College",
+    "residential college",
+    "crest",
+    "shield",
+    "heather gray",
+    "T-shirt",
+    "short sleeve",
+    "college apparel"
+   ],
+   "description": "Heather gray short-sleeve T-shirt with a large red, white, and blue Benjamin Franklin College shield crest centered on the chest above black \"BENJAMIN FRANKLIN COLLEGE\" lettering."
+  },
+  {
+   "product_id": "berkeley-sweater-fleece-jacket",
+   "garment_type": "full-zip fleece jacket",
+   "colors": [
+    "gray"
+   ],
+   "search_tags": [
+    "Yale",
+    "Berkeley College",
+    "residential college",
+    "fleece jacket",
+    "sweater fleece",
+    "full zip",
+    "heather gray",
+    "crest",
+    "embroidered logo",
+    "outerwear"
+   ],
+   "description": "Heather gray full-zip sweater fleece jacket with a stand collar, charcoal zipper and pocket trim, zippered hand pockets, and an embroidered red Berkeley College shield crest with \"BERKELEY\" text on the left chest."
+  },
+  {
+   "product_id": "timothy-dwight-college-crewneck",
+   "garment_type": "crewneck sweatshirt",
+   "colors": [
+    "gray"
+   ],
+   "search_tags": [
+    "Yale",
+    "Timothy Dwight College",
+    "TD",
+    "residential college",
+    "crewneck",
+    "sweatshirt",
+    "heather gray",
+    "left chest crest",
+    "college apparel"
+   ],
+   "description": "Heather gray crewneck sweatshirt with ribbed collar, cuffs, and waistband, featuring a red Timothy Dwight College shield crest with a lion and \"TIMOTHY DWIGHT\" text on the left chest."
+  }
+ ]
+}

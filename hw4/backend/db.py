@@ -1,5 +1,6 @@
 """SQLite helpers shared by the product API and auth."""
 
+import json
 import os
 import sqlite3
 from collections.abc import Iterator
@@ -65,7 +66,29 @@ def ensure_schema() -> None:
             );
             CREATE INDEX IF NOT EXISTS idx_bag_items_user ON bag_items (user_id, id);
         """)
+        fixed = apply_data_fixes(conn)
         conn.commit()
+    if fixed:
+        print(f"[db] Applied Problem 2 catalogue fixes to {fixed} product(s) (see backend/data_fixes.json).")
+
+
+DATA_FIXES = Path(__file__).resolve().parent / "data_fixes.json"
+
+
+def apply_data_fixes(conn: sqlite3.Connection) -> int:
+    """Problem 2 content fixes, so the assignment's ORIGINAL campus_customs.db works as-is (the database is never
+    committed). Three catalogue rows ship as filename stubs (no colors, a "Vision blocked" description); fill them
+    with the reviewed values. Only rows that are still the original stub are touched, so it's safe to run every start."""
+    fixes = json.loads(DATA_FIXES.read_text())["catalogue"] if DATA_FIXES.exists() else []
+    changed = 0
+    for f in fixes:
+        cur = conn.execute(
+            "UPDATE catalogue SET garment_type = ?, colors = ?, search_tags = ?, description = ? "
+            "WHERE product_id = ? AND description LIKE '%Vision blocked%'",
+            (f["garment_type"], json.dumps(f["colors"]), json.dumps(f["search_tags"]), f["description"], f["product_id"]),
+        )
+        changed += cur.rowcount
+    return changed
 
 
 @contextmanager
