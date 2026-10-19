@@ -21,6 +21,7 @@ import agent
 import dan_voice
 import custom
 import config
+import db as db_module
 import design_agent
 import limits
 import prepare_data
@@ -78,7 +79,8 @@ def health() -> dict:
         count = conn.execute("SELECT COUNT(*) FROM catalogue").fetchone()[0]
     return {"status": "ok", "products": count, "agent_model": agent.AGENT_MODEL,
             "chat_available": config.paid_features_open() and agent.HAS_KEY,
-            "paid_features_until": config.PAID_FEATURES_UNTIL or None}
+            "paid_features_until": config.PAID_FEATURES_UNTIL or None,
+            "persistent_disk": bool(db_module.PERSIST_DIR and db_module.PERSIST_DIR.is_dir())}
 
 
 @app.get("/api/categories")
