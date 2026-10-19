@@ -718,3 +718,10 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 - **Tested** the 4 switch cases locally (in the window with a key → real; past the date → mock; no date → mock; no key → mock) with no paid calls.
 - **Docs:** the README, the Executive Briefing and the harness describe the 2-week window.
 
+
+**Follow-ups:**
+> Open my OpenAI key file in TextEdit so I can copy the key. · where in render does it go?  Can you open that page for me? · thats done.  It appears to be actively re-deploying
+
+*Why I needed them:* I was adding my OpenAI key to Render myself and needed to find the right page.
+
+*Verified live:* after the redeploy, `/api/custom/status` on https://campus-customs-demo.onrender.com reports `"mock": false, "real_images_until": "2026-11-02"`, so real images are on (checked without creating an account or spending anything).
