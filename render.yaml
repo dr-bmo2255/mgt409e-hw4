@@ -1,0 +1,30 @@
+# Render blueprint for the public demo of Campus Customs (one web service: API + website).
+# It deploys from the PRIVATE repo mgt409e-hw4-deploy, which adds the assignment's data pack and the built website
+# to this code (scripts/sync_deploy.sh). The public repo never contains the database or product photos.
+services:
+  - type: web
+    name: campus-customs-demo
+    runtime: python
+    plan: free
+    rootDir: hw4
+    buildCommand: pip install -r requirements.txt && python scripts/prepare_deploy.py
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: PORTKEY_API_KEY          # paste the class key in the Render dashboard (never committed)
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: CUSTOM_IMAGE_PROVIDER    # public site: Custom Dan Gear makes free placeholder images
+        value: mock
+      - key: PAID_FEATURES_UNTIL      # chat, design drafting and image creation close after this date
+        value: "2026-11-18"
+      - key: CHAT_PER_VISITOR_HOURLY
+        value: "20"
+      - key: CHAT_DAILY_CAP
+        value: "300"

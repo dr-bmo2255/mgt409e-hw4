@@ -18,3 +18,25 @@ SHOP_REQUEST_LIMIT = int(os.getenv("SHOP_REQUEST_LIMIT", "8"))
 SHOP_TOOL_CALLS_LIMIT = int(os.getenv("SHOP_TOOL_CALLS_LIMIT", "12"))
 DESIGN_REQUEST_LIMIT = int(os.getenv("DESIGN_REQUEST_LIMIT", "3"))
 AGENT_RETRIES = 2  # re-asks when the model's structured output fails validation
+
+# --- Public demo controls (web deployment) ------------------------------------------------------
+# The features that cost money (chat, design drafting, image creation) can be limited to a time window.
+# Empty = no end date (local use). The public Render deployment sets this to 30 days after launch.
+PAID_FEATURES_UNTIL = os.getenv("PAID_FEATURES_UNTIL", "").strip()
+# Chat rate limits (0 = off). They count chat messages and design drafts together.
+CHAT_PER_VISITOR_HOURLY = int(os.getenv("CHAT_PER_VISITOR_HOURLY", "0"))
+CHAT_DAILY_CAP = int(os.getenv("CHAT_DAILY_CAP", "0"))
+
+
+def paid_features_open() -> bool:
+    """True while the money-spending features are available (always, if no end date is set)."""
+    if not PAID_FEATURES_UNTIL:
+        return True
+    from datetime import date
+    return date.today() <= date.fromisoformat(PAID_FEATURES_UNTIL)
+
+
+def paid_features_end_label() -> str:
+    from datetime import date
+    d = date.fromisoformat(PAID_FEATURES_UNTIL)
+    return d.strftime("%B %-d, %Y")

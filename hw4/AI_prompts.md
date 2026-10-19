@@ -677,3 +677,20 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
   2. the 74 photo backgrounds are whitened with the same script, originals kept
 - **Verified** from a fresh clone with the untouched data pack: the catalogue and inventory are row-for-row identical to ours, and 102 of 102 photos are byte-identical.
 - **README:** "Place the data pack" now says to use the ORIGINAL files, shows what is upgraded automatically (with the log lines to look for), and explains why the database isn't uploaded.
+
+## Public web deployment (after Problem 13)
+
+**Prompt 1**
+> is it possible to run this site from the web or can it only be run locally because of the missing files?
+
+*(Answer: it needs a Python server, so GitHub Pages can only host the briefing and app check. A host like Render can run it, with the data pack kept private and the paid features capped.)*
+
+**Prompt 2**
+> run custom gear in mock mode.  Allow the image creation and chat features ( the things that cost money) available publicly only for the next 30 days.
+
+*Result (code):*
+- **Hosting setup:** Render with one web service (the API also serves the built website). It deploys from a **private** copy of the repo that adds the original data pack, via `scripts/sync_deploy.sh`; the public repo stays free of the database and photos.
+- **Images:** Custom Dan Gear runs in **mock mode** publicly ($0).
+- **30-day window:** the chat, design drafting and image creation work through **November 18, 2026**, then close themselves with friendly messages.
+- **Chat limits:** 20 messages per visitor per hour, 300 per day site-wide.
+- **Rehearsed locally** with production settings before deploying.

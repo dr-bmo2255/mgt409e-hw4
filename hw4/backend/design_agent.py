@@ -6,7 +6,7 @@ Same Portkey model as the shop agent. It only drafts: the customer sees the brie
 
 import logging
 
-from fastapi import APIRouter, Cookie, HTTPException
+from fastapi import APIRouter, Cookie, HTTPException, Request
 from pydantic import BaseModel, Field
 import time
 
@@ -16,6 +16,7 @@ from pydantic_ai.usage import UsageLimits
 import audit
 import config
 import custom
+import limits
 import dan_voice
 import agent as agent_module
 from agent import _build_model, _is_content_filter
@@ -80,10 +81,12 @@ class BriefOut(BaseModel):
 
 
 @router.post("/briefs", response_model=BriefOut)
-async def draft_brief(body: BriefIn, cc_session: str | None = Cookie(default=None)) -> BriefOut:
+async def draft_brief(body: BriefIn, request: Request, cc_session: str | None = Cookie(default=None)) -> BriefOut:
     user = current_user(cc_session)
     if not user:
         raise HTTPException(401, "Please log in to design with Dan.")
+    if reason := limits.check(request, user):  # same time window and limits as the chat
+        return BriefOut(reply=limits.message(reason, "dan"))
     if not agent_module.HAS_KEY:
         raise HTTPException(503, "Design drafting isn't set up: add PORTKEY_API_KEY to hw4/.env and restart the backend.")
     try:

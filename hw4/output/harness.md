@@ -921,3 +921,17 @@ Full write-up: [`output/design.md`](design.md) (Part C). Technical notes:
   - `.env.example` lists variable names only, and `.gitignore` now un-ignores it (`!.env.example`).
   - A secret scan of committable files found nothing.
 - **Harness:** Part I added above. The Executive Briefing (`output/executive_briefing.html`) summarizes everything for a non-technical reader.
+
+## 18. Public web deployment (Render)
+- **Single service:** the FastAPI server also serves the built React site (`frontend/dist`). That adds a catch-all route after the API routes; `/api/*` and `/media/*` keep their own handling.
+- **Public-demo controls** (`backend/config.py`, `backend/limits.py`):
+  - **Time window:** `PAID_FEATURES_UNTIL=2026-11-18` (30 days). After it, the chat and design drafting reply that the demo has closed, and image creation returns a Dan-voiced 503. Browsing keeps working.
+  - **Rate limits:** `CHAT_PER_VISITOR_HOURLY=20` (per signed-in user or IP via `X-Forwarded-For`) and `CHAT_DAILY_CAP=300` (site-wide). These count chats and design drafts together, in memory.
+  - **Images:** `CUSTOM_IMAGE_PROVIDER=mock`, so the public site never spends on images.
+  - `/api/health` reports `chat_available` and `paid_features_until`.
+- **Data pack stays private:**
+  - `scripts/sync_deploy.sh "<data pack zip>"` builds the website and copies the committed code (`git archive`) plus the ORIGINAL data pack into a temp folder. It force-adds them and force-pushes to the **private** repo `mgt409e-hw4-deploy`.
+  - Render's build runs `scripts/prepare_deploy.py` (database upgrade + white backgrounds at build time).
+  - `render.yaml` (repo root) defines the service: free plan, Python 3.12, `rootDir: hw4`, secrets set in the dashboard.
+- **Free-tier behavior:** the service sleeps after ~15 minutes idle (the first visit takes ~30 s). The disk is ephemeral, so accounts, chats and designs reset when it redeploys or restarts.
+- **Rehearsed locally** with production settings: pages and deep links served, the 4th chat in an hour politely limited (test limit 3), a past end date closes the chat, drafting and creation with Dan-voiced messages, and browsing still works.

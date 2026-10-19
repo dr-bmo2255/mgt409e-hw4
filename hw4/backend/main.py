@@ -12,14 +12,17 @@ import json
 import re
 import logging
 
-from fastapi import Cookie, FastAPI, HTTPException, Query
+from fastapi import Cookie, FastAPI, HTTPException, Query, Request
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 import agent
 import dan_voice
 import custom
+import config
 import design_agent
+import limits
 import prepare_data
 from auth import current_user, router as auth_router
 from catalog import CATEGORY_NAMES, dan_for_products, category_for, get_product as load_product, load_products
@@ -71,7 +74,9 @@ app.mount("/media/custom", StaticFiles(directory=DATA_DIR / "custom"), name="cus
 def health() -> dict:
     with connect() as conn:
         count = conn.execute("SELECT COUNT(*) FROM catalogue").fetchone()[0]
-    return {"status": "ok", "products": count, "agent_model": agent.AGENT_MODEL}
+    return {"status": "ok", "products": count, "agent_model": agent.AGENT_MODEL,
+            "chat_available": config.paid_features_open() and agent.HAS_KEY,
+            "paid_features_until": config.PAID_FEATURES_UNTIL or None}
 
 
 @app.get("/api/categories")
@@ -147,8 +152,11 @@ def save_turn(user_id: int, message: str, reply: str, cards: list[ProductCard], 
 
 
 @app.post("/api/chat", response_model=ChatResponse)
-async def chat(body: ChatRequest, cc_session: str | None = Cookie(default=None)) -> ChatResponse:
+async def chat(body: ChatRequest, request: Request, cc_session: str | None = Cookie(default=None)) -> ChatResponse:
     user = current_user(cc_session)
+    # Public demo: the chat costs money, so it has a time window and rate limits (limits.py). A polite reply, not an error.
+    if reason := limits.check(request, user):
+        return ChatResponse(reply=limits.message(reason, body.voice), products=[], voice=body.voice)
     previous_voice = body.previous_voice
     if user:
         # Signed in: the database is the source of truth for history (survives reloads and logins).
@@ -216,3 +224,20 @@ def clear_chat_history(cc_session: str | None = Cookie(default=None)) -> dict:
         n = conn.execute("DELETE FROM chat_messages WHERE user_id = ?", (user["id"],)).rowcount
         conn.commit()
     return {"deleted": n}
+
+
+# --- The built website (web deployment) -------------------------------------------------------------
+# When frontend/dist exists (npm run build), this one server also serves the React site, so the whole store runs
+# from a single web service. Locally you can still use the Vite dev server on :5173 instead.
+FRONTEND_DIST = DATA_DIR.parent / "frontend" / "dist"
+if FRONTEND_DIST.exists():
+    app.mount("/assets", StaticFiles(directory=FRONTEND_DIST / "assets"), name="site-assets")
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    def site(full_path: str):
+        if full_path.startswith(("api/", "media/")):
+            raise HTTPException(status_code=404, detail="Not found")
+        file = (FRONTEND_DIST / full_path).resolve()
+        if full_path and file.is_file() and FRONTEND_DIST.resolve() in file.parents:
+            return FileResponse(file)
+        return FileResponse(FRONTEND_DIST / "index.html")  # client-side routes (/products/…, /custom) load the app

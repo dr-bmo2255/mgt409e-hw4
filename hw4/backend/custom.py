@@ -34,6 +34,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter
 from pydantic import BaseModel, Field
 
 import catalog
+import config
 import dan_voice
 from auth import current_user
 from db import DATA_DIR, PROJECT_DIR, connect
@@ -512,6 +513,9 @@ class CreateDesignIn(BaseModel):
 @router.post("/designs", status_code=202)
 def create_design(body: CreateDesignIn, tasks: BackgroundTasks, cc_session: str | None = Cookie(default=None)) -> dict:
     user = _require_user(cc_session)
+    if not config.paid_features_open():
+        raise HTTPException(503, f"*curls up for a nap* Creating new Dans was part of the live demo, which ran through "
+                                 f"{config.paid_features_end_label()}. Classic Dan designs are still available!")
     brief = load_brief(body.brief_id, user["id"])
     if brief is None:
         raise HTTPException(404, "That design idea wasn't found. Describe it again and Dan will redraft it.")
