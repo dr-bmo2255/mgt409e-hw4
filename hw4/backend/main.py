@@ -20,6 +20,7 @@ import agent
 import dan_voice
 import custom
 import design_agent
+import prepare_data
 from auth import current_user, router as auth_router
 from catalog import CATEGORY_NAMES, dan_for_products, category_for, get_product as load_product, load_products
 from db import DATA_DIR, connect, ensure_schema
@@ -28,7 +29,8 @@ from models import ChatHistoryMessage, ChatRequest, ChatResponse, ProductCard, S
 
 log = logging.getLogger("campus_customs")
 
-ensure_schema()
+ensure_schema()  # also upgrades the original data-pack database (Problem 2 fixes)
+prepare_data.prepare_product_photos()  # one-time white backgrounds for the data pack's photos (Problem 3)
 custom.recover_stale()
 custom.purge_expired()  # designs are kept 90 days
 

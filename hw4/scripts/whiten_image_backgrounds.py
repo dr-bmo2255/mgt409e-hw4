@@ -43,11 +43,18 @@ def whiten(im):
     share = sum(bg.histogram()[255:]) / (w * h)
     return out, share
 
-src, dst = Path(sys.argv[1]), Path(sys.argv[2]); dst.mkdir(parents=True, exist_ok=True)
-n = 0
-for f in sorted(src.glob("*.jpg")):
-    out, share = whiten(Image.open(f))
-    if out is not None and share > 0.02:
-        out.save(dst / f.name, quality=95); n += 1
-        print(f"{f.name}\tbackground {share:.0%}")
-print("converted", n)
+def whiten_folder(src: Path, dst: Path, verbose: bool = True) -> int:
+    """Write a white-background copy of every photo in src that has a black background (>2% of the image) to dst."""
+    dst.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for f in sorted(src.glob("*.jpg")):
+        out, share = whiten(Image.open(f))
+        if out is not None and share > 0.02:
+            out.save(dst / f.name, quality=95); n += 1
+            if verbose:
+                print(f"{f.name}\tbackground {share:.0%}")
+    return n
+
+
+if __name__ == "__main__":
+    print("converted", whiten_folder(Path(sys.argv[1]), Path(sys.argv[2])))
