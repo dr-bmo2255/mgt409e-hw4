@@ -706,3 +706,15 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 - **Chat:** a real chat in Dan's voice answered correctly ("sold out in XL", $32.00, navy as a custom order).
 - **Links:** the README, the top-level README and the Executive Briefing now link to the live site.
 
+
+**Prompt 3** *(deployment follow-up)*
+> For the next 2 weeks, I want to activate the real image rendering of the Dan image studio in the sample render website, even though there is a cost to me.
+
+*Why I needed it:* I wanted visitors to be able to try the real Dan image generation on the live site for a limited time, and I'm willing to pay for it.
+
+*Result:*
+- **The switch:** `REAL_IMAGES_UNTIL=2026-11-02`. Design with Dan on the live site makes **real** images (your OpenAI key, set only in Render) and returns to free mock mode **by itself** after November 2. Without the key it stays in mock mode.
+- **Limits unchanged:** 3 per customer per day, one at a time, signed-in only, a **$3/day** site cap (≈ $42 maximum over 2 weeks), and OpenAI moderation before each image.
+- **Tested** the 4 switch cases locally (in the window with a key → real; past the date → mock; no date → mock; no key → mock) with no paid calls.
+- **Docs:** the README, the Executive Briefing and the harness describe the 2-week window.
+

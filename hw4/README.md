@@ -17,7 +17,7 @@ Shoppers can browse, create accounts, chat (as the store or as **Handsome Dan**)
 
 | | What | Open it |
 |---|---|---|
-| 🌐 | **Live demo site**: the full store, chat and Design with Dan, no setup needed. Chat and image creation are open through **Nov 18, 2026**; Custom Dan Gear makes free placeholder images. The first visit may take ~30 s to wake up. | **[https://campus-customs-demo.onrender.com](https://campus-customs-demo.onrender.com)** |
+| 🌐 | **Live demo site**: the full store, chat and Design with Dan, no setup needed. Real Dan images through **Nov 2, 2026** (then free placeholders); chat open through **Nov 18, 2026**. The first visit may take ~30 s to wake up. | **[https://campus-customs-demo.onrender.com](https://campus-customs-demo.onrender.com)** |
 | 🏛️ | **Executive Briefing**: one-page summary; click any section for full detail | **[Live page](https://dr-bmo2255.github.io/mgt409e-hw4/hw4/output/executive_briefing.html)** · [`output/executive_briefing.html`](output/executive_briefing.html) |
 | ✅ | **App Check**: screenshots proving honest inventory, search cards and usability | **[Live page](https://dr-bmo2255.github.io/mgt409e-hw4/hw4/output/app_check.html)** · [`output/app_check.html`](output/app_check.html) |
 | 🐶 | **Ask Dan Image Studio**: the supervised tool that made all of Dan's art. **Please try it** (free mock mode; see below) | [`ask-dan-image-studio/`](ask-dan-image-studio/) |
@@ -115,7 +115,8 @@ hw4/
 
 ## Live demo (Render)
 **https://campus-customs-demo.onrender.com** runs this exact code with the assignment's data pack. It's deployed from a private copy of this repo (`scripts/sync_deploy.sh`), so the database and photos are never in the public repo.
-- **Public-demo limits:** the chat and design drafting allow 20 messages per visitor per hour and 300 per day site-wide. Custom Dan Gear runs in free **mock mode**.
+- **Public-demo limits:** the chat and design drafting allow 20 messages per visitor per hour and 300 per day site-wide.
+- **Real Dan images through November 2, 2026:** Design with Dan makes **real** images (with OpenAI moderation first), still limited to 3 per customer per day and a $3/day site cap. After that date it switches to free placeholder images automatically.
 - **Time window:** the chat, drafting and image creation close by themselves after **November 18, 2026**. Browsing keeps working.
 - **Free hosting:** the site sleeps when idle (the first visit takes ~30 s), and accounts and designs made there reset when it restarts.
 

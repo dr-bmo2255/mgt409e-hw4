@@ -20,8 +20,12 @@ services:
         generateValue: true
       - key: COOKIE_SECURE
         value: "1"
-      - key: CUSTOM_IMAGE_PROVIDER    # public site: Custom Dan Gear makes free placeholder images
+      - key: CUSTOM_IMAGE_PROVIDER    # default for Custom Dan Gear: free placeholder images
         value: mock
+      - key: REAL_IMAGES_UNTIL        # real (paid) Dan images through this date, then back to mock automatically
+        value: "2026-11-02"
+      - key: OPENAI_API_KEY           # owner's key for real images + moderation; paste in the Render dashboard
+        sync: false
       - key: PAID_FEATURES_UNTIL      # chat, design drafting and image creation close after this date
         value: "2026-11-18"
       - key: CHAT_PER_VISITOR_HOURLY

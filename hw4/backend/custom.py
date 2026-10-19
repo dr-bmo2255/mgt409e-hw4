@@ -97,7 +97,18 @@ REF_DIR = PROJECT_DIR / "ask-dan-image-studio" / "references" / "dan"
 REFERENCES = ["Welcome_Dan.png", "Dan_Ice_Hockey.png"]  # who Dan is: coat, face, build
 DESIGN_DIR = DATA_DIR / "custom" / "designs"
 
-PROVIDER = os.getenv("CUSTOM_IMAGE_PROVIDER", "openai")  # "mock" for free local testing
+BASE_PROVIDER = os.getenv("CUSTOM_IMAGE_PROVIDER", "openai")  # "mock" for free local testing
+# Optional time-boxed switch for the public demo: real (paid) images through this date, then back to BASE_PROVIDER.
+REAL_IMAGES_UNTIL = os.getenv("REAL_IMAGES_UNTIL", "").strip()
+
+
+def provider() -> str:
+    """'openai' (real, paid) or 'mock' (free placeholder), decided per request so the switch flips by itself."""
+    if REAL_IMAGES_UNTIL:
+        from datetime import date
+        if date.today() <= date.fromisoformat(REAL_IMAGES_UNTIL) and _openai_key():
+            return "openai"
+    return BASE_PROVIDER
 IMAGE_MODEL = os.getenv("CUSTOM_IMAGE_MODEL", "gpt-image-2.5-sunburst")
 IMAGE_SIZE, IMAGE_QUALITY = "1024x1024", "high"
 OPENAI_URL = "https://api.openai.com/v1"
@@ -210,7 +221,7 @@ def moderate(text: str) -> None:
     check_text(text)
     key = _openai_key()
     if not key:
-        if PROVIDER == "mock":
+        if provider() == "mock":
             return
         raise HTTPException(503, "Design creation is unavailable right now.")
     try:
@@ -370,7 +381,7 @@ def run_generation(design_id: int, prompt: str, style: str) -> None:
         conn.execute("UPDATE custom_designs SET status = 'generating' WHERE id = ?", (design_id,))
         conn.commit()
     try:
-        png, cost = _generate_mock(prompt, style) if PROVIDER == "mock" else _generate_openai(prompt)
+        png, cost = _generate_mock(prompt, style) if provider() == "mock" else _generate_openai(prompt)
         token = _save_images(png, style)
         _finish(design_id, status="ready", image_token=token, cost_usd=cost)
         log.info("design %s ready ($%.4f)", design_id, cost)
@@ -476,7 +487,8 @@ def products() -> dict:
 @router.get("/status")
 def status(cc_session: str | None = Cookie(default=None)) -> dict:
     user = current_user(cc_session)
-    return {**allowance(user["id"] if user else None), "mock": PROVIDER == "mock"}
+    return {**allowance(user["id"] if user else None), "mock": provider() == "mock",
+            "real_images_until": REAL_IMAGES_UNTIL or None}
 
 
 @router.get("/designs")
