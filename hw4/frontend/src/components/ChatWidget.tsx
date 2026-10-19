@@ -438,7 +438,14 @@ export default function ChatWidget() {
                     {m.products.slice(0, CHAT_THUMBS).map((p) => {
                       const inStock = p.inventory.filter((s) => s.quantity > 0).map((s) => s.size)
                       return (
-                        <Link key={p.product_id} to={`/products/${p.product_id}`} className="chat-product">
+                        // Opening a product minimizes the chat so the product page is fully visible
+                        // (the chat keeps its history; the corner button reopens it).
+                        <Link
+                          key={p.product_id}
+                          to={`/products/${p.product_id}`}
+                          className="chat-product"
+                          onClick={() => { setOpen(false); setExpanded(false) }}
+                        >
                           <img src={p.image_url} alt="" />
                           <span>
                             {displayName(p.name)}

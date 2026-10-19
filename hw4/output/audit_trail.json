@@ -94,4 +94,18 @@
 {"time": "2026-10-19T05:35:12.269+00:00", "event": "self_test", "n": 38, "note": "email test@x.com 1234567890"}
 ,
 {"time": "2026-10-19T05:35:12.269+00:00", "event": "self_test", "n": 39, "note": "email test@x.com 1234567890"}
+,
+{"time": "2026-10-19T14:16:23.116+00:00", "event": "run_start", "agent": "campus_customs", "run_id": "aeed484521b1", "model": "gpt-5.6-luna-global", "voice": "dan", "signed_in": false, "page": "about", "message_chars": 15, "history_turns": 0},
+{"time": "2026-10-19T14:16:28.396+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "aeed484521b1", "tool": "search_products", "args": "{\"category\":\"Hoodies\",\"limit\":12}"},
+{"time": "2026-10-19T14:16:28.406+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "aeed484521b1", "tool": "search_products", "result": "{\"total_matches\": 27, \"showing\": 12, \"products\": [{\"product_id\": \"basic-hoodie-big-yale\", \"name\": \"Basic Hoodie Big Yale\", \"category\": \"Hoodies\", \"garment_type\": \"pullover hoodie\", \"price\": 68.0, \"co…"},
+{"time": "2026-10-19T14:16:32.135+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "aeed484521b1", "tool": "final_result", "args": "{\"reply\":\"*sniffs the hoodie selection approvingly* We have **27 hoodies**; **12 are shown on the page**. Highlights include the Basic Hoodie Big Yale, Champion Full Zip Hood, and District Vintage Bu…"},
+{"time": "2026-10-19T14:16:32.138+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "aeed484521b1", "tool": "final_result", "result": "Final result processed."},
+{"time": "2026-10-19T14:16:32.141+00:00", "event": "run_end", "agent": "campus_customs", "run_id": "aeed484521b1", "stop_reason": "final_output (stop)", "model_requests": 2, "tool_calls": 2, "duration_ms": 9026, "tokens": {"input": 12269, "output": 275}, "product_ids": 12, "results_title": "Hoodies", "go_to": null, "design_drafted": false, "reply_chars": 217}
+,
+{"time": "2026-10-19T14:18:57.337+00:00", "event": "run_start", "agent": "campus_customs", "run_id": "94a07a159e44", "model": "gpt-5.6-luna-global", "voice": "dan", "signed_in": false, "page": "about", "message_chars": 15, "history_turns": 0},
+{"time": "2026-10-19T14:19:02.680+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "94a07a159e44", "tool": "search_products", "args": "{\"category\":\"Hoodies\",\"limit\":12}"},
+{"time": "2026-10-19T14:19:02.696+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "94a07a159e44", "tool": "search_products", "result": "{\"total_matches\": 27, \"showing\": 12, \"products\": [{\"product_id\": \"basic-hoodie-big-yale\", \"name\": \"Basic Hoodie Big Yale\", \"category\": \"Hoodies\", \"garment_type\": \"pullover hoodie\", \"price\": 68.0, \"co…"},
+{"time": "2026-10-19T14:19:06.440+00:00", "event": "tool_call", "agent": "campus_customs", "run_id": "94a07a159e44", "tool": "final_result", "args": "{\"reply\":\"*sniffs the hoodie lineup approvingly* We have **27 hoodies**, with **12 shown on the page**—including the Basic Hoodie Big Yale, Champion Full Zip Hood, and the Vintage Bulldog hoodie. Ver…"},
+{"time": "2026-10-19T14:19:06.445+00:00", "event": "tool_result", "agent": "campus_customs", "run_id": "94a07a159e44", "tool": "final_result", "result": "Final result processed."},
+{"time": "2026-10-19T14:19:06.449+00:00", "event": "run_end", "agent": "campus_customs", "run_id": "94a07a159e44", "stop_reason": "final_output (stop)", "model_requests": 2, "tool_calls": 2, "duration_ms": 9112, "tokens": {"input": 12271, "output": 287}, "product_ids": 12, "results_title": "Hoodies", "go_to": null, "design_drafted": false, "reply_chars": 209}
 ]

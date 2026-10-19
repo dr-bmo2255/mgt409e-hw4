@@ -751,3 +751,10 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 
 *Result:* Render required the **$25/month** compute plan (1 CPU / 2 GB) to attach the disk, which I accepted. The first deploy with `DATA_PERSIST_DIR` set failed during the build: Render attaches the disk only at run time, so creating `/var/data` during the build hit "Permission denied". That was reproduced locally and fixed: the build step now ignores the disk setting, and the running site copies the database to the disk on first boot.
 *Reminder:* after the demo ends (Nov 18, 2026), switch the service back to Free and delete the disk in Render to stop the $25/month charge.
+
+**Live-site follow-up: product links in the chat**
+> When you try to click on a link to a product in the chat on a page any other than the home page, it does not pullup the product page.
+
+*Why I needed it:* While testing the live demo, clicking a product in the Dan chat on inner pages did not seem to open the product page.
+
+*Result:* Tested on the live site and locally from About, Design with Dan and a product page. The link did navigate each time, but the open chat panel stayed on top of the new product page and hid most of it, so it looked like nothing happened. Clicking a product in the chat now minimizes the chat (as picking a decade already does), so the product page is fully visible. The chat keeps its history, and the corner button reopens it.
