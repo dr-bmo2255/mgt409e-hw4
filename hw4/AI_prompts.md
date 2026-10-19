@@ -743,3 +743,11 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 2. **Welcome buttons:** the question now appears **below** earlier messages or saved history, with the chat scrolled to it. Tested on a product page after a conversation: all 6 buttons visible.
 3. **Decade themes:** choosing a decade shows Dan's line, then closes the chat to the corner and scrolls to the top so the whole restyled page is visible. Tested with the 1920s.
 
+
+**Follow-ups while upgrading Render**
+> I'm stuck on the Render upgrade step: · OK.  I chose the $7 / month page and its updating now · so i don't see name · I had to update to the $25 / month plan for disc · i already paid $25
+
+*Why I needed them:* I was upgrading the Render plan and adding the disk myself, and needed guidance on each step.
+
+*Result:* Render required the **$25/month** compute plan (1 CPU / 2 GB) to attach the disk, which I accepted. The first deploy with `DATA_PERSIST_DIR` set failed during the build: Render attaches the disk only at run time, so creating `/var/data` during the build hit "Permission denied". That was reproduced locally and fixed: the build step now ignores the disk setting, and the running site copies the database to the disk on first boot.
+*Reminder:* after the demo ends (Nov 18, 2026), switch the service back to Free and delete the disk in Render to stop the $25/month charge.

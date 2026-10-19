@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Render build step: check the data pack is present, then do the first-start upgrade at build time
 (database tables + Problem 2 fixes, Problem 3 white photo backgrounds) so the live site starts fast."""
+import os
 import sys
 from pathlib import Path
+
+# Render attaches the persistent disk only when the site runs, not during the build. The build prepares the data pack
+# inside the repo (data/); the running site copies the database to the disk on its first boot (db.py).
+os.environ.pop("DATA_PERSIST_DIR", None)
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "backend"))
