@@ -53,3 +53,12 @@ export function phraseFor(key: string): string {
 
 // A network failure (offline, server down) rather than a message the server chose to send.
 export const isConnectionError = (err: unknown) => err instanceof TypeError || !navigator.onLine
+
+// When a rival's Dan image goes up on the page (never in the chat), Dan nudges the shopper to look, subtly.
+export const DAN_LOOK_UP = [
+  '*glances meaningfully toward the top of the page*',
+  '*tilts his head toward the top of the page* I may have left you a little something up there.',
+  '*nudges the page with his nose* Something worth seeing up top, old sport.',
+  '*wags in the general direction of the top of the page*',
+]
+export const BRAND_LOOK_UP = 'Handsome Dan left a little something for you at the top of the page.'

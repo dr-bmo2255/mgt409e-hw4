@@ -22,7 +22,8 @@ Shoppers can browse, create accounts, chat (as the store or as **Handsome Dan**)
 | ✅ | **App Check**: screenshots proving honest inventory, search cards and usability | **[Live page](https://dr-bmo2255.github.io/mgt409e-hw4/hw4/output/app_check.html)** · [`output/app_check.html`](output/app_check.html) |
 | 🐶 | **Ask Dan Image Studio**: the supervised tool that made all of Dan's art. **Please try it** (free mock mode; see below) | [`ask-dan-image-studio/`](ask-dan-image-studio/) |
 | 🧰 | **Harness**: how the system works (models, tools, specs, safety, how to run) | [`output/harness.md`](output/harness.md) |
-| 📝 | **Prompt log**: every prompt, by problem, with the reason for each follow-up | [`AI_prompts.md`](AI_prompts.md) |
+| 📝 | **Prompt log**: every prompt, by problem, with the reason for each follow-up, plus an **Epilogue** of fine tuning after submission | [`AI_prompts.md`](AI_prompts.md) |
+| 🧪 | **Site test**: 146 automated checks (28 API + 118 in-browser), all passing | [`scripts/api_test.py`](scripts/api_test.py) · [`scripts/site_test.py`](scripts/site_test.py) |
 | 🎨 | Design write-up · usability write-up · agent audit trail | [`design.md`](output/design.md) · [`usability.md`](output/usability.md) · [`audit_trail.json`](output/audit_trail.json) |
 
 The HTML pages also open locally: double-click `output/executive_briefing.html` or `output/app_check.html` after cloning.
@@ -62,7 +63,7 @@ Significant work went into these (each is documented in `output/design.md`, `out
 7. **137 product colorways.** Every listed color has its own rendered photo; colors that aren't in stock are sold as custom orders ready in 2–3 weeks.
 8. **A personal welcome.** Dan barks for attention, then asks *"Are you a Current Student, Alumnus, Family, Friend or Rival?"*
    - **Alumni** see the whole store restyled for their decade (1920s Art Deco … 2010s flat), with a Dan dressed for the era.
-   - **Rivals** get "Yale overload" with that rival's Dan image.
+   - **Rivals** get "Yale overload" with that rival's Dan image in a large banner on every page (never in the chat), and a one-click "Back to the regular site".
    - **Students and families** get their college or family Dan and products.
 9. **Agent navigation.** "Take me to Design with Dan" moves the shopper there, limited to the site's real pages.
 10. **Safety and accountability.**
@@ -71,6 +72,13 @@ Significant work went into these (each is documented in `output/design.md`, `out
     - least-privilege read-only tools
     - quality fixes (a five-legged Dan, ten look-alike college images)
 11. **Executive Briefing:** an old-bank-styled summary for managers, with detail pages.
+12. **Epilogue: fine tuning after submission** (from testing the live store; logged in `AI_prompts.md`, detail in `output/harness.md` §19):
+    - a working **shopping bag for guests too**, with an item-count badge (checkout stays off)
+    - the chat opens in **Dan's voice** with the welcome question; a gentle nudge toward Dan after 15 s in the store voice
+    - the chat never covers more than **¼ of the window**, and new replies read from their first line
+    - Dan's photo shows **once** (chat or page, not both); menu clicks and chat links clear the way to the chosen page
+    - a **12-photo home carousel** in random order, with no rivalry photos
+    - accounts kept on a persistent disk on the live site
 
 AI image spend for the whole project was **≈ $15.70**. Every paid batch was approved, capped, and logged.
 
@@ -96,7 +104,8 @@ hw4/
 │   ├── auth.py, db.py, catalog.py, context.py   # accounts, SQLite, catalog helpers, trusted context
 │   └── custom.py, design_agent.py, dan_voice.py # Custom Dan Gear, design agent, Dan's phrasebook
 ├── ask-dan-image-studio/    # the Dan image studio (backend, built dashboard, manifest, references, tests)
-├── scripts/                 # image pipelines: import, mockups, colorways, decade Dans, fixes, app-check screenshots
+├── scripts/                 # image pipelines (import, mockups, colorways, decade Dans, fixes), app-check screenshots,
+│                            # site tests (api_test.py, site_test.py) and deploy helpers
 ├── data/                    # ← place the data pack here (see below); our rendered art is already committed:
 │   ├── dan/                 #    all Handsome Dan images (WebP) + dan_map.json
 │   ├── custom/mockups/      #    blank products for Custom Dan Gear
@@ -118,7 +127,7 @@ hw4/
 - **Public-demo limits:** the chat and design drafting allow 20 messages per visitor per hour and 300 per day site-wide.
 - **Real Dan images through November 2, 2026:** Design with Dan makes **real** images (with OpenAI moderation first), still limited to 3 per customer per day and a $3/day site cap. After that date it switches to free placeholder images automatically.
 - **Time window:** the chat, drafting and image creation close by themselves after **November 18, 2026**. Browsing keeps working.
-- **Hosting:** Render Starter with a 1 GB persistent disk. The site doesn't sleep, and accounts, saved chats, designs and the audit trail survive restarts and redeploys (`DATA_PERSIST_DIR`).
+- **Hosting:** a Render paid plan with a 1 GB persistent disk. The site doesn't sleep, and accounts, saved chats, designs and the audit trail survive restarts and redeploys (`DATA_PERSIST_DIR`).
 
 ## Run it
 
@@ -170,6 +179,17 @@ npm run dev                               # → http://localhost:5173 (proxies /
 - Answer the welcome question as an **Alumnus → 1920s**, or as a **Rival → Princeton**.
 - Ask: *"Is the Yale Bowl T-Shirt in stock in XL?"* or *"What hoodies do you have?"*
 - Say *"Take me to Design with Dan"*, or pick a color on a product page.
+- Add something to the bag without logging in, and watch the badge count.
+
+### 6. Run the site tests (optional)
+With both servers running, from `hw4/`:
+```bash
+backend/.venv/bin/python scripts/api_test.py
+```
+```bash
+uv run --with playwright --with httpx python scripts/site_test.py
+```
+The API test makes no paid calls. The browser test drives your installed Google Chrome and uses 5 short chat replies, a fraction of a cent. Both create one throwaway local test account.
 
 ---
 

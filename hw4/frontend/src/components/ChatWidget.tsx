@@ -3,11 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { DAN_AVATAR, SITE_PAGES, customApi, clearChatHistory, danForProducts, displayName, fetchChatHistory, formatPrice, sendChat, type ChatMessage, type DanImage, type DraftedBrief, type PageContext, type Voice } from '../api'
 import { useAuth } from '../context/AuthContext'
 import { useChatResults } from '../context/ChatResultsContext'
-import { DAN_ERRORS, DAN_GREETINGS, pick } from '../danVoice'
+import { BRAND_LOOK_UP, DAN_ERRORS, DAN_GREETINGS, DAN_LOOK_UP, pick } from '../danVoice'
 import BriefCard from './BriefCard'
 import Onboarding from './Onboarding'
 import { useVisitor } from '../context/VisitorContext'
-import { RIVALS, aboutRivals, describeVisitor, detectRival, loadVisitor, rivalDan, rivalLabel, saysRival, wantsStartOver, type RivalKey } from '../visitor'
+import { RIVALS, aboutRivals, describeVisitor, detectRival, loadVisitor, saysRival, wantsStartOver, type RivalKey } from '../visitor'
 import Markdown from './Markdown'
 
 const VOICES: Record<Voice, { title: string; status: string; greeting: string; placeholder: string; suggestions: string[] }> = {
@@ -75,11 +75,13 @@ function dismissOnboarding() {
   }
 }
 
+// New visitors start with Dan, so the welcome question (asked only in his voice) is the first thing they see.
+// A visitor who switched to the store voice keeps it.
 function loadVoice(): Voice {
   try {
-    return localStorage.getItem('cc_chat_voice') === 'dan' ? 'dan' : 'brand'
+    return localStorage.getItem('cc_chat_voice') === 'brand' ? 'brand' : 'dan'
   } catch {
-    return 'brand'
+    return 'dan'
   }
 }
 
@@ -90,6 +92,12 @@ export default function ChatWidget() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [voice, setVoice] = useState<Voice>(loadVoice)
+  // Nudge toward Dan: 15 s with the chat open in the store voice → the "Chat with Dan" tab glows softly and a
+  // one-line tip appears. Switching to Dan clears it; × hides it for the rest of the visit.
+  const [danNudge, setDanNudge] = useState(false)
+  const [nudgeDismissed, setNudgeDismissed] = useState(() => {
+    try { return sessionStorage.getItem('cc_dan_nudge_off') === '1' } catch { return false }
+  })
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
@@ -100,7 +108,7 @@ export default function ChatWidget() {
   // thing in the chat for a new visitor. It opens by itself once; "Just browsing" hides it for this visit.
   // Asked only in Dan's voice, as his first question (the Campus Customs side just says hello). The chat no
   // longer opens by itself: after ~12 s unopened, Dan barks from a speech bubble instead.
-  const { visitor, setVisitor, askAgain } = useVisitor()
+  const { visitor, setVisitor, askAgain, chatRival, setChatRival } = useVisitor()
   const [onboarding, setOnboarding] = useState(() => !loadVisitor() && !onboardingDismissed())
   const [onboardKey, setOnboardKey] = useState(0)
   const [onboardDone, setOnboardDone] = useState(false) // answered: keep the transcript visible in either voice
@@ -138,6 +146,16 @@ export default function ChatWidget() {
       .catch(() => setMessages([]))
   }, [user])
 
+  // "Ask Dan" buttons elsewhere on the site open the chat in Dan's voice (window event 'cc:ask-dan').
+  useEffect(() => {
+    const onAskDan = () => {
+      setVoice('dan')
+      setOpen(true)
+    }
+    window.addEventListener('cc:ask-dan', onAskDan)
+    return () => window.removeEventListener('cc:ask-dan', onAskDan)
+  }, [])
+
   // Attention bark: if nobody has opened the chat ~12 s after arriving, Dan pipes up from a speech bubble.
   useEffect(() => {
     if (open) {
@@ -171,9 +189,37 @@ export default function ChatWidget() {
     if (voice === 'dan' && onboarding && !onboardDone) setOnboardAfter(messages.length)
   }, [voice]) // eslint-disable-line
 
+  // New text: scroll so the TOP of the newest bubble lines up with the top of the chat window, so a long reply
+  // reads from its first line (not its last). The "typing…" dots don't count as a bubble. A MutationObserver
+  // catches every new bubble, including the welcome question's answers (rendered by <Onboarding>).
   useEffect(() => {
-    listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' })
-  }, [messages, busy, open, onboardAfter, voice])
+    const list = listRef.current
+    if (!open || !list) return
+    let frame = 0
+    const alignNewest = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const bubbles = list.querySelectorAll<HTMLElement>('.bubble:not(.typing)')
+        const newest = bubbles[bubbles.length - 1]
+        if (!newest) return
+        // Layout position (offsetTop), not the on-screen one: new bubbles slide in, so mid-animation they're 15 px low.
+        let top = 0
+        for (let n: HTMLElement | null = newest; n && n !== list; n = n.offsetParent as HTMLElement | null) top += n.offsetTop
+        top -= 8
+        list.scrollTo({ top: Math.max(0, top), behavior: 'smooth' })
+      })
+    }
+    const isBubble = (n: Node) => n instanceof HTMLElement && (n.matches('.bubble:not(.typing)') || !!n.querySelector('.bubble:not(.typing)'))
+    const observer = new MutationObserver((records) => {
+      if (records.some((r) => [...r.addedNodes].some(isBubble))) alignNewest()
+    })
+    observer.observe(list, { childList: true, subtree: true })
+    alignNewest() // on open, voice switch, and resize (auto-grow reflows the text above)
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(frame)
+    }
+  }, [open, voice, expanded])
 
   useEffect(() => {
     if (open) inputRef.current?.focus()
@@ -213,6 +259,47 @@ export default function ChatWidget() {
     }
   }, [expanded])
 
+  useEffect(() => {
+    setDanNudge(false)
+    if (!open || voice !== 'brand' || nudgeDismissed) return
+    const t = setTimeout(() => setDanNudge(true), 15000)
+    return () => clearTimeout(t)
+  }, [open, voice, nudgeDismissed])
+
+  function dismissNudge() {
+    setNudgeDismissed(true)
+    try { sessionStorage.setItem('cc_dan_nudge_off', '1') } catch { /* private mode: just this page */ }
+  }
+
+  // The chat never covers more than a quarter of the window's area. Mini: 380 px wide, up to 560 px tall (shorter
+  // on small windows). Expanded: same height, wider, up to the quarter. Phones (≤ 600 px) keep their CSS sizes.
+  const [viewport, setViewport] = useState(() => ({ w: window.innerWidth, h: window.innerHeight }))
+  useEffect(() => {
+    const onResize = () => setViewport({ w: window.innerWidth, h: window.innerHeight })
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+  const panelSize = (() => {
+    if (viewport.w <= 600) return undefined
+    const quarter = (viewport.w * viewport.h) / 4
+    const height = Math.floor(Math.min(560, viewport.h - 120, quarter / 380))
+    const width = expanded ? Math.min(viewport.w - 32, Math.floor(quarter / height)) : 380
+    return { width, height }
+  })()
+
+  // While the chat is open on a desktop-sized window, tell the page how much room it takes on the right, so the
+  // rival and decade banners keep their text and buttons clear of it (eras.css: html[data-chat-open]).
+  useEffect(() => {
+    const root = document.documentElement
+    if (open && panelSize) {
+      root.dataset.chatOpen = ''
+      root.style.setProperty('--chat-clear', `${panelSize.width + 20 + 24}px`) // panel + its 20 px inset + a gap
+    } else {
+      delete root.dataset.chatOpen
+      root.style.removeProperty('--chat-clear')
+    }
+  }, [open, panelSize?.width])
+
   async function send(text: string) {
     const message = text.trim()
     if (!message || busy) return
@@ -234,13 +321,20 @@ export default function ChatWidget() {
     }
     // Rival mode (Yale overload) lasts while the chat is about rivals. When the shopper moves on, the site goes
     // back to its normal look; naming a rival again (or the rivalry) switches it back on.
+    // Anyone else naming a rival school puts that rival's Dan image on the page (never in the chat), by the same rule.
+    const named = detectRival(message)
+    // Does this message put a (new) rival image up on the page? Then the reply nudges them to look.
+    const rivalImageAppears = !!named && (visitor?.type === 'rival' ? visitor.rivalModeOff || named !== visitor.rival : named !== chatRival)
     if (visitor?.type === 'rival') {
-      const named = detectRival(message)
       if (!aboutRivals(message)) {
         if (!visitor.rivalModeOff) setVisitor({ ...visitor, rivalModeOff: true })
       } else if (visitor.rivalModeOff || (named && named !== visitor.rival)) {
         setVisitor({ ...visitor, rival: named ?? visitor.rival, rivalModeOff: false })
       }
+    } else if (named) {
+      setChatRival(named)
+    } else if (chatRival && !aboutRivals(message)) {
+      setChatRival(null)
     }
     const previous = [...messages].reverse().find((m) => m.role === 'assistant')
     const history = messages.map(({ role, content }) => ({ role, content }))
@@ -251,22 +345,28 @@ export default function ChatWidget() {
     try {
       const page = pageContext(location.pathname, location.search)
       const res = await sendChat({ message, voice, previous_voice: previous?.voice ?? null, history, page, visitor: describeVisitor(visitor) })
+      const replyDan = res.dan ?? danForProducts(res.products)
+      // The results go on the page with Dan's photo everywhere except a product page (a slim bar there).
+      const landing = res.go_to && SITE_PAGES[res.go_to] ? SITE_PAGES[res.go_to].path : location.pathname
+      const danOnPage = res.products.length > 0 && !!replyDan && !landing.startsWith('/products/')
       setMessages((m) => [
         ...m,
         {
           role: 'assistant',
-          content: res.reply,
+          content: rivalImageAppears ? `${res.reply}\n\n${res.voice === 'dan' ? pick(DAN_LOOK_UP) : BRAND_LOOK_UP}` : res.reply,
           products: res.products,
           voice: res.voice,
-          dan: res.dan ?? danForProducts(res.products),
+          dan: replyDan,
           design: res.design,
-          rival: detectRival(message), // another Ivy named → that rival's Dan image appears with the reply
+          rival: named, // an Ivy named: no product Dan with this reply (the rival's image is on the page)
           go_to: res.go_to,
+          danOnPage,
         },
       ])
       // "Take me to Design with Dan": go there now (the chat stays open, shrunk so the page is visible).
       if (res.go_to && SITE_PAGES[res.go_to] && location.pathname !== SITE_PAGES[res.go_to].path) {
         setExpanded(false)
+        if (res.products.length === 0) chatResults.clear() // like a menu click: the new page shows from its top
         navigate(SITE_PAGES[res.go_to].path)
       }
       // API contract: the agent's structured matches go onto the page as product cards.
@@ -325,7 +425,7 @@ export default function ChatWidget() {
     setMessages((m) => [
       ...m.map((x) => ({ ...x, ask: undefined })),
       { role: 'user', content: r.label },
-      { role: 'assistant', voice: 'dan', rival: key, content: `*puffs out his chest* Ah, ${r.taunt}. Welcome anyway! Just so you know, you're in **Yale country** now. Boola boola!` },
+      { role: 'assistant', voice: 'dan', rival: key, content: `*puffs out his chest* Ah, ${r.taunt}. Welcome anyway! Just so you know, you're in **Yale country** now. Boola boola!\n\n${pick(DAN_LOOK_UP)}` },
     ])
     setVisitor({ type: 'rival', rival: key })
   }
@@ -362,7 +462,7 @@ export default function ChatWidget() {
   return (
     <div ref={rootRef} className={`chat ${open ? 'chat-open' : ''} voice-${voice}`}>
       {open && (
-        <section className={`chat-panel ${expanded ? 'expanded' : ''}`} role="dialog" aria-label={v.title}>
+        <section className={`chat-panel ${expanded ? 'expanded' : ''}`} style={panelSize} role="dialog" aria-label={v.title}>
           <header className="chat-head">
             <div className="chat-avatar" aria-hidden>{voice === 'dan' ? <img src={DAN_AVATAR} alt="" /> : 'CC'}</div>
             <div className="chat-title">
@@ -393,14 +493,25 @@ export default function ChatWidget() {
                 key={key}
                 role="radio"
                 aria-checked={voice === key}
-                className={voice === key ? 'active' : ''}
+                className={`${voice === key ? 'active' : ''} ${key === 'dan' && danNudge ? 'nudge' : ''}`}
                 onClick={() => setVoice(key)}
                 disabled={busy}
               >
+                {key === 'dan' && danNudge && <span className="nudge-paw" aria-hidden>🐾 </span>}
                 {VOICES[key].title}
               </button>
             ))}
           </div>
+          {danNudge && (
+            <div className="dan-nudge" role="status">
+              <img src={DAN_AVATAR} alt="" />
+              <span>
+                Psst… <button className="link-btn" onClick={() => setVoice('dan')}>Handsome Dan</button> is in the building, and he's
+                much more fun.
+              </span>
+              <button className="dan-nudge-close" onClick={dismissNudge} aria-label="Hide this tip">×</button>
+            </div>
+          )}
 
           <div className="chat-list" ref={listRef} aria-live="polite" onLoadCapture={growIfOverflowing}>
             {onboardingEl && onboardAfter === 0 ? (
@@ -417,24 +528,19 @@ export default function ChatWidget() {
                 <Markdown text={m.content} />
                 {m.design && <ChatDesign brief={m.design} onOpen={() => setExpanded(false)} />}
                 {m.go_to && SITE_PAGES[m.go_to] && (
-                  <Link to={SITE_PAGES[m.go_to].path} className="chat-goto" onClick={() => setExpanded(false)}>
+                  <Link to={SITE_PAGES[m.go_to].path} className="chat-goto" onClick={() => { setExpanded(false); chatResults.clear() }}>
                     Go to {SITE_PAGES[m.go_to].label} →
                   </Link>
-                )}
-                {m.rival && (
-                  <figure className={`dan-reveal ${i === messages.length - 1 ? 'animate' : ''}`}>
-                    <img src={rivalDan(m.rival as RivalKey, true)} alt={`Handsome Dan vs. ${rivalLabel(m.rival as RivalKey)}`} />
-                    <figcaption>🐶 Dan vs. {rivalLabel(m.rival as RivalKey)}</figcaption>
-                  </figure>
                 )}
                 {m.ask === 'rival' && i === messages.length - 1 && (
                   <div className="onboard-choices" role="group" aria-label="Rival school">
                     {RIVALS.map((r) => <button key={r.key} onClick={() => pickRival(r.key)}>{r.label}</button>)}
                   </div>
                 )}
-                {!m.rival && m.dan && m.products && m.products.length > 0 && <DanReveal dan={m.dan} animate={i === messages.length - 1} />}
+                {/* Dan's photo shows in the chat only when the page isn't showing it (e.g. on a product page). */}
+                {!m.rival && !m.danOnPage && m.dan && m.products && m.products.length > 0 && <DanReveal dan={m.dan} animate={i === messages.length - 1} />}
                 {m.products && m.products.length > 0 && (
-                  <div className={`chat-products ${m.dan && i === messages.length - 1 ? 'after-reveal' : ''}`}>
+                  <div className={`chat-products ${!m.rival && !m.danOnPage && m.dan && i === messages.length - 1 ? 'after-reveal' : ''}`}>
                     {m.products.slice(0, CHAT_THUMBS).map((p) => {
                       const inStock = p.inventory.filter((s) => s.quantity > 0).map((s) => s.size)
                       return (

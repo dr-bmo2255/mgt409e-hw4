@@ -31,6 +31,7 @@ ask-dan-image-studio/references/shields_bad_v1/
 # Review sheets that contain product photos (like the product images, kept local)
 output/colorway_review/
 output/colorway_pilot.jpg
+output/site_test/
 
 # Python
 .venv/

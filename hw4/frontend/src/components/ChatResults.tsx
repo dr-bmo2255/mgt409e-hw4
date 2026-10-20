@@ -1,19 +1,24 @@
 import { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useChatResults } from '../context/ChatResultsContext'
+import { useVisitor } from '../context/VisitorContext'
 import ProductCard from './ProductCard'
 
 // "From your chat" section: the agent's product matches rendered as normal product cards.
 // Each card links to /products/:id, the same single-item page as the catalog.
 export default function ChatResults() {
   const { results, clear } = useChatResults()
+  const { activeRival } = useVisitor()
   const { pathname } = useLocation()
   const ref = useRef<HTMLElement>(null)
   const onDetail = pathname.startsWith('/products/')
 
-  // New results arrived: bring them into view (not while reading a product page).
+  // New results arrived: bring them into view (not while reading a product page). While a rival's Dan image
+  // is up, go to the top instead: the rival banner sits right above these results, so both stay in view.
   useEffect(() => {
-    if (results && !onDetail) ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (!results || onDetail) return
+    if (activeRival) window.scrollTo({ top: 0, behavior: 'smooth' })
+    else ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }, [results?.id])
 
   if (!results) return null

@@ -47,7 +47,7 @@
 - *Why:* the site now looks like the brand customers are buying. Serif headings vs. sans details create a clear **hierarchy**: what it is → what it costs → what to do.
 
 ### 3. Home page
-- **Dan stage hero:** 5 rotating Dan photos (crossfade + slow Ken Burns zoom, 5 s each, dot controls), each with a *"Shop it →"* caption linking to exactly those products. Proof points underneath: 102 styles · XS–XXL live stock · 30-day returns.
+- **Dan stage hero:** 12 rotating Dan photos in a **new random order on every visit** (crossfade + slow Ken Burns zoom, 5 s each, dot controls), with **no rivalry photos** (football and ice hockey are out because they show crimson opponents). Each has a *"Shop it →"* caption linking to exactly those products. Proof points underneath: 102 styles · XS–XXL live stock · 30-day returns.
 - **Find your fit:** the 6 category tiles are Dan photos (Dan in the hoodie, crewneck, tee…) with zoom on hover.
 - **Halloween at Trumbull:** an October feature built on the Part A one-off (Dan carving his own face into a pumpkin) → Shop Trumbull / All colleges.
 - **Shop with Dan rails:** horizontally scrolling, snap-aligned rails for *Colleges*, *Sports*, *Family gifts* and *Grad schools*. Each card is a Dan scene with an item count, linking to `/products?dan=<category>`.
@@ -85,7 +85,7 @@
 | **Repeat visits** | Seasonal features (Halloween at Trumbull) give people a reason to come back and share. |
 
 ## Verified in the browser (Oct 18, 2026)
-- Home: hero Dan stage (football vs. Harvard first), category tiles, Halloween band, best sellers, four Dan rails. Mobile 375 px: no horizontal scroll, launcher shows only Dan's face.
+- Home: hero Dan stage (12 photos, shuffled; originally 5 with football vs. Harvard first), category tiles, Halloween band, best sellers, four Dan rails. Mobile 375 px: no horizontal scroll, launcher shows only Dan's face.
 - Chat search "Do you have any football shirts?" (brand voice): **Dan football vs. Harvard image appeared first**, then 3 products. Page banner "Dan found it · Dan's in the game: Football", then the cards.
 - Dan voice on mobile, "Got any lacrosse gear?": Dan lacrosse image → Lacrosse Left Chest Crewneck.
 - Product page (Yale Sports Hoodie Hockey): "Dan's take" tab cross-fades to Dan playing ice hockey; stock meters show XS sold out and M "5 left".
@@ -369,7 +369,12 @@ Each decade swaps the colors, fonts and decorations everywhere (header, buttons,
 - **Getting back to the question:** **New chat**, typing "start over" / "go back to the first question", or the banner's "Not you? Change". Each clears the conversation and the earlier answer (and its theme), and Dan asks again.
 - **Rivals in conversation:**
   - "I'm a rival" → Dan: *"A rival, eh? Which school, if we must ask?"* with the 7 Ivy buttons → that rival's Dan image plus Yale-overload mode.
-  - Naming another Ivy anywhere ("My cousin goes to Princeton…") → that rival's Dan image appears with the reply.
+  - Naming another Ivy anywhere ("My cousin goes to Princeton…") → that rival's Dan image goes up on the page, with the heading "Did someone say Princeton?".
+  - **Rival images appear only on the page, never in the chat** (fine-tuning after submission):
+    - The rival banner sits under the nav on **every** page. Its image is 330 px, 50% larger than the decade image (phones: 144 px).
+    - When the image goes up, the page jumps to the top so the shopper sees it wherever they are.
+    - Dan nudges them in the chat, subtly: one of 4 lines, e.g. *"tilts his head toward the top of the page — I may have left you a little something up there."*
+    - **Easy way back:** a **"Back to the regular site"** button plus a × in the banner's corner. A rival fan also keeps "Not a rival? Change". Moving the chat on to other topics also restores the normal site.
 - **Tested in the browser:**
   - The chat stays closed on load; the bark bubble appears at ~12 s.
   - The Campus Customs side shows no question; the Dan side does.
@@ -398,3 +403,23 @@ Each decade swaps the colors, fonts and decorations everywhere (header, buttons,
   - **Review:** reviewed side by side (`output/college_variety_review.jpg`) and approved in the studio.
   - **Shields:** checked against the official shield files, and all 10 are right. The old banners had inaccurate crests.
 - **Result:** the rail, the chat's Dan reveal and the Student welcome path now show 11 clearly different Dans. Benjamin Franklin keeps its original statue scene.
+
+**Nudge toward Dan (fine-tuning after submission).** Everyone should get to meet Dan. If the chat has been open on the Campus Customs agent for 15 seconds, the "Chat with Dan" tab glows softly with a wagging paw. A one-line tip appears under it: *"Psst… Handsome Dan is in the building, and he's much more fun."* Choosing Dan clears it. The tip's × hides it for the rest of the visit.
+
+**Chat size (fine-tuning after submission).** The chat never covers more than a quarter of the window. Expanding it makes it wider up to that limit; it no longer takes half the page. On small windows the normal chat gets a little shorter to stay within a quarter. Phones keep the full-width chat.
+
+**Shopping bag for everyone (fine-tuning after submission).**
+- **Adding to the bag:** "Add to bag" on any product page now fills the bag, for guests too, and shows a confirmation with a link to the bag. A color we don't stock goes in as a custom order (ready in 2–3 weeks).
+- **The badge:** a count badge on the bag in the nav shows how many items are in it. On phones it sits next to the menu button.
+- **Bag page:** store items and Custom Dan Gear (for signed-in customers) appear together, with quantity controls, Remove and one subtotal.
+- **Checkout:** it stays off because this is a class demo.
+
+**Chat scrolling (fine-tuning after submission).** As new text appears, the chat scrolls so the **top of the newest bubble** lines up with the top of the chat window. A long reply reads from its first line instead of jumping to its last.
+
+**Banners and the open chat (fine-tuning after submission).** While the chat is open, the rival and decade banners keep their text and buttons to the left of it, so "Back to the regular site" is always reachable. On smaller windows the banner image shrinks while the chat is open and returns to full size when it closes.
+
+**One Dan photo at a time (fine-tuning after submission).** After the welcome question, Dan's photo appears in **one** place. If the answer puts him on the page (student or family products, the alumni decade banner, the rival banner), the chat doesn't repeat it. Friend has no page photo, so the welcome Dan stays in the chat. The same rule now covers product replies. When Dan's photo heads the suggestions on the page, the chat shows just the reply and product links. On a product page, where the suggestions shrink to a slim bar, the photo stays in the chat.
+
+**Menu clicks clear the suggestions.** Choosing a top-menu item (or the logo) clears Dan's product suggestions, so the page you picked opens at its top instead of underneath them.
+
+**Dan answers first (fine-tuning after submission).** New visitors' chat now opens in Dan's voice, so the welcome question is the first thing they see. The home page's "Ask Dan" button always opens Dan. Visitors who switch to the store voice keep that choice.

@@ -118,6 +118,7 @@ export type ChatMessage = {
   rival?: string | null // Part E: an Ivy rival named in the shopper's message → that rival's Dan image
   ask?: 'rival' // Part E: Dan asked "which school?" (shows the rival buttons)
   go_to?: SitePage | null // the page the chat took the shopper to
+  danOnPage?: boolean // this reply's results put Dan's photo on the page, so the chat doesn't repeat it
 }
 
 // Where the shopper is, so the agent can resolve "this" on a product page.
@@ -300,3 +301,6 @@ export function customUnitPrice(p: CustomProduct, size: string, qty: number, bre
 // "Jan 16, 2027" from an ISO date (customer design expiry).
 export const formatDate = (iso: string) =>
   new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+
+// "navy blue" → "Navy Blue" (catalog colors are stored lowercase).
+export const colorName = (c: string) => c.replace(/\b\w/g, (ch) => ch.toUpperCase())

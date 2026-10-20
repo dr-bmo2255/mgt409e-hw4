@@ -5,8 +5,21 @@ import Mockup from '../components/Mockup'
 import ProductCard from '../components/ProductCard'
 import { useReveal } from '../hooks/useReveal'
 
-// Hero "Dan stage": rotating Handsome Dan photos (crossfade + slow zoom), each linking to its products.
-const STAGE = ['dan_sport_football', 'dan_hoodie', 'dan_school_management', 'dan_family_grandma', 'dan_sport_lacrosse']
+// Hero "Dan stage": 12 rotating Handsome Dan photos (crossfade + slow zoom), each linking to its products.
+// No rivalry photos (football and ice hockey show crimson opponents, so they're out too).
+// The order is shuffled on every visit.
+const STAGE_PHOTOS = [
+  'dan_hoodie', 'dan_crewneck', 'dan_school_management', 'dan_family_grandma', 'dan_sport_lacrosse', 'dan_college_saybrook',
+  'dan_sport_rowing', 'dan_family_dad', 'dan_school_law', 'dan_sport_sailing', 'dan_college_berkeley', 'dan_sport_baseball',
+]
+const shuffled = <T,>(list: readonly T[]): T[] => {
+  const a = [...list]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
 
 // Shop categories illustrated by the Dan image that best represents them.
 const CATEGORY_DAN: Record<string, string> = {
@@ -44,6 +57,7 @@ export default function Home() {
   const [categories, setCategories] = useState<Category[]>([])
   const [error, setError] = useState(false)
   const [slide, setSlide] = useState(0)
+  const [STAGE] = useState(() => shuffled(STAGE_PHOTOS)) // new random order each time the home page opens
   const [custom, setCustom] = useState<CustomProduct[]>([])
   useReveal([products.length, categories.length])
 
@@ -56,7 +70,7 @@ export default function Home() {
   useEffect(() => {
     const t = setInterval(() => setSlide((s) => (s + 1) % STAGE.length), 5000)
     return () => clearInterval(t)
-  }, [])
+  }, [STAGE.length])
 
   // One entry per Dan category image, with how many products it covers.
   const dans = useMemo(() => {
@@ -90,7 +104,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <Link to="/products" className="btn btn-brass">Shop all gear</Link>
-              <button className="btn btn-ghost" onClick={() => document.querySelector<HTMLButtonElement>('.chat-fab')?.click()}>
+              <button className="btn btn-ghost" onClick={() => window.dispatchEvent(new Event('cc:ask-dan'))}>
                 🐶 Ask Dan
               </button>
             </div>

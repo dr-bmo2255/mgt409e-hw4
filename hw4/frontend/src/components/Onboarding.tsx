@@ -8,13 +8,12 @@ import {
   RIVALS,
   VISITOR_CHOICES,
   WELCOME_QUESTION,
-  decadeDan,
-  rivalDan,
   type Decade,
   type RivalKey,
   type Visitor,
   type VisitorType,
 } from '../visitor'
+import { DAN_LOOK_UP, pick } from '../danVoice'
 import Markdown from './Markdown'
 
 type Step = 'ask' | VisitorType | 'done'
@@ -95,13 +94,14 @@ export default function Onboarding({ voice, onDone, onSkip }: { voice: Voice; on
     const label = d.group === 'Colleges' ? `${d.category} College` : d.group === 'Schools' ? `School of ${d.category}` : d.category
     say({ who: 'me', text: label })
     const list = products.filter((p) => p.dan?.asset_id === d.asset_id)
+    // Dan's photo goes up on the page with these products, so the chat doesn't repeat it (only Friend, whose picks
+    // have no Dan on the page, keeps a photo in the chat).
     say({
       who: 'bot',
       text:
         type === 'student'
-          ? `${dan ? '*barks proudly* ' : ''}${label} represent! Here's Dan in your colors, and ${list.length} item${list.length === 1 ? '' : 's'} made for you, now on the page.`
-          : `${dan ? '*sniffs approvingly* ' : ''}For ${label === 'Mom' || label === 'Dad' ? `a proud Yale ${label}` : `your Yale ${label.toLowerCase()}`}: here's Dan modeling it, and ${list.length} item${list.length === 1 ? '' : 's'} on the page.`,
-      img: { src: d.thumb_url, alt: `Handsome Dan: ${d.category}`, caption: d.caption },
+          ? `${dan ? '*barks proudly* ' : ''}${label} represent! Dan's on the page in your colors, with ${list.length} item${list.length === 1 ? '' : 's'} made for you.`
+          : `${dan ? '*sniffs approvingly* ' : ''}For ${label === 'Mom' || label === 'Dad' ? `a proud Yale ${label}` : `your Yale ${label.toLowerCase()}`}: Dan's modeling it on the page, with ${list.length} item${list.length === 1 ? '' : 's'} to choose from.`,
     })
     showProducts(type === 'student' ? `${label} gear` : `For ${label}`, list, d)
     finish({ type, dan: d.asset_id, label })
@@ -109,7 +109,8 @@ export default function Onboarding({ voice, onDone, onSkip }: { voice: Voice; on
 
   function pickDecade(decade: Decade) {
     say({ who: 'me', text: `The ${decade}` })
-    say({ who: 'bot', text: `${dan ? '*adjusts his period-correct outfit* ' : ''}${ERA[decade].line}`, img: { src: decadeDan(decade, true), alt: `Handsome Dan in the ${decade}`, caption: `Dan, ${decade}` } })
+    // The decade Dan is in the page banner (the whole site re-themes), so no photo in the chat.
+    say({ who: 'bot', text: `${dan ? '*adjusts his period-correct outfit* ' : ''}${ERA[decade].line}` })
     finish({ type: 'alum', decade })
   }
 
@@ -117,8 +118,8 @@ export default function Onboarding({ voice, onDone, onSkip }: { voice: Voice; on
     say({ who: 'me', text: label })
     say({
       who: 'bot',
-      text: `${dan ? '*puffs out his chest* ' : ''}Ah, ${taunt}. Welcome anyway! Just so you know, you're in **Yale country** now. Boola boola!`,
-      img: { src: rivalDan(key, true), alt: `Handsome Dan vs. ${label}`, caption: `Dan vs. ${label}` },
+      // The rival's Dan image appears only on the page (the rival banner), not in the chat.
+      text: `${dan ? '*puffs out his chest* ' : ''}Ah, ${taunt}. Welcome anyway! Just so you know, you're in **Yale country** now. Boola boola!\n\n${pick(DAN_LOOK_UP)}`,
     })
     finish({ type: 'rival', rival: key })
   }

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useBag } from '../context/BagContext'
+import { useChatResults } from '../context/ChatResultsContext'
 
 const LINKS = [
   { to: '/', label: 'Home', end: true },
@@ -13,9 +14,15 @@ const LINKS = [
 export default function NavBar() {
   const [open, setOpen] = useState(false)
   const { user, loading, logout } = useAuth()
-  const { bag } = useBag()
+  const { count } = useBag() // store items + custom gear, guests included
   const navigate = useNavigate()
-  const close = () => setOpen(false)
+  const chatResults = useChatResults()
+  // Any top-menu click (or the logo) closes the menu and clears Dan's product suggestions from the top of the page,
+  // so the chosen page shows from its top instead of sitting under the suggestions.
+  const close = () => {
+    setOpen(false)
+    chatResults.clear()
+  }
 
   return (
     <header className="header">
@@ -27,6 +34,12 @@ export default function NavBar() {
             Campus Customs
             <small>Bulldog Blue · New Haven</small>
           </span>
+        </Link>
+
+        {/* Phones: the menu is collapsed, so the bag and its badge also sit next to the menu button. */}
+        <Link to="/bag" onClick={close} className="nav-bag-mobile" aria-label={`Bag, ${count} item${count === 1 ? '' : 's'}`}>
+          <span aria-hidden>🛍</span>
+          {count > 0 && <b className="bag-count" key={count}>{count}</b>}
         </Link>
 
         <button
@@ -47,8 +60,8 @@ export default function NavBar() {
             </li>
           ))}
           <li>
-            <NavLink to="/bag" onClick={close} className="nav-bag" aria-label={`Bag, ${bag.count} items`}>
-              <span aria-hidden>🛍</span> Bag{bag.count > 0 && <b className="bag-count">{bag.count}</b>}
+            <NavLink to="/bag" onClick={close} className="nav-bag" aria-label={`Bag, ${count} item${count === 1 ? '' : 's'}`}>
+              <span aria-hidden>🛍</span> Bag{count > 0 && <b className="bag-count" key={count}>{count}</b>}
             </NavLink>
           </li>
           <li className="nav-divider" aria-hidden />

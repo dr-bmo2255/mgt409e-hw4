@@ -145,7 +145,8 @@
     <a class="card" href="#s-art"><span class="num">VI</span><b>The Handsome Dan art program</b><span>Over 90 images made in a supervised studio, and 137 new product colors.</span><em>Read the detail →</em></a>
     <a class="card" href="#s-safety"><span class="num">VII</span><b>Safety, privacy &amp; audit</b><span>Guardrails, spending caps, secrets handling, and the append-only audit trail.</span><em>Read the detail →</em></a>
     <a class="card" href="#s-specs"><span class="num">VIII</span><b>Specifications &amp; operations</b><span>Models, loop limits, result caps, and how to run the system.</span><em>Read the detail →</em></a>
-    <a class="card" href="#s-quality"><span class="num">IX</span><b>Testing &amp; quality</b><span>The app check, bugs found and fixed, and the spend ledger.</span><em>Read the detail →</em></a>
+    <a class="card" href="#s-quality"><span class="num">IX</span><b>Testing &amp; quality</b><span>The app check, a 146-check site test, bugs found and fixed, and the spend ledger.</span><em>Read the detail →</em></a>
+    <a class="card" href="#s-epilogue"><span class="num">X</span><b>Epilogue: fine tuning</b><span>Polish after submission, from testing the live store: a working bag, a calmer chat, Dan front and center.</span><em>Read the detail →</em></a>
   </nav>
 
   <div class="actions">
@@ -262,16 +263,16 @@
 <section class="page detail" id="s-personal" aria-labelledby="h-pe">
   <a class="back" href="#summary">← Return to the summary</a>
   <h2 id="h-pe">V. A personal welcome</h2>
-  <p class="lede">The chat stays tucked in the corner. After about 12 seconds Dan "barks" from a speech bubble to say hello. Opening Dan's chat starts with one question: <i>"Are you a Current Student, Alumnus, Family, Friend or Rival?"</i></p>
+  <p class="lede">The chat stays tucked in the corner. After about 12 seconds Dan "barks" from a speech bubble to say hello. The chat opens in Dan's voice and starts with one question: <i>"Are you a Current Student, Alumnus, Family, Friend or Rival?"</i></p>
   <table>
     <tr><th>Answer</th><th>What happens</th></tr>
     <tr><td>Current Student</td><td>Dan asks which college or school, then shows that college's Dan and its gear.</td></tr>
     <tr><td>Alumnus</td><td>Dan asks the decade (1920s–2020s) and <b>the whole store is restyled</b>: colors, fonts, and decoration, with Dan dressed for the era. The 1920s are Art Deco, with Gatsby Dan and a flapper.</td></tr>
     <tr><td>Family</td><td>Mom, Dad, Grandpa… each gets its own Dan and gift picks.</td></tr>
     <tr><td>Friend</td><td>Six crowd-pleasing gifts, one from each category.</td></tr>
-    <tr><td>Rival</td><td>Dan asks which school, and while rivals are discussed the store turns <b>Yale-heavy</b> (marquee, watermark, ribbons) and shows Dan's rivalry image. Naming any Ivy brings up its image.</td></tr>
+    <tr><td>Rival</td><td>Dan asks which school, and while rivals are discussed the store turns <b>Yale-heavy</b> (marquee, watermark, ribbons) with Dan's rivalry image in a large banner at the top of <b>every page</b>. Naming any Ivy in the chat brings up its image, Dan hints to look up at the page, and "Back to the regular site" (or ×) restores the normal look.</td></tr>
   </table>
-  <p>Shoppers can return to the question at any time with "New chat" or by typing "start over", and Dan can take them to any page they ask for.</p>
+  <p>Dan's photo appears in one place at a time: when an answer puts him on the page (products, the decade banner, the rival banner), the chat doesn't repeat it. Shoppers can return to the question at any time with "New chat" or by typing "start over", and Dan can take them to any page they ask for.</p>
   <div class="gallery">
     <figure><img src="briefing_images/dan_1920s_sm.webp" alt="1920s Dan"><figcaption>1920s · Art Deco</figcaption></figure>
     <figure><img src="briefing_images/dan_1980s_sm.webp" alt="1980s Dan"><figcaption>1980s · Neon</figcaption></figure>
@@ -347,7 +348,7 @@
     <li>Optional: set <code>CUSTOM_IMAGE_PROVIDER=mock</code> to try Custom Dan Gear without spending anything.</li>
   </ol>
   <h3>The live demo</h3>
-  <p>The store runs publicly at <a href="https://campus-customs-demo.onrender.com">campus-customs-demo.onrender.com</a>. Customers can create <b>real</b> Handsome Dan images there through <b>November 2, 2026</b> (3 per customer per day, $3/day site cap, moderation first), after which it switches to free placeholders automatically. The AI chat is available through <b>November 18, 2026</b>, with per-visitor and daily limits, and the database and product photos stay out of the public code repository.</p>
+  <p>The store runs publicly at <a href="https://campus-customs-demo.onrender.com">campus-customs-demo.onrender.com</a>. Customers can create <b>real</b> Handsome Dan images there through <b>November 2, 2026</b> (3 per customer per day, $3/day site cap, moderation first), after which it switches to free placeholders automatically. The AI chat is available through <b>November 18, 2026</b>, with per-visitor and daily limits, and the database and product photos stay out of the public code repository. Accounts, chats and designs are kept on a persistent disk, so they survive restarts and redeploys.</p>
   <p>The full technical reference is <code>output/harness.md</code>.</p>
 </section>
 
@@ -362,6 +363,7 @@
     <li><b>Search to the page:</b> "What hoodies do you have?" reported the true total (27) and placed 12 product cards on the page.</li>
     <li><b>Usability:</b> the chat grows to fit a long answer and shrinks back when the shopper clicks the page.</li>
     <li><b>Found and fixed in testing:</b> the chat failed to auto-expand while images loaded; a count said "12 shown" when 11 appeared; and a rival-mode button was invisible on phones.</li>
+    <li><b>Comprehensive site test (after submission):</b> <b>146 automated checks, all passing</b>. There are 28 API checks: all 367 images load, stock adds up on every product, accounts and bag rules hold. There are 118 browser checks in Chrome: every page, all 102 product pages, the bag, the welcome flows and themes, 5 real chat replies, accounts, and the phone layout. Both scripts ship with the code (<code>scripts/api_test.py</code>, <code>scripts/site_test.py</code>).</li>
   </ul>
   <h3>AI image spend ledger</h3>
   <table>
@@ -376,7 +378,26 @@
     <tr><th>Total</th><th class="num">205</th><th class="num">≈ $15.72</th></tr>
   </table>
   <h3>How it was built</h3>
-  <p>Twelve problems, each logged with its prompts in <code>AI_prompts.md</code>: validation, prompt log, database analysis, website, accounts, PydanticAI agent (with the Dan voice), tools, chat-driven search, customer memory, usability, styling and the Dan art program (Parts A–G), app testing, and this audit and safety work.</p>
+  <p>Twelve problems, each logged with its prompts in <code>AI_prompts.md</code>: validation, prompt log, database analysis, website, accounts, PydanticAI agent (with the Dan voice), tools, chat-driven search, customer memory, usability, styling and the Dan art program (Parts A–G), app testing, and this audit and safety work, followed by an epilogue of fine tuning from testing the live store (Section X).</p>
+</section>
+
+<!-- ===================== X. EPILOGUE ===================== -->
+<section class="page detail" id="s-epilogue" aria-labelledby="h-ep">
+  <a class="back" href="#summary">← Return to the summary</a>
+  <h2 id="h-ep">X. Epilogue: fine tuning after submission</h2>
+  <p class="lede">After the store went live, I used it as a customer would and fixed what got in the way. Each change was tested in a real browser before release, and each prompt is logged under "Epilogue" in <code>AI_prompts.md</code>.</p>
+  <table>
+    <tr><th>Area</th><th>Change</th></tr>
+    <tr><td>Hosting</td><td>Accounts now persist on a paid plan with a 1 GB disk; the build was fixed to work with it.</td></tr>
+    <tr><td>Shopping bag</td><td>"Add to bag" works for everyone, guests included, with an item-count badge (on phones too). Unstocked colors go in as custom orders. Checkout stays off in the demo.</td></tr>
+    <tr><td>Chat size and scroll</td><td>The chat never covers more than a quarter of the window, and new replies scroll so they read from their first line.</td></tr>
+    <tr><td>Dan first</td><td>The chat opens in Dan's voice so the welcome question is seen. After 15 seconds in the store voice, a gentle nudge points to "Chat with Dan".</td></tr>
+    <tr><td>Rival images</td><td>Shown only on the page, 50% larger, on every page, with Dan's hint to look up and a one-click way back. The open chat no longer covers the banner.</td></tr>
+    <tr><td>One Dan photo</td><td>Dan's photo appears in the chat or on the page, never both.</td></tr>
+    <tr><td>Navigation</td><td>Chat product links and menu clicks clear the way, so the chosen page is fully visible.</td></tr>
+    <tr><td>Home page</td><td>The hero carousel shows 12 Dan photos (no rivals) in a new random order each visit.</td></tr>
+  </table>
+  <div class="actions"><a class="btn brass" href="https://campus-customs-demo.onrender.com" target="_blank" rel="noopener">Try it on the live store</a></div>
 </section>
 
 </main>

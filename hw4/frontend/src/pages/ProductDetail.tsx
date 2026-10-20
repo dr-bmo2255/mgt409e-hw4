@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
-import { DAN_AVATAR, displayName, fetchProduct, formatPrice, type Product } from '../api'
+import { DAN_AVATAR, colorName, displayName, fetchProduct, formatPrice, type Product } from '../api'
 import { phraseFor } from '../danVoice'
 import { swatch } from '../components/ProductCard'
+import { useBag } from '../context/BagContext'
 
 export default function ProductDetail() {
   const { productId = '' } = useParams()
@@ -12,11 +13,14 @@ export default function ProductDetail() {
   const [view, setView] = useState<'photo' | 'dan'>('photo')
   const [searchParams] = useSearchParams()
   const [color, setColor] = useState<string | null>(null) // Part D: chosen colorway (null = the original photo's)
+  const { addStore } = useBag()
+  const [added, setAdded] = useState<string | null>(null) // confirmation after "Add to bag"
 
   useEffect(() => {
     setStatus('loading')
     setSize(null)
     setView('photo')
+    setAdded(null)
     setColor(searchParams.get('color'))
     fetchProduct(productId)
       .then((p) => {
@@ -172,9 +176,31 @@ export default function ProductDetail() {
             )}
           </div>
 
-          <button className="btn btn-primary btn-block" disabled={!selected || (selected.quantity === 0 && !customOrder)}>
-            {!selected ? 'Select a size' : customOrder ? 'Custom order · ready in 2–3 weeks' : selected.quantity === 0 ? 'Sold out' : 'Add to bag'}
+          <button
+            className="btn btn-primary btn-block"
+            disabled={!selected || (selected.quantity === 0 && !customOrder)}
+            onClick={() => {
+              if (!selected) return
+              addStore({
+                product_id: product.product_id,
+                name: displayName(product.name),
+                image_url: photo,
+                price: product.price,
+                size: selected.size,
+                color: shownColor,
+                custom_order: customOrder,
+                max: customOrder ? 24 : selected.quantity,
+              })
+              setAdded(`${displayName(product.name)} · ${shownColor ? `${colorName(shownColor)} · ` : ''}Size ${selected.size}`)
+            }}
+          >
+            {!selected ? 'Select a size' : customOrder ? 'Add custom order · ready in 2–3 weeks' : selected.quantity === 0 ? 'Sold out' : 'Add to bag'}
           </button>
+          {added && (
+            <p className="added-note" role="status">
+              ✓ Added to your bag: {added}. <Link to="/bag">View bag →</Link>
+            </p>
+          )}
           <p className="fine">Checkout isn't part of this demo — ask the chat assistant about anything else.</p>
 
           {product.search_tags.length > 0 && (

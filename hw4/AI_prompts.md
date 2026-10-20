@@ -678,7 +678,7 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 - **Verified** from a fresh clone with the untouched data pack: the catalogue and inventory are row-for-row identical to ours, and 102 of 102 photos are byte-identical.
 - **README:** "Place the data pack" now says to use the ORIGINAL files, shows what is upgraded automatically (with the log lines to look for), and explains why the database isn't uploaded.
 
-## Public web deployment (after Problem 13)
+## Epilogue - Fine Tuning After Submission
 
 **Prompt 1**
 > is it possible to run this site from the web or can it only be run locally because of the missing files?
@@ -698,19 +698,14 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 **Follow-ups during deployment**
 > how do i connect render? · is this step 3? · open my portkey api file
 
-*Why I needed them:* I was setting up the Render account and connecting it to the private deploy repo myself, and needed guidance on each step.
-
 *Result (live):* the store is live at **https://campus-customs-demo.onrender.com**.
 - **Pages and images:** all 102 products and every kind of image loaded, with 0 broken images.
 - **Data fixes:** the Problem 2 fix and the Problem 3 white backgrounds are applied (photos byte-identical to ours).
 - **Chat:** a real chat in Dan's voice answered correctly ("sold out in XL", $32.00, navy as a custom order).
 - **Links:** the README, the top-level README and the Executive Briefing now link to the live site.
 
-
 **Prompt 3** *(deployment follow-up)*
 > For the next 2 weeks, I want to activate the real image rendering of the Dan image studio in the sample render website, even though there is a cost to me.
-
-*Why I needed it:* I wanted visitors to be able to try the real Dan image generation on the live site for a limited time, and I'm willing to pay for it.
 
 *Result:*
 - **The switch:** `REAL_IMAGES_UNTIL=2026-11-02`. Design with Dan on the live site makes **real** images (your OpenAI key, set only in Render) and returns to free mock mode **by itself** after November 2. Without the key it stays in mock mode.
@@ -718,18 +713,13 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 - **Tested** the 4 switch cases locally (in the window with a key → real; past the date → mock; no date → mock; no key → mock) with no paid calls.
 - **Docs:** the README, the Executive Briefing and the harness describe the 2-week window.
 
-
 **Follow-ups:**
 > Open my OpenAI key file in TextEdit so I can copy the key. · where in render does it go?  Can you open that page for me? · thats done.  It appears to be actively re-deploying
-
-*Why I needed them:* I was adding my OpenAI key to Render myself and needed to find the right page.
 
 *Verified live:* after the redeploy, `/api/custom/status` on https://campus-customs-demo.onrender.com reports `"mock": false, "real_images_until": "2026-11-02"`, so real images are on (checked without creating an account or spending anything).
 
 **Prompt 4** *(found while testing the live site)*
 > I'm noticing some things that don't work on the live demo site.  1. When I create a new account and then try to log in again later, it does not appear to remember who I am.  2. When I start a new "dan chat" for any page other than the home page, I do not get the opening question option buttons.  They don't render at all.  3) When the new decade website faces appear, I want the chat window to minimize so that the user sees the entire page fully.
-
-*Why I needed it:* I tested the live demo myself and found these problems.
 
 *Diagnosis:*
 1. The free Render plan's disk is temporary, so the database resets whenever the site sleeps (15 min idle) or redeploys.
@@ -743,11 +733,8 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 2. **Welcome buttons:** the question now appears **below** earlier messages or saved history, with the chat scrolled to it. Tested on a product page after a conversation: all 6 buttons visible.
 3. **Decade themes:** choosing a decade shows Dan's line, then closes the chat to the corner and scrolls to the top so the whole restyled page is visible. Tested with the 1920s.
 
-
 **Follow-ups while upgrading Render**
 > I'm stuck on the Render upgrade step: · OK.  I chose the $7 / month page and its updating now · so i don't see name · I had to update to the $25 / month plan for disc · i already paid $25
-
-*Why I needed them:* I was upgrading the Render plan and adding the disk myself, and needed guidance on each step.
 
 *Result:* Render required the **$25/month** compute plan (1 CPU / 2 GB) to attach the disk, which I accepted. The first deploy with `DATA_PERSIST_DIR` set failed during the build: Render attaches the disk only at run time, so creating `/var/data` during the build hit "Permission denied". That was reproduced locally and fixed: the build step now ignores the disk setting, and the running site copies the database to the disk on first boot.
 *Reminder:* after the demo ends (Nov 18, 2026), switch the service back to Free and delete the disk in Render to stop the $25/month charge.
@@ -755,6 +742,132 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 **Live-site follow-up: product links in the chat**
 > When you try to click on a link to a product in the chat on a page any other than the home page, it does not pullup the product page.
 
-*Why I needed it:* While testing the live demo, clicking a product in the Dan chat on inner pages did not seem to open the product page.
-
 *Result:* Tested on the live site and locally from About, Design with Dan and a product page. The link did navigate each time, but the open chat panel stayed on top of the new product page and hid most of it, so it looked like nothing happened. Clicking a product in the chat now minimizes the chat (as picking a decade already does), so the product page is fully visible. The chat keeps its history, and the corner button reopens it.
+
+**Rival image on the page instead of the chat**
+> In the Chat with Dan, Rather than the rivals image appearing in the chat window, I want it to only appear on the main webpage, but make that image 50% larger than it is right now.
+
+**Follow-up (mid-task)**
+> Have Dan make a subtle reference that the user should check the webpage.   Make sure that the Overlay image of dan on the webpage occurs no matter where in the website you are - not only on the homepage.  And be sure that it is easy to revery back to the original page.
+
+*Result:*
+- **Only on the page:** rival images no longer appear in the chat. They appear only in the rival banner under the nav, which shows on **every** page. The image is **50% larger** (220 → 330 px; 96 → 144 px on phones).
+- **Naming an Ivy in the chat** without having answered "Rival" also puts that rival's image on the page, headed "Did someone say Harvard?". It goes away when the chat moves on.
+- **Dan's nudge:** Dan adds one subtle line, e.g. *"tilts his head toward the top of the page — I may have left you a little something up there."* (4 rotating lines).
+- **Seen from anywhere:** the page jumps to the top when the image appears.
+- **Easy to revert:** a **"Back to the regular site"** button and a **×** in the banner's corner.
+- **Tested locally** on Products, a product page, Design with Dan, Bag and About. Fixed along the way: the jump to the top was being cancelled, and the chat's product results were scrolling the page past the banner.
+
+**Home carousel: 12 Dan photos in random order**
+> I want to randomize the order that the prominent picture in the carousel appears.  A total of 12 Dan photos.  NO rivalry photos
+
+*Result:*
+- **12 photos, up from 5:** hoodie, crewneck, Management, Grandma, lacrosse, Saybrook, rowing, Dad, Law, sailing, Berkeley and baseball.
+- **New order on every visit:** the photos are shuffled each time the home page opens.
+- **No rivalry photos:** the football photo (vs. Harvard) and the ice hockey photo (a crimson opponent) were removed after reviewing a contact sheet.
+- Every photo still has its "Shop it →" link.
+- **Tested locally:** 12 slides and 12 dots, all captions present, and a different order after a reload.
+
+**A nudge toward Chat with Dan**
+> If someone already has the chat window open interacting with the Campus Custom agent and has not clicked on "chat with Dan within 15 seconds, I want a subtle call to attention for it.  I want everyone to experience the fun stuff that dan brings
+
+*Result:*
+- **The nudge:** after 15 seconds with the chat open on the Campus Customs agent, the **"Chat with Dan"** tab glows softly in brass with a wagging 🐾. A one-line tip appears under it: *"Psst… **Handsome Dan** is in the building, and he's much more fun."*
+- **Switching:** clicking the tab or the name switches to Dan and clears it. The nudge comes back after another 15 seconds in the store voice.
+- **Dismissing:** the tip's × hides it for the rest of the visit.
+- **Tested locally:** not shown at 14 seconds, shown at 16, cleared by switching to Dan, back after 15 more seconds, and gone for the visit after ×.
+
+**Chat never bigger than a quarter of the page**
+> how about the max size on the chat is never bigger than 1/4 of the page.  1/2 is a little muhch/
+
+*Result:*
+- **The cap:** the chat window now never covers more than **¼ of the browser window's area**. The expand button makes it wider up to that limit; it no longer grows to half the page or more in each direction.
+- **On a 1440×900 laptop:** the normal chat is 380×560 (16% of the window), and expanded is 578×560 (25%).
+- **On smaller windows** (e.g. 1024×768): the normal chat gets a little shorter so it stays within ¼.
+- **Phones** keep the full-width chat.
+
+**Add to bag works for everyone, with a count badge**
+> When I click "add to bag" the shopping bag does not populate.  Even in this demo, it should.  We just can't process the cart.  A badge should appear on the cart indicating how many items are in it.  Even when you haven't logged in yet.  A guest should be able to populate the cart.
+
+*Result:*
+- **Cause:** the product page's "Add to bag" button wasn't connected to anything, and the bag only held Custom Dan Gear for signed-in accounts.
+- **Adding:** "Add to bag" now fills the bag for **guests and signed-in shoppers**. The bag is kept in the browser, so it survives page changes and reloads. A confirmation appears with a "View bag →" link. Colors we don't stock go in as **custom orders** (ready in 2–3 weeks), and in-stock items can't exceed the stock.
+- **The badge:** shows the number of items on the Bag link and bumps with every add. On phones it sits next to the menu button.
+- **Bag page:** shows store items and Custom Dan Gear together, with quantity +/−, Remove and one subtotal. Checkout stays disabled ("not available in this demo").
+- **Tested locally as a guest:** the badge went 2 → 3 → 4 (including a Navy Blue custom order), the subtotal was $352.00, + and Remove worked, everything survived a reload, and the badge shows on a phone screen.
+
+**Chat scrolls to the top of the newest bubble**
+> in the mini chat, as new text populates, it should always default scroll down so the top of the newest chat bubble aligns with the top of the chat window.
+
+*Result:*
+- **The change:** each new bubble (your message, Dan's or the store's reply, or a welcome-question answer) now scrolls into place with its **top lined up with the top of the chat window**. Before, the chat jumped to the bottom, so long replies opened at their last line.
+- **Fixed in testing:** new bubbles slide in, which made the first measurement 15 px off. It now uses the bubble's resting position, and it re-aligns when the chat auto-grows.
+- **Tested locally:** the welcome answer, my own message and a Dan reply taller than the window all landed at the top (8–9 px from the edge).
+
+**Comprehensive site test**
+> Do a comprehensive site test
+
+*Result:* every check passed on the local site.
+
+| Check | Result |
+|---|---|
+| Type-check and production build | pass |
+| API checks | **28 of 28** |
+| Browser checks in Chrome | **118 of 118** |
+
+- **API checks:** all 367 images load, stock adds up on all 102 products, accounts work, and the bag rules hold.
+- **Browser checks:**
+  - every page: no broken images, no JS errors, no sideways scrolling, the disclaimer present
+  - all 102 product pages and the navigation
+  - the 12-photo carousel
+  - the guest bag and badge
+  - the welcome question, rival banner, 1920s theme, "start over", and the Dan nudge
+  - the ¼-window chat size
+  - 5 real chat replies (products, prices, stock, navigation, rival)
+  - account sign-up and login
+  - the phone layout
+- **Kept for re-runs:** the tests are saved as `scripts/api_test.py` and `scripts/site_test.py`.
+- **One thing noticed:** with the chat open on a typical laptop screen, the chat panel covers the right side of the rival banner, including the "Back to the regular site" button. The banner's × stays visible.
+
+**Keep the open chat off the rival banner**
+> Yes, fix it so the open chat doesn't cover the rival banner's text and buttons.
+
+*Result:*
+- **The fix:** while the chat is open, the rival banner (and the decade banner) keeps its heading, text, buttons and × to the **left of the chat**. On smaller windows the banner image shrinks while the chat is open and returns to full size when it closes.
+- **Measured** at 4 window widths (1440, 1360, 1100 and 960 px), with the chat normal and expanded: nothing overlaps and there's no sideways scrolling.
+- **Regression:** the full browser test passed again, 118 of 118.
+
+**No duplicate Dan photo in the chat**
+> If identifying as family, rival, and so forth in the chat produces a banner at the top of the page, the photo of Dan does not need to appear in the chat box as well.  If, for example we have "friend" and there is no page banner, we can just leave that photo of Dan in the chat box.
+
+*Result:*
+- **Photo only on the page:** Current Student (college or grad school), Family, Alumnus (decade) and Rival now show Dan's photo **only on the page**. Dan's chat line points there, e.g. "Dan's on the page in your colors, with 2 items made for you."
+- **Friend:** keeps the welcome Dan photo in the chat, because its gift picks have no Dan on the page.
+- **Tested locally** with one answer of each kind (Friend, Berkeley, Mom, 1950s, Columbia): the photo appears in exactly one place each time.
+
+**One Dan photo for product replies too**
+> Yes, when a product reply puts Dan's photo on the page, don't also show it in the chat.
+
+**Follow-up (mid-task)**
+> If a top menu item is selected - like home, products, Design with Dan, about us - any popup window with Dan's suggestions for purchase should disappear.  RIght now the Design with Dan page open under the popup and you can't see it.
+
+*Result:*
+- **One photo:** when Dan's product suggestions go on the page with his photo, the chat shows only the reply and product links. On a product page the suggestions are just a slim bar, so Dan's photo stays in the chat there.
+- **Menu clears suggestions:** clicking Home, Products, Design with Dan, About Us, Bag, Log In or the logo now clears Dan's product suggestions, so the page opens at its top. The same happens when the chat takes you to a page ("take me to Design with Dan").
+- **Tested locally:** each menu item, the logo and the chat's navigation cleared the suggestions and showed the page from the top. The full browser test passed 117 of 118. The one miss was a test expectation: a short reply that fits in the chat can't scroll to the very top. That check was updated and confirmed separately.
+
+**Welcome question missing when the chat first opens**
+> when I first opened the chat window to Chat with Dan, the opening question did not appear
+
+*Result:*
+- **Cause:** the welcome question only appears in Dan's voice, but a brand-new visitor's chat opened in the **Campus Customs** voice. That happened from the corner button and from the home page's "🐶 Ask Dan" button.
+- **Fix:** new visitors now start in Dan's voice, so the question is the first thing they see. "Ask Dan" always opens Dan. Someone who switched to the store voice keeps it, and the question appears when they switch back to Dan.
+- **Tested locally:** the corner button, "Ask Dan", the bark bubble and switching voices all show the question. The full browser test passed 118 of 118.
+
+**Release**
+> ok.  It seems to check out.  Update the prompts, harness, the executive summary, the readme. push to Git.  Push to Render.
+
+*Result:*
+- **Executive Briefing:** a new section **X. Epilogue: fine tuning after submission**, plus updates to the welcome, live-demo and testing sections (146 checks).
+- **README:** an Epilogue enhancement (#12), the site tests in "Graders: start here", and how to run the tests.
+- **Released:** pushed to GitHub and deployed to Render.

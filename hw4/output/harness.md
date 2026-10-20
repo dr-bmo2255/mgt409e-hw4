@@ -111,7 +111,7 @@ cd frontend && npm run dev                                         # website    
    - a `custom_design` is saved server-side and only its id goes back
    - `go_to` passes through
 7. **The run is appended** to `audit_trail.json`, and signed-in turns are saved. The response goes to the browser.
-8. **The browser shows** the reply, a Dan reveal or a rival image, thumbnails, and a design card. It puts the cards on the page and navigates if `go_to` is set.
+8. **The browser shows** the reply, a Dan reveal, thumbnails, and a design card. It puts the cards on the page and navigates if `go_to` is set.
 
 **Stop reasons** recorded in the audit trail:
 - `final_output (stop)`: normal finish.
@@ -166,7 +166,7 @@ shopper sees passes through one of them from the database. The model never types
 - **Navigation:** `go_to` takes the shopper to a real page (Design with Dan, bag, products, about, account, log in, sign up, home).
 - **Personalization:**
   - The welcome question in Dan's voice (Student, Alumnus, Family, Friend, Rival) drives college or family picks, 11 decade themes, and Yale-overload rival mode while rivals are discussed.
-  - Naming any other Ivy shows Dan's rival image.
+  - Naming any other Ivy shows Dan's rival image in the page banner (never in the chat).
 - **Memory:** signed-in history from the database; the agent sees the shopper's name and their earlier messages.
 - **The design agent** (`design_agent.py`) turns an idea into a safe `DesignBrief`, or declines in Dan's voice.
 - **Image tools (offline, human-approved):** the Ask Dan Image Studio, plus scripts for mockups, colorways, decade Dans and fixes.
@@ -923,7 +923,7 @@ Full write-up: [`output/design.md`](design.md) (Part C). Technical notes:
 - **Harness:** Part I added above. The Executive Briefing (`output/executive_briefing.html`) summarizes everything for a non-technical reader.
 
 ## 18. Public web deployment (Render)
-- **Live:** https://campus-customs-demo.onrender.com (deployed Oct 19, 2026 from the private repo `mgt409e-hw4-deploy`, service `campus-customs-demo`, free plan).
+- **Live:** https://campus-customs-demo.onrender.com (deployed Oct 19, 2026 from the private repo `mgt409e-hw4-deploy`, service `campus-customs-demo`; started on the free plan, now a paid plan with a disk, see below).
 - **Single service:** the FastAPI server also serves the built React site (`frontend/dist`). That adds a catch-all route after the API routes; `/api/*` and `/media/*` keep their own handling.
 - **Public-demo controls** (`backend/config.py`, `backend/limits.py`):
   - **Time window:** `PAID_FEATURES_UNTIL=2026-11-18` (30 days). After it, the chat and design drafting reply that the demo has closed, and image creation returns a Dan-voiced 503. Browsing keeps working.
@@ -934,9 +934,131 @@ Full write-up: [`output/design.md`](design.md) (Part C). Technical notes:
   - `scripts/sync_deploy.sh "<data pack zip>"` builds the website and copies the committed code (`git archive`) plus the ORIGINAL data pack into a temp folder. It force-adds them and force-pushes to the **private** repo `mgt409e-hw4-deploy`.
   - Render's build runs `scripts/prepare_deploy.py` (database upgrade + white backgrounds at build time).
   - `render.yaml` (repo root) defines the service: free plan, Python 3.12, `rootDir: hw4`, secrets set in the dashboard.
-- **Plan and disk:** this started on the free plan, which sleeps and has a temporary disk, so accounts vanished. It now runs on **Starter + a 1 GB persistent disk** at `/var/data`. With `DATA_PERSIST_DIR` set, `db.py` keeps the database there (the build's upgraded copy is copied once on first boot), `custom.DESIGN_DIR` holds generated designs (served by their own `/media/custom/designs` mount), and `audit.AUDIT_PATH` holds the trail.
+- **Plan and disk:** this started on the free plan, which sleeps and has a temporary disk, so accounts vanished. It now runs on the **$25/month compute plan (1 CPU / 2 GB) + a 1 GB persistent disk** at `/var/data`. (Render required that plan for the disk. After the demo ends on Nov 18, switch back to Free and delete the disk.) With `DATA_PERSIST_DIR` set, `db.py` keeps the database there (the build's upgraded copy is copied once on first boot), `custom.DESIGN_DIR` holds generated designs (served by their own `/media/custom/designs` mount), and `audit.AUDIT_PATH` holds the trail.
 - **Rehearsed locally** with production settings: pages and deep links served, the 4th chat in an hour politely limited (test limit 3), a past end date closes the chat, drafting and creation with Dan-voiced messages, and browsing still works.
 
 - **Chat fixes from live testing:**
   - The welcome question renders below any existing messages (`onboardAfter`), so it's visible after logging in or after chatting.
   - Choosing an alumni decade closes the chat after 1.8 s and scrolls to the top, so the restyled page shows fully.
+  - Clicking a product in the chat minimizes the chat, so the product page isn't hidden behind it. The chat keeps its history.
+- **Build-time gotcha:** Render attaches the disk only when the site runs, not during the build. `scripts/prepare_deploy.py` therefore drops `DATA_PERSIST_DIR` before it imports `db`; otherwise `mkdir('/var/data')` fails with "Permission denied" and the build fails.
+
+## 19. Epilogue: fine tuning after submission
+- **Rival images on the page, not in the chat:**
+  - **Where it shows:** `ChatWidget` and `Onboarding` no longer render rival images. `VisitorBanner` (under the nav on every route) is the only place. Its image is 330 px, 50% larger than the 220 px decade image (phones: 96 → 144 px).
+  - **Who triggers it:** `VisitorContext` adds a transient `chatRival`. It's set when someone who didn't answer "Rival" names an Ivy in the chat, and it clears when the chat moves off rivals. It isn't saved.
+  - **One rule for both:** `activeRival` combines a rival fan's mode with `chatRival`. It drives the banner and `html[data-rival]` (Yale overload), and while it's set it outranks the decade theme.
+  - **Dan's nudge:** when a message puts a new rival image up, the reply gets one subtle line from `DAN_LOOK_UP` (4 lines; the store voice gets `BRAND_LOOK_UP`). The rival buttons' reply adds one too. This is client-side, so it never depends on the model remembering.
+  - **Getting the shopper to see it:**
+    - `VisitorBanner` jumps to the top 120 ms after the banner renders. It's an instant jump because a smooth scroll was cancelled by the banner shifting the page and by the chat's own smooth scrolling (seen in testing: the page stayed at 879–1005 px).
+    - `ChatResults` scrolls to the top instead of to the results while a rival is active, so the banner and the results directly below it are both visible.
+  - **Way back:** "Back to the regular site" (button) and × (corner). For a fan, this sets `rivalModeOff`; otherwise it clears `chatRival`.
+  - **Tested locally:**
+    - Rival picked from the welcome question: no chat image, a 330 px banner image.
+    - Friend saying "What do you think of Harvard?": a "Did someone say Harvard?" banner, then "show me hats" removes it.
+    - "My cousin goes to Princeton" from the Products page scrolled down: banner, nudge line, page at the top.
+    - "I'm a rival" → Brown from a product page 700 px down: the page jumps to 0.
+    - The × and "Back to the regular site" both restore the normal look.
+    - The banner shows on Products, a product page, Design with Dan, Bag and About.
+- **Home carousel (Dan stage):** `pages/Home.tsx` now uses `STAGE_PHOTOS`, 12 Dan photos with no rivalry photos: hoodie, crewneck, Management, Grandma, lacrosse, Saybrook, rowing, Dad, Law, sailing, Berkeley and baseball. Football and ice hockey were dropped because they show crimson opponents, checked on a contact sheet. A Fisher–Yates shuffle runs once per visit (`useState` initializer). Tested: 12 slides and 12 dots, every slide has a "Shop it →" caption, and the order differed between two loads.
+- **Nudge toward Dan:**
+  - **When:** `ChatWidget` starts a 15 s timer whenever the chat is open in the store voice. When it fires, the "Chat with Dan" tab gets a soft brass glow and a wagging 🐾, and a one-line tip appears under the voice toggle: "Psst… **Handsome Dan** is in the building, and he's much more fun."
+  - **How it clears:** switching to Dan (the tab or the link in the tip) clears it. Closing the chat resets the timer. × hides it for the rest of the visit (`sessionStorage` `cc_dan_nudge_off`). It doesn't animate under `prefers-reduced-motion`.
+  - **Tested:**
+    - absent at 14 s, present at 16 s
+    - the link switches to Dan and clears the tip
+    - it returns after another 15 s back in the store voice
+    - after ×, a reopened chat shows no tip after 16 s
+- **Chat size cap (¼ of the window):** the expanded chat used to be at least half the page in each direction. `ChatWidget` now sets the panel size inline from the window size (`panelSize`, updated on resize):
+  - **Mini:** 380 px wide; the height is the smallest of 560 px, the window height minus 120 px, and ¼ of the window area ÷ 380.
+  - **Expanded:** the same height, wider up to ¼ of the window area.
+  - **Phones (≤ 600 px)** keep the CSS sizes.
+  - **Measured:**
+
+    | Window | Mini | Expanded |
+    |---|---|---|
+    | 1440×900 | 380×560 (16.4%) | 578×560 (25.0%) |
+    | 1024×768 | 380×517 (25.0%) | 380×517 (25.0%), already at the cap |
+- **Shopping bag for everyone, guests included:**
+  - **The bug:** the catalog's "Add to bag" button had no click handler, and the bag only held Custom Dan Gear for signed-in accounts.
+  - **Store lines:** `BagContext` now keeps **store lines** in the browser (`localStorage` `cc_store_bag`: product, size, color, unit price, the colorway photo, a custom-order flag, a stock cap and quantity). Custom Dan Gear stays in the database per account, because the designs belong to it.
+  - **The badge:** `count` is store quantity plus custom-gear quantity. The nav badge uses it and bumps on every change. Phones get a bag icon and badge next to the menu button, since the menu is collapsed (`nav-bag-mobile`).
+  - **Adding:** `ProductDetail` adds the chosen size and color. A colorway we don't stock is added as a **custom order** (ready in 2–3 weeks, up to 24). In-stock lines are capped at the stock for that size. A second add merges into the same line. A confirmation shows with "View bag →".
+  - **Bag page:** sections for "From the store" and "Custom Dan Gear", quantity +/−, Remove, and a combined subtotal. Checkout stays disabled ("not available in this demo"), and guests see a "Log in" note for custom gear.
+  - **Tested as a guest:**
+    - adding M twice → badge 2; adding L → 3; adding a Navy Blue custom order → 4
+    - the Bag page shows the 3 lines and $352.00, + → 5, Remove → 4
+    - after a reload the bag and badge are still there
+    - phone layout: the bag icon shows a "4" badge
+  - **Not changed:** signed-in custom gear still uses the server bag. Store lines aren't moved into the account when someone signs in; they stay in that browser.
+- **Chat scroll: newest bubble's top at the top of the window:**
+  - **Before:** the list scrolled to the very bottom, so long replies opened at their last line.
+  - **Now:** a `MutationObserver` on `.chat-list` watches for each new `.bubble` (not the typing dots). That covers chat messages and the welcome-question answers rendered by `<Onboarding>`. It scrolls so that bubble's top sits 8 px below the window's top. It also re-aligns on open, a voice switch and a resize (auto-grow reflows the text above).
+  - **Measuring:** the position comes from the `offsetTop` layout position (`.chat-list` is now `position: relative`), not the on-screen position. New bubbles slide in, so on screen they measured 15 px low mid-animation (seen in testing as −7 px).
+  - **Tested:** the welcome answer at 8 px. The user's message at 9 px. A Dan reply taller than the window at 8 px, with the reply reading from its first line.
+- **Comprehensive site test (Oct 20, 2026), local site:**
+
+  | Check | Result |
+  |---|---|
+  | Type-check and production build | pass |
+  | API (`scripts/api_test.py`) | **28 / 28** |
+  | Browser (`scripts/site_test.py`, Chrome via Playwright) | **118 / 118** |
+
+  - **API checks:**
+    - health, the 102 products and categories
+    - all **367** images load (product photos, colorways, Dan, rival and decade images)
+    - every one of the 102 detail pages has per-size stock that adds up to its list total
+    - Problem 2 fixes, search, the 7 custom products
+    - a guest can't add custom gear (401)
+    - signup / duplicate (409) / logout / wrong password (401) / login
+    - signed-in custom bag add / quantity / remove, and a bad size (422)
+  - **Browser checks:**
+    - 12 pages: no broken images, no horizontal scroll, the disclaimer in the footer, no JS errors
+    - `/account` as a guest goes to login, and the not-found page works
+    - all 102 product pages render
+    - the nav links
+    - the carousel: 12 photos, no rivals, 12 captions, reshuffled
+    - a category tile
+    - the guest bag: confirmation, badge 2→3→4, $264.00, custom-order line, checkout disabled, survives reload, empties
+    - the chat: collapsed on load, bark at 12 s, welcome question in Dan's voice, ≤ ¼ of the window mini and expanded
+    - the rival flow: no image in chat, 330 px banner, Dan's nudge, Yale overload, the banner on 5 pages, "Back to the regular site"
+    - "start over"
+    - the 1920s theme, with the chat closing after the decade pick
+    - the 15 s nudge
+    - 5 real AI replies: hoodie links and page cards, newest bubble aligned at 8 px, a chat link opens the product and minimizes the chat, the price and XL stock correct, "take me to Design with Dan" navigates, "My cousin goes to Harvard" → the banner on the page, the store voice
+    - create account / account page / log out / log in through the forms
+    - phone (375 px): no horizontal scroll on 7 pages, the bag badge by the menu button, the menu opens
+  - **Test-script mistakes fixed along the way, not site bugs:** the product list carries `total_stock` (per-size stock is on the detail page), `/me` returns `{user}`, and the form field selectors.
+  - **Seen in the screenshots:** at 1360 px with the chat open, the chat panel covers the right part of the rival banner (part of the heading and the "Back to the regular site" button). The banner's × stays visible. **Fixed:**
+    - **How:** while the chat is open on a desktop-sized window, `ChatWidget` sets `html[data-chat-open]` and `--chat-clear` (panel width + 20 px inset + 24 px gap). In `eras.css`, the rival and decade banners pad their content on the right by that amount, minus the space already outside the centered 1200 px container, and the × moves left of the chat.
+    - **Smaller windows:** the banner image shrinks to 200 px (≤ 1180 px) or 140 px (≤ 980 px) while the chat is open, so the text keeps its room. It returns to 330 px when the chat closes.
+    - **Measured** at 1440, 1360, 1100 and 960 px wide, normal and expanded: no banner text, button, image or × overlaps the chat, and there's no sideways scroll.
+    - **Regression:** the full browser test re-ran **118 / 118**.
+- **No duplicate Dan photo in the chat after the welcome question:** `Onboarding` drops its chat photo whenever the answer puts Dan on the page.
+  - **Student and Family:** that Dan heads the products on the page (`ChatResults` "Dan found it").
+  - **Alumnus:** the decade banner.
+  - **Rival:** the rival banner (already).
+  - **Friend:** its picks have no Dan on the page, so it keeps the welcome Dan in the chat.
+  - **Wording:** the student and family lines now say Dan is on the page ("Dan's on the page in your colors, with 2 items made for you").
+  - **Tested** (Chrome, Dan voice):
+
+    | Answer | Chat photo | Page photo |
+    |---|---|---|
+    | Friend | `welcome_dan` | none |
+    | Berkeley | none | `dan_college_berkeley` |
+    | Mom | none | `dan_family_mom` |
+    | 1950s | none | `dan_1950s` |
+    | Columbia | none | `rival_columbia` |
+- **One Dan photo for product replies too:**
+  - **How:** each reply records `danOnPage` = it has products and a Dan image, and the page it lands on isn't a product page (product pages show only the slim "From your chat" bar, without Dan). When it's set, `ChatWidget` skips its own `DanReveal`. Restored history keeps the photo, since nothing is on the page then.
+  - **Tested:** "show me crewnecks" on Home → photo on the page, none in the chat. "show me some hats" on a product page → photo in the chat, slim bar on the page.
+- **Top menu clears Dan's suggestions:**
+  - **How:** `NavBar.close()` (every menu link, the logo and the phone bag icon) also calls `chatResults.clear()`, so a chosen page shows from its top instead of under the "Fetched by Handsome Dan" section. The chat's own navigation ("take me to Design with Dan" and its "Go to … →" link) clears them too, unless that reply brought new products.
+  - **Tested:** Design with Dan, Products, Home, About Us, the logo and the chat's go-to: results gone, page at scroll 0.
+- **Regression:** the full browser test re-ran with **117 / 118**. The one miss was the test's expectation, so the check was updated (confirmed in a separate run, not a full re-run): the "newest bubble at the top" check now also accepts a short reply when the chat is already at the bottom. Without Dan's photo, a 241 px reply fits in the 335 px mini chat, so it can't scroll higher. A taller reply still aligns at 8 px.
+- **Welcome question missing on first open (fixed):**
+  - **Cause:** the question is asked only in Dan's voice, but `loadVoice()` defaulted a new visitor to the store voice. The corner button and the home page's "🐶 Ask Dan" button (which just clicked the corner button) both opened "Chat with Campus Customs" with no question. The bark bubble and switching tabs did show it.
+  - **Fix:** new visitors default to Dan (`loadVoice()` returns `'dan'` unless `'brand'` was saved). "Ask Dan" now sends a `cc:ask-dan` window event that opens the chat in Dan's voice. A returning visitor who chose the store voice keeps it and gets the question on switching to Dan (the 15 s nudge points there).
+  - **Tested:** a fresh visitor via the corner button, "Ask Dan" and the bark bubble, switching from store to Dan, and a returning store-voice visitor. The question appears every time Dan's voice is active.
+  - **Regression:** the full browser test re-ran **118 / 118**.
+- **Chat product links** minimize the chat (section 18).
