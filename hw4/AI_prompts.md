@@ -871,3 +871,23 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 - **Executive Briefing:** a new section **X. Epilogue: fine tuning after submission**, plus updates to the welcome, live-demo and testing sections (146 checks).
 - **README:** an Epilogue enhancement (#12), the site tests in "Graders: start here", and how to run the tests.
 - **Released:** pushed to GitHub and deployed to Render.
+
+**Grading-readiness check**
+> now that it is there, verify that is ready for grading according to the requirements much earlier in this chat.  I don't want to lose points after building such a nice product.
+
+*Result:* every requirement from Problems 0–13 was checked against a **fresh clone of the public GitHub repo** and the live store.
+- **Already in place:**
+  - every problem has its prompts logged
+  - the four agent files are in place
+  - `gpt-5.6-luna` via `OPENAI_MODEL`, and `pydantic-ai-slim[openai]`
+  - `.env.example` with names only
+  - all 7 safety-rule sections in `prompt.md`
+  - an append-only audit trail with time, tool, args, result and stop reason
+  - the harness covers every required topic
+  - the App Check has its 3 checks and all images
+  - the Executive Briefing links to the App Check
+  - no `.env`, database or original product photos in the repo; all our rendered images are included
+  - the README run steps
+- **Fixed:**
+  1. The graded Problem 9 usability feature (expanding chat) was still described as "at least half the page" in `usability.md`, the App Check and the harness. They now carry a clearly labeled post-submission update explaining the ¼-window cap.
+  2. `frontend/index.html` (the React page shell) now also carries the disclaimer, in addition to the footer on every page.

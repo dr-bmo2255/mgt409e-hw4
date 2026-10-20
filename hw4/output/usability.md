@@ -15,6 +15,8 @@
 
 **What I asked for:** once the chat shows product thumbnails, the shopper has to do a lot of scrolling. I asked for (1) a smaller but still easy-to-read font, (2) the "mini" chat window to grow automatically to at least half the page when it fills up, while staying an overlay, (3) the window to shrink back to mini size when the shopper clicks on the main page, and (4) a collapse button.
 
+> **Update after submission (Epilogue, Oct 20, 2026):** after using the live store, I chose to cap the chat at **¼ of the window** instead of "at least half", because half covered too much of the page. The feature works the same way, only smaller: it still grows automatically when a reply overflows, shrinks back when the shopper clicks the page, and has the ⤢ / ⤡ button. On a 1440×900 screen it now goes from 380×560 to 578×560. New replies also scroll so they read from their first line. The screenshots in the App Check show the original half-page size.
+
 **Why (my reason at the time):** *"I am building additional features to make this easier to use and be more polished."*
 
 **How it helps**

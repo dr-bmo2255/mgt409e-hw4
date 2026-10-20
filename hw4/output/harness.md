@@ -626,7 +626,7 @@ ChatResponse {reply, products: ProductCard[], results_title, see_all_category, v
 ### Chat window sizes (Problem 7 follow-up: usability)
 - **Compact text:** chat bubbles use 0.84rem (about 13.4px) with 1.45 line height. Product rows have 38px thumbnails and 0.78rem text, so more fits without scrolling and it's still readable.
 - **Mini size** (default): 380 × 560 px in the bottom-right corner.
-- **Auto-expand:** after a reply, if the conversation overflows the mini window, the panel grows to **at least half the page**: `width: max(50vw, 560px)`, `height: max(50vh, 100vh − 120px)`. It's still a `position: fixed` overlay in the corner, so the page underneath (including the "From your chat" cards) stays in place. In the expanded view, product thumbnails flow into a grid.
+- **Auto-expand** *(as built for Problem 9; capped at ¼ of the window after submission, see §19)*: after a reply, if the conversation overflows the mini window, the panel grew to **at least half the page**: `width: max(50vw, 560px)`, `height: max(50vh, 100vh − 120px)`. It's still a `position: fixed` overlay in the corner, so the page underneath (including the "From your chat" cards) stays in place. In the expanded view, product thumbnails flow into a grid.
 - **Shrink back:** clicking (pointerdown) anywhere on the main page outside the chat, or pressing Esc, returns it to mini size. The chat stays open, and a manual collapse holds until the next reply.
 - **Expand / collapse button** (⤢ / ⤡) in the chat header, next to × (close). The floating chat button always reopens the chat at mini size.
 - **Phones (≤ 600px):** expanded fills the screen minus a 12px margin, with no horizontal scroll.
