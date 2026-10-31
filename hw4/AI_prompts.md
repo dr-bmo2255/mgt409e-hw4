@@ -891,3 +891,7 @@ Follow-up prompts are marked, along with my own explanation of why I needed them
 - **Fixed:**
   1. The graded Problem 9 usability feature (expanding chat) was still described as "at least half the page" in `usability.md`, the App Check and the harness. They now carry a clearly labeled post-submission update explaining the ¼-window cap.
   2. `frontend/index.html` (the React page shell) now also carries the disclaimer, in addition to the footer on every page.
+
+> Yes, start building, and update the HW 4 expiration date to 11/30/26 as well
+
+The live site's chat, design drafting, and image creation now stay open through November 30, 2026. Real Dan images still end November 2, 2026.

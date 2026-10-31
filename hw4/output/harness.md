@@ -926,7 +926,7 @@ Full write-up: [`output/design.md`](design.md) (Part C). Technical notes:
 - **Live:** https://campus-customs-demo.onrender.com (deployed Oct 19, 2026 from the private repo `mgt409e-hw4-deploy`, service `campus-customs-demo`; started on the free plan, now a paid plan with a disk, see below).
 - **Single service:** the FastAPI server also serves the built React site (`frontend/dist`). That adds a catch-all route after the API routes; `/api/*` and `/media/*` keep their own handling.
 - **Public-demo controls** (`backend/config.py`, `backend/limits.py`):
-  - **Time window:** `PAID_FEATURES_UNTIL=2026-11-18` (30 days). After it, the chat and design drafting reply that the demo has closed, and image creation returns a Dan-voiced 503. Browsing keeps working.
+  - **Time window:** `PAID_FEATURES_UNTIL=2026-11-30`. After it, the chat and design drafting reply that the demo has closed, and image creation returns a Dan-voiced 503. Browsing keeps working.
   - **Rate limits:** `CHAT_PER_VISITOR_HOURLY=20` (per signed-in user or IP via `X-Forwarded-For`) and `CHAT_DAILY_CAP=300` (site-wide). These count chats and design drafts together, in memory.
   - **Images:** `CUSTOM_IMAGE_PROVIDER=mock` by default. **`REAL_IMAGES_UNTIL=2026-11-02`** switches on real images (`custom.provider()` decides per request: real only while the date hasn't passed **and** `OPENAI_API_KEY` is set in Render). The Strict limits still apply (3/customer/day, one at a time, $3/day site cap), and moderation runs because a key is present. Worst case ≈ $42 over the 2 weeks.
   - `/api/health` reports `chat_available` and `paid_features_until`.
